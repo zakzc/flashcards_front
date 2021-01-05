@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 // Data Methods
 import RemoveCurStack from "./StackManagement/RemoveCurStack";
 import AddNewStack from "./StackManagement/AddNewStack";
-import ExportStack from "./StackManagement/ExportStack";
+import ExportStack from "./StackManagement/exportStack";
 // DB
 // import { useDB_Connection } from "../DB/DB-hook/connection-hook";
 // Standard Log out page
