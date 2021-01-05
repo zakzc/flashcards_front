@@ -1,0 +1,80 @@
+[
+  {
+    "stackName": "Great works of American Literature",
+    "createdBy": "system",
+    "cards": [
+      {
+        "front": "The Great Gatsby",
+        "back": "F. Scott Fitzgerald"
+      },
+      {
+        "front": "The Catcher In The Rye",
+        "back": "J.D. Salinger"
+      },
+      {
+        "front": "The Grapes Of Wrath",
+        "back": "John Steinbeck"
+      },
+      {
+        "front": "Lolita",
+        "back": "Vladimir Nabokov"
+      },
+      {
+        "front": "Catch 22",
+        "back": "Joseph Heller"
+      },
+      {
+        "front": "To Kill A Mockingbird",
+        "back": "Harper Lee"
+      },
+      {
+        "front": "1984",
+        "back": "George Orwell"
+      },
+      {
+        "front": "Brave New World",
+        "back": "Aldous Huxley"
+      },
+      {
+        "front": "Invisible Man",
+        "back": "Ralph Ellison"
+      },
+      {
+        "front": "Animal Farm",
+        "back": "George Orwell"
+      },
+      {
+        "front": "Ulysses",
+        "back": "James Joyce"
+      },
+      {
+        "front": "On The Road",
+        "back": "Jack Kerouac"
+      },
+      {
+        "front": "The Lord Of The Flies",
+        "back": "William Golding"
+      },
+      {
+        "front": "Heart Of Darkness",
+        "back": "Joseph Conrad"
+      },
+      {
+        "front": "The Sun Also Rises",
+        "back": "Ernest Hemingway "
+      },
+      {
+        "front": "Tropic Of Cancer",
+        "back": "Henry Miller"
+      },
+      {
+        "front": "The Lord Of The Rings",
+        "back": "J.R.R. Tolkien"
+      },
+      {
+        "front": "Slaughterhouse Five",
+        "back": "Kurt Vonnegut, Jr."
+      }
+    ]
+  }
+]

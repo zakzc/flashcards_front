@@ -1,0 +1,77 @@
+//////////////
+// * Responsive layout:
+// adjusts the size of the button
+//////////////
+
+// Small devices < 600px
+@media #{$smallDevices} {
+  .flipMenuFront {
+    width: 40px;
+  }
+}
+
+// Medium: 601 to 1199 px
+@media #{$mediumDevices} {
+  .flipMenuFront {
+    width: 55px;
+  }
+}
+
+// Standard: 1200 to 2500px
+@media #{$standardView} {
+  .flipMenuFront {
+    width: 70px;
+  }
+}
+
+// large: > 2500
+@media #{$largeDevices} {
+}
+//////////////
+// * General Layout
+//////////////
+
+// Flipping navigation cards
+.flipMenu {
+  // text-align: center;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flipMenuInner {
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  height: 45px;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flipMenu:hover .flipMenuInner {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flipMenuFront,
+.flipMenuBack {
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  display: flex;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flipMenuFront {
+  font-weight: bold;
+  //color: $backColorNav;
+  //width: 70px;
+  transform: rotate(180deg);
+}
+
+/* Style the back side */
+.flipMenuBack {
+  font-weight: bolder;
+  transform: rotateY(180deg);
+  //background-color: $contrastColor;
+  position: relative;
+  top: -45px;
+}

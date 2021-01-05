@@ -1,0 +1,85 @@
+#exportStackButton_Positioning {
+  float: left;
+}
+
+.exportButtonIcon {
+  color: $contrastColor;
+  background-color: $backColorNav;
+}
+
+#exportButtonConfirm {
+  //background-color: $mainBackColor;
+  border: none;
+  text-decoration: none;
+  // width: 80px;
+  // height: 80px;
+  border-radius: 20px;
+}
+
+#confirmExport {
+  background-color: $contrastColor;
+  border-radius: 20px;
+}
+
+// Button Formatting
+#expoButtonMessage {
+  color: $mainColor;
+}
+
+#expButtonBack {
+  color: $backColorNav;
+  height: 20px;
+  width: 80px;
+  margin-top: -40px;
+}
+
+// Flip delete
+.flipExpMenu {
+  // text-align: center;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flipExpInner {
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  height: 45px;
+  border-radius: 20px;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flipExp:hover .flipExpInner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flipExpFront,
+.flipExpBack {
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  display: flex;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flipExpFront {
+  font-weight: bold;
+  color: $backColorNav;
+  width: 70px;
+  //transform: rotate(180deg);
+  border-radius: 20px;
+}
+
+/* Style the back side */
+.flipExpBack {
+  font-weight: bolder;
+  transform: rotateY(180deg);
+  background-color: $contrastColor;
+  border-radius: 20px;
+  position: relative;
+  top: -30px;
+  overflow: hidden;
+}
+
+// #deleteCurStackWrapper {
+//   margin-top: -100px;
+// }

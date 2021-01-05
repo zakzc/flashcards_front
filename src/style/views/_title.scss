@@ -1,0 +1,16 @@
+// #titlePage {
+// }
+
+#title {
+  text-align: center;
+}
+
+.pileLogo {
+  //background-color: $backColorNav;
+  background-color: $backColorNav;
+  width: 3%;
+  height: 3%;
+  //position: block;
+  color: $contrastColor;
+  transform: rotate(0deg);
+}

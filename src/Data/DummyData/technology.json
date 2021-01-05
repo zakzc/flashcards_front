@@ -1,0 +1,58 @@
+{
+  "stackName": "Technology",
+  "createdBy": "system",
+  "cards": [
+    {
+      "front": "What is abstraction",
+      "back": "Abstraction in CS means to ignore unnecessary details"
+    },
+    {
+      "front": "what is Decomposition?",
+      "back": "Decomposition means breaking a problem down into smaller chunks that are more easily solved."
+    },
+    {
+      "front": "what is an 'algorithm'?",
+      "back": "a series of instructions that combine to solve a problem."
+    },
+    {
+      "front": "Which algorithm is usually more efficient? Binary search or linear search?",
+      "back": "Binary search"
+    },
+    {
+      "front": "What is the precondition that must be true before we can use a binary search?",
+      "back": "The data must be ordered"
+    },
+    {
+      "front": "Which sort algorithm makes repeated passes of the data set and guarantees to move one item at a time to the end of the data set?",
+      "back": "A bubble sort"
+    },
+    {
+      "front": "What are registers?",
+      "back": "Tiny areas of extremely fast memory located in the CPU normally designed for a specific purpose, where data or control information is stored temporarily."
+    },
+    {
+      "front": "What is reCaptcha and where is it used?",
+      "back": "reCaptcha is a method of user authentication where a website tries to ensure the user is human"
+    },
+    {
+      "front": "What is a truth table?",
+      "back": "A notation used in Boolean algebra for defining the output of a logic gate or logic circuit for all possible combinations of inputs."
+    },
+    {
+      "front": "What is the role of an interpretter?",
+      "back": "It translates a high level language such as Python, C++ etc. into machine code (binary) one line at a time at run time (when the code is executed)"
+    },
+    {
+      "front": "What is the role of a compiler?",
+      "back": "It translates a high level language such as Python, C++ etc. into machine code (binary) all at once. It produces compiled code which executes very quickly."
+    },
+    {
+      "front": "What are weakly typed programming languages?",
+      "back": "Languages that will try to convert data types to avoid errors, however this can lead to unpredictable errors"
+    },
+    {
+      "front": "What are strongly typed programming languages?",
+      "back": "Languages that won't try to convert data types and so will produce more errors but more predictable results"
+    }
+  ]
+}

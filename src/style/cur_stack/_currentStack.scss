@@ -1,0 +1,51 @@
+#currentStackWrapper {
+  background-color: $mainBackColor;
+  color: $colorCardText;
+  padding: 10px;
+  padding-left: 25px;
+  margin-left: 15%;
+  height: auto;
+  overflow: auto;
+  padding-bottom: 15%;
+}
+
+#changeStackButton {
+  background-color: $backColorNav;
+  // border: none;
+  // color: white;
+  /*   padding: 15px 22px; */
+  // text-align: center;
+  // text-decoration: none;
+  // display: inline-block;
+  border-radius: 20px;
+  width: 15%;
+  height: 15%;
+  float: right;
+}
+
+.SelectDiffButtonStyle {
+  width: 50%;
+  color: $contrastColor;
+  background-color: $backColorNav;
+}
+
+.cardViewWrap {
+  display: flex;
+  flex-direction: column;
+  margin-left: 35%;
+}
+
+// #changeStackButton:hover {
+//   background-color: $mainColor;
+// }
+
+#saluteTheUser {
+  position: relative;
+  margin-top: -5%;
+  margin-bottom: 5%;
+}
+
+#checkButtonMessage {
+  color: $mainColor;
+  margin-top: -30px;
+}

@@ -1,0 +1,140 @@
+#cardManagementWrapper {
+  background-color: $mainBackColor;
+  color: $colorCardText;
+  padding-left: 25px;
+  height: auto;
+  display: flex;
+  padding-bottom: 15%;
+}
+
+#editCardArea {
+  margin-top: 5%;
+}
+
+#manageCardsArea {
+  float: left;
+  width: 90%;
+}
+
+#consolidateButton {
+  float: right;
+}
+
+input {
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+  background-color: $backColorNav;
+  color: white;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  list-style: none;
+  margin-bottom: 2%;
+}
+
+#consolidateButtonStack {
+  background-color: $backColorNav;
+  border-radius: 20px;
+  // display: block;
+  //float: left;
+  //margin-left: 50%;
+}
+
+#changeCardButton {
+  background-color: $backColorNav;
+  border-radius: 20px;
+  display: flex;
+  float: left;
+  width: 20%;
+  margin-top: 5%;
+  // border: none;
+  // color: white;
+  // text-align: center;
+  // text-decoration: none;
+  // display: inline-block;
+  // border-radius: 20px;
+  // position: relative;
+  // margin-left: 25%;
+  // margin-top: 5%;
+  // padding: 15px 32px;
+}
+
+#infoCardMan {
+  margin-top: 20%;
+}
+
+/// Card Flipping effect
+
+.flipInfoCard {
+  padding: 1%;
+  margin-top: 25%;
+  margin-bottom: 4%;
+  background-color: transparent;
+  width: 250px;
+  height: 150px;
+  border-radius: 5px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flipInfoCardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flipInfoCard:hover .flipInfoCardInner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flipInfoCardFront,
+.flipInfoCardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flipInfoCardFront {
+  background-color: $mainColor;
+  color: $backColorNav;
+  font-weight: bold;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Style the back side */
+.flipInfoCardBack {
+  background-color: $contrastColor;
+  color: whitesmoke;
+  font-weight: bolder;
+  transform: rotateY(180deg);
+}
+
+.editCardButtonStyle {
+  width: 80%;
+  background-color: $backColorNav;
+  color: $contrastColor;
+}
+
+#editButtonMessage {
+  color: $mainColor;
+  margin-top: -35px;
+}

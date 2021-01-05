@@ -1,0 +1,244 @@
+// elements that apply to all screen sizes:
+#cardAreaWrapper {
+  background-color: $mainBackColor;
+  color: $colorCardText;
+  padding-left: 25px;
+  height: auto;
+  display: flex;
+  padding-bottom: 15%;
+}
+
+#cardArea {
+  display: flex;
+  padding: 1%;
+}
+
+#card {
+  border-radius: 20px;
+  background-color: transparent;
+}
+
+#cardFront {
+  background-color: $mainColor;
+  color: $backColorNav;
+  border-radius: 20px;
+  width: 100%;
+  height: 350px;
+  margin-left: -10px;
+  margin-right: 10px;
+  margin-top: -100px;
+  text-align: center;
+  align-items: center;
+  top: 5%;
+  font-size: 120%;
+  padding-top: 6%;
+  padding-left: 1%;
+  padding-right: 1%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+#cardBack {
+  background-color: $contrastColor;
+  color: white;
+  border-radius: 20px;
+  width: 100%;
+  height: 350px;
+  margin-left: -10px;
+  margin-right: 10px;
+  margin-top: -100px;
+  text-align: center;
+  align-items: center;
+  top: 5%;
+  font-size: 120%;
+  padding-top: 6%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+#flipButtonMessage {
+  color: $mainColor;
+  margin-top: -20px;
+}
+
+// T
+// Fade effects on card
+
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 3000ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 2500ms ease-in;
+}
+
+// InfoCard short message
+#shortMessage {
+  animation: cssAnimation 0s 7s forwards;
+  visibility: visible;
+}
+
+@keyframes cssAnimation {
+  to {
+    visibility: hidden;
+  }
+}
+
+.infoCard_cardSet {
+  margin-top: 5%;
+  box-shadow: 0 4px 8px 0#2e303f;
+  background-color: $mainColor;
+  border-radius: 5px;
+  opacity: 0.8;
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+}
+
+// Elements for responsiveness
+@media #{$phone} {
+  #cardAreaWrapper {
+    width: 100%;
+    top: 0;
+    height: 150%;
+    padding-bottom: 10%;
+    display: grid;
+  }
+
+  #cardArea {
+    top: 40%;
+    display: grid;
+  }
+
+  #card {
+    height: 200px;
+    font-family: $fontSizePhone;
+  }
+
+  .cardText {
+    text-align: center;
+    align-items: center;
+    top: 50%;
+    font-size: 120%;
+    padding-top: 15%;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+}
+
+@media #{$pad} {
+  #cardAreaWrapper {
+    width: 100%;
+    top: 0;
+    height: 150%;
+    padding-bottom: 10%;
+  }
+
+  #cardArea {
+    top: 40%;
+    float: left;
+    display: grid;
+    width: 80%;
+  }
+
+  #card {
+    width: 70%;
+    height: 200px;
+    margin-left: 30px;
+    margin-right: 50px;
+    right: -200px;
+    // float: left;
+    font-family: $fontSizeLarge;
+  }
+
+  .cardText {
+    text-align: center;
+    align-items: center;
+    top: 50%;
+    font-size: 120%;
+    padding-top: 15%;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+}
+
+@media #{$desk} {
+  #cardAreaWrapper {
+    //width: 80%;
+    top: 0;
+    /*     height: 150%; */
+    /*     padding-bottom: 10%; */
+
+    //width: 85%;
+  }
+
+  #cardArea {
+    top: 40%;
+    float: left;
+    display: flex;
+    width: 80%;
+  }
+
+  #card {
+    width: 85%;
+    height: 400px;
+    margin-left: 30px;
+    margin-right: 50px;
+    right: -200px;
+  }
+
+  .cardText {
+    text-align: center;
+    align-items: center;
+    top: 50%;
+    font-size: 120%;
+    padding-top: 15%;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+}
+@media #{$large} {
+  #cardAreaWrapper {
+    width: 75%;
+    top: 0;
+    height: 150%;
+    padding-bottom: 10%;
+    display: flex;
+    width: 85%;
+  }
+
+  #cardArea {
+    top: 40%;
+    float: left;
+    display: flex;
+    width: 80%;
+  }
+
+  #card {
+    width: 80%;
+    height: 600px;
+    margin-left: 30px;
+    margin-right: 50px;
+    right: -200px;
+    // float: left;
+  }
+
+  .cardText {
+    text-align: center;
+    align-items: center;
+    top: 50%;
+    font-size: 120%;
+    padding-top: 15%;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+}

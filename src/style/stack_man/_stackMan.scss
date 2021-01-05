@@ -1,0 +1,91 @@
+#stackManWrapper {
+  background-color: $mainBackColor;
+  color: $colorCardText;
+  padding-left: 25px;
+  padding-top: 1%;
+  margin-left: 10%;
+  height: auto;
+  padding-bottom: 25%;
+}
+
+#stackNavButtons {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 12%;
+}
+
+#navButton {
+  border: none;
+}
+
+.StackNavAdjust {
+  color: $contrastColor;
+}
+
+#stackNavCenter {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#stackNavLeft {
+  float: left;
+}
+
+#stackNavRight {
+  float: right;
+}
+
+.buttonIsActive {
+  // background-color: $mainBackColor;
+  // color: $mainColor;
+  // border-radius: 20px;
+  // padding: 0.1%;
+  background-color: $contrastColor;
+  color: $backColorNav;
+  border-radius: 20px;
+  //margin: 1%;
+  //height: 80px;
+}
+
+.buttonIsOff {
+  color: $mainColor;
+  background-color: $backColorNav;
+  border-radius: 20px;
+  //margin: 1%;
+  //height: 80px;
+}
+
+.buttonIsActive .navIconStackMan {
+  background: transparent;
+  color: $backColorNav;
+}
+
+.buttonIsOff .navIconStackMan {
+  background: transparent;
+  color: $contrastColor;
+}
+
+#AddFront {
+  background-color: $backColorNav;
+  border-radius: 20px;
+  display: block;
+  float: left;
+}
+
+#infoStack {
+  margin-top: 20%;
+}
+
+// Flip effect on Navigation buttons:
+#navButtonContainer {
+  background-color: $mainBackColor;
+  border: none;
+  text-decoration: none;
+
+  // width: 80px;
+  // height: 80px;
+  // border-radius: 20px;
+}

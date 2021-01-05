@@ -1,0 +1,35 @@
+.loader {
+  border: 16px solid $contrastColor;
+  border-top: 16px solid $mainColor;
+  border-bottom: 16px solid $mainColor;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#Consolidate {
+  display: inline-block;
+}
+
+#loading {
+  animation: cssAnimation 0s 2s forwards;
+  visibility: visible;
+}
+
+#showView {
+  display: inline;
+}
+
+#hideView {
+  display: none;
+}

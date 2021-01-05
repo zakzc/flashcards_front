@@ -1,0 +1,42 @@
+// Normalize
+@import "./style/normalize";
+
+// Variables
+@import "./style/variables/fonts";
+@import "./style/variables/selectors";
+@import "./style/variables/colors";
+
+// Responsive Layout
+@import "./style/responsiveLayout/breakpoints";
+@import "./style/generalLayout/scaleGraph";
+
+// General layout elements or elements that apply to all layouts
+@import "./style/generalLayout/generalElements";
+@import "./style/generalLayout/flipMenu";
+@import "./style/generalLayout/flipButtons";
+
+// General Layout
+@import "./style/generalLayout/layout";
+
+// Components
+// stack management
+@import "./style/components/stack_man/stackMan";
+@import "./style/components/stack_man/removeCurStack";
+@import "./style/components/stack_man/addNewStack";
+@import "./style/components/stack_man/exportStack";
+// log in and sign up
+@import "./style/components/logIn_signUp/logIn";
+// card management
+@import "./style/components/card_man/cardMan";
+// current stack
+@import "./style/components/cur_stack/readCard";
+@import "./style/components/cur_stack/currentStack";
+// cardSet
+@import "./style/components/card_set/card";
+@import "./style/components/card_set/score";
+@import "./style/components/card_set/stats";
+@import "./style/components/card_set/play_buttons";
+// views
+@import "./style/components/views/title";
+@import "./style/components/views/navigation";
+@import "./style/views/loader";

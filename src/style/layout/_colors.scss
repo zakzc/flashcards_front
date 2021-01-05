@@ -1,0 +1,128 @@
+//* Base color layout for app ///
+
+// ?Debug mode
+
+// body {
+//   // background: $backColorNav;
+//   background: white;
+// }
+
+// #introWrapper {
+//   background-color: darkslategray;
+// }
+
+// #logInPageWrapper {
+//   background-color: green;
+// }
+
+// #buttonsAreaWrapper {
+//   //   background: $backColorNav;
+//   background-color: darkslategrey;
+// }
+
+// #cardAreaWrapper {
+//   // background: $mainBackColor;
+//   background-color: darkred;
+// }
+
+// #cardArea {
+//   background-color: teal;
+// }
+
+// #card {
+//   background-color: $mainColor;
+// }
+
+// .cardText {
+//   color: black;
+// }
+
+// @media #{$desk} {
+//   #cardAreaWrapper {
+//     background-color: darkred;
+//   }
+// }
+// #cardArea {
+//   background-color: blue;
+// }
+
+// #navigation {
+//   // background: $backColorNav;
+//   background: blue;
+// }
+
+// .scoreArea {
+//   // color: $contrastColor;
+//   background-color: orange;
+// }
+// #stackManagementWrapper {
+//   background-color: gold;
+// }
+// #titlePage {
+//   background-color: azure;
+// }
+
+// #title {
+//   // background: $backColorNav;
+//   background-color: aquamarine;
+// }
+
+// *Normal mode
+
+body {
+  background: $backColorNav;
+}
+
+#introWrapper {
+  background-color: $mainBackColor;
+}
+
+#logInPageWrapper {
+  background-color: $mainBackColor;
+  color: $contrastColor;
+}
+
+#buttonsAreaWrapper {
+  background: $backColorNav;
+}
+
+#cardAreaWrapper {
+  background: $mainBackColor;
+}
+
+#cardArea {
+  background-color: teal;
+}
+
+#card {
+  background-color: $mainColor;
+  color: $colorCardText;
+}
+.cardText {
+  color: black;
+}
+
+#cardArea {
+  background-color: $mainBackColor;
+}
+
+#navigation {
+  background: $backColorNav;
+}
+
+.scoreArea {
+  color: $contrastColor;
+}
+#stackManagementWrapper {
+  background-color: $mainBackColor;
+  color: $backColorNav;
+}
+#titlePage {
+  background-color: $backColorNav;
+}
+
+#title {
+  // background: $backColorNav;
+  background-color: $backColorNav;
+  color: $mainColor;
+}

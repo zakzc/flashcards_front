@@ -1,0 +1,157 @@
+//////////////
+// * Responsive layout
+//////////////
+
+// Small devices < 600px
+@media #{$smallDevices} {
+  #stackManWrapper {
+    // background-color: $mainBackColor;
+    // color: $colorCardText;
+    //padding-left: 25px;
+    padding-top: 1%;
+    //margin-left: 10%;
+    height: auto;
+    padding-bottom: 25%;
+  }
+
+  .StackNavAdjust {
+    //color: $contrastColor;
+    margin-bottom: 15%;
+    display: inline;
+  }
+  #chosenFunctionalityArea {
+    margin-top: 30%;
+  }
+
+  #stackNavButtons {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 12%;
+  }
+}
+
+// Medium: 601 to 1199 px
+@media #{$mediumDevices} {
+  #stackManWrapper {
+    // background-color: $mainBackColor;
+    // color: $colorCardText;
+    //padding-left: 25px;
+    padding-top: 1%;
+    //margin-left: 10%;
+    height: auto;
+    padding-bottom: 25%;
+  }
+
+  .StackNavAdjust {
+    color: $contrastColor;
+    margin-bottom: 15%;
+    display: inline;
+  }
+  #chosenFunctionalityArea {
+    margin-top: 30%;
+  }
+
+  #stackNavButtons {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 12%;
+  }
+}
+
+// Standard: 1200 to 2500px
+@media #{$standardView} {
+  #stackManWrapper {
+    // background-color: $mainBackColor;
+    // color: $colorCardText;
+    padding-left: 25px;
+    padding-top: 1%;
+    margin-left: 10%;
+    height: auto;
+    padding-bottom: 25%;
+  }
+
+  .StackNavAdjust {
+    color: $contrastColor;
+  }
+  #chosenFunctionalityArea {
+    margin-top: 2%;
+  }
+
+  #stackNavButtons {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 12%;
+  }
+}
+
+// large: > 2500
+@media #{$largeDevices} {
+}
+//////////////
+// * General Layout
+//////////////
+
+#navButton {
+  border: none;
+}
+
+#stackNavCenter {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#stackNavLeft {
+  float: left;
+}
+
+#stackNavRight {
+  float: right;
+}
+
+.buttonIsActive {
+  background-color: $contrastColor;
+  color: $backColorNav;
+}
+
+.buttonIsOff {
+  color: $mainColor;
+  background-color: $backColorNav;
+  border-radius: 20px;
+}
+
+.buttonIsActive {
+  border-radius: 20px;
+}
+
+.buttonIsActive .navIconStackMan {
+  background: transparent;
+  color: $backColorNav;
+  border-radius: 20px;
+}
+
+.buttonIsOff .navIconStackMan {
+  background: transparent;
+  color: $contrastColor;
+}
+
+#AddFront {
+  background-color: $backColorNav;
+  border-radius: 20px;
+  display: block;
+  float: left;
+}
+
+#infoStack {
+  margin-top: 20%;
+}
+
+// Flip effect on Navigation buttons:
+#navButtonContainer {
+  background-color: $mainBackColor;
+  border: none;
+  text-decoration: none;
+  border-radius: 20px;
+}

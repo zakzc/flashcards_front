@@ -1,0 +1,12 @@
+// * Responsive design
+// Small devices: phones and small tablets
+$smallDevices: "only screen and (max-device-width : 600px)  and (-webkit-min-device-pixel-ratio: 2)";
+
+// Medium devices: tablets in general until small desktop
+$mediumDevices: "only screen and (min-device-width : 601px) and (max-device-width: 1199px) and (-webkit-min-device-pixel-ratio: 1))";
+
+// Standard: normal screen sizes
+$standardView: "only screen and (min-device-width : 1200px)";
+
+//Large: large screens
+$largeDevices: "only screen and (min-device-width : 2501px) ";

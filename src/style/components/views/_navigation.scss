@@ -1,0 +1,115 @@
+// Display of the Navigation bar
+
+//////////////
+// * Responsive layout
+//////////////
+// Small devices < 600px
+@media #{$smallDevices} {
+  #navigation {
+    //background-color: blueviolet;
+    background-color: $backColorNav;
+    min-height: 100%;
+    height: 100%;
+    margin-bottom: 15%;
+    margin-left: 20px;
+  }
+  //Links
+  li {
+    float: left;
+    padding: 1%;
+  }
+
+  a {
+    display: block;
+    border: 20px;
+    border-radius: 20px;
+  }
+  .navigationLink {
+    //background-color: $contrastColor;
+    //color: aliceblue;
+    border-radius: 20px;
+    width: 60px;
+  }
+}
+
+// Medium: 601 to 1199 px
+@media #{$mediumDevices} {
+  #navigation {
+    //background-color: blueviolet;
+    background-color: $backColorNav;
+    min-height: 100%;
+    height: 100%;
+    margin-bottom: 12%;
+  }
+  //Links
+  li {
+    float: left;
+    padding-left: 10%;
+  }
+
+  a {
+    display: block;
+    //padding: 15px 18px;
+    //background-color: #dddddd;
+  }
+  .navigationLink {
+    //background-color: $contrastColor;
+    //color: aliceblue;
+    border-radius: 20px;
+    width: 60px;
+  }
+}
+
+// Standard: 1200 to 2500px
+@media #{$standardView} {
+  #navigation {
+    background-color: $backColorNav;
+    //background-color: blue;
+    position: relative;
+    min-height: 100%;
+    height: 100%;
+  }
+  //Links
+  a {
+    color: $backColorNav;
+    padding: 15px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .navigationLink {
+    background-color: $contrastColor;
+    color: $backColorNav;
+    border-radius: 20px;
+    width: 100px;
+  }
+}
+
+//////////////
+// * General Layout
+//////////////
+
+#currentUser,
+#currentStack {
+  color: $contrastColor;
+  //padding-left: 10px;
+}
+.largerText {
+  font-size: 120%;
+}
+
+.active {
+  .flipMenuFront {
+    color: $mainColor;
+  }
+}
+
+#logOutButton {
+  border-radius: 20px;
+}
+
+.logOutIcon {
+  background-color: $contrastColor;
+  color: $backColorNav;
+  transform: rotate(180deg);
+}
