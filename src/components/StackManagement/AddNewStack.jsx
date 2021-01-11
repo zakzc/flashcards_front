@@ -12,12 +12,15 @@ export default class AddNewStack extends Component {
     this.state = {
       currentUser: props.currentUser,
       currentStack: props.currentStack,
-
+      messageToUser:
+        "In order to make the new card, click on plus (+). After you finish adding all the cards, click on consolidate button.",
+      messageToUserBack: "Your stack must have at least 3 cards.",
+      frontValue: "",
+      backValue: "",
       newFront: "",
       newBack: "",
       newStackName: "",
       newCardsToStack: [],
-
       readyToSend: true,
     };
     this.handleSubmitAddCardHandler = this.handleSubmitAddCardHandler.bind(
@@ -32,12 +35,6 @@ export default class AddNewStack extends Component {
     this.infoCard = this.infoCard.bind(this);
     this.checkButton = this.checkButton.bind(this);
     this.AddCardButton = this.AddCardButton.bind(this);
-  }
-
-  handleAddNewStack() {
-    // gets the data form the state, creates the new stack and invokes consolidate
-    // to send the data to API
-    console.log("handle new stack");
   }
 
   consolidateNewStack(newStack) {
@@ -90,6 +87,163 @@ export default class AddNewStack extends Component {
     );
   }
 
+  consolidateButtonStack() {
+    return (
+      <div id="consolidateButton_Positioning">
+        <div className="flipContainer">
+          <div className="flipInner">
+            <button
+              className="buttonStyle"
+              type="button"
+              onClick={this.handleSubmitReady}
+            >
+              <div className="flipFront">
+                <Consolidate className="consolidateStackIcon" />
+              </div>
+              <div className="flipBack">
+                <span className="buttonMessage">CONSOLIDATE Changes</span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  infoCard() {
+    return (
+      <div id="infoCardWrap">
+        <div className="flipInfoCard">
+          <div className="flipInfoCardInner">
+            <p className="flipInfoCardFront">{this.state.messageToUser}</p>
+            <p className="flipInfoCardBack">{this.state.messageToUserBack}</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  handleSubmitReady() {
+    this.setState({
+      messageToUser:
+        "Consolidating changes and sending the new data to your database.",
+    });
+    console.table(this.state);
+    console.log(
+      "Ready to submit",
+      this.state.newStackName,
+      this.state.currentUser.id,
+      this.state.newFront,
+      this.state.newBack
+    );
+    const newStack = {
+      stackName: this.state.newStackName,
+      createdBy: this.state.currentUser.id,
+      cards: this.state.newCardsToStack,
+    };
+    console.log("NewStack", newStack);
+    this.consolidateNewStack(newStack);
+  }
+
+  handleSubmitAddCardHandler = (event) => {
+    event.preventDefault();
+    this.setState({
+      messageToUser:
+        "Now add more cards and, when done, click on consolidate changes.",
+    });
+    this.state.newCardsToStack.push({
+      front: this.state.newFront,
+      back: this.state.newBack,
+    });
+    this.setState({ frontValue: "", backValue: "" });
+    console.log("new cards to stack: ", this.state.newCardsToStack);
+  };
+
+  AddCardButton() {
+    return (
+      <div id="addCardButton_Positioning">
+        <div className="flipContainer">
+          <div className="flipInner">
+            <button
+              className="buttonStyle"
+              type="button"
+              onClick={this.handleSubmitAddCardHandler}
+            >
+              <div className="flipFront">
+                <Plus className="addCardIcon" />
+              </div>
+              <div className="flipBack">
+                <span className="buttonMessage">Add new card</span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  handleFrontCardChange = (e) => {
+    this.setState({ frontValue: e.target.value });
+    let addFront = e.target.value;
+    console.log("handle: ", addFront);
+    if (addFront) {
+      this.setState({
+        newFront: addFront,
+        messageToUser: "don't forget to add the back of the card.",
+      });
+    }
+  };
+
+  handleBackCardChange = (e) => {
+    this.setState({ backValue: e.target.value });
+    let addBack = e.target.value;
+    console.log("handle back: ", addBack);
+    if (addBack) {
+      this.setState({
+        newBack: addBack,
+        messageToUser: "Did you already add the back of the card?",
+      });
+    }
+  };
+
+  AddCardForm() {
+    return (
+      <React.Fragment>
+        <div>
+          <form>
+            <div className="formElement">
+              <label>Front of the card</label>
+              <input
+                className="cardInput"
+                type="text"
+                name="front"
+                value={this.state.frontValue}
+                onChange={this.handleFrontCardChange}
+              />
+            </div>
+            <div className="formElement">
+              <label>Back of the card</label>
+              <input
+                className="cardInput"
+                type="text"
+                name="front"
+                value={this.state.backValue}
+                onChange={this.handleBackCardChange}
+              />
+            </div>
+            <br />
+            <div id="AddCardButtons">
+              {this.AddCardButton()}
+              {this.consolidateButtonStack()}
+            </div>
+          </form>
+          {this.infoCard()}
+          {/* {this.state.readyToSend ? <div></div> : <div></div>} */}
+        </div>
+      </React.Fragment>
+    );
+  }
+
   newStackNameForm() {
     return (
       <React.Fragment>
@@ -121,151 +275,6 @@ export default class AddNewStack extends Component {
             {this.AddCardForm()}
           </div>
         )}
-      </React.Fragment>
-    );
-  }
-
-  AddCardButton() {
-    return (
-      <div id="addCardButton_Positioning">
-        <div className="flipContainer">
-          <div className="flipInner">
-            <button
-              className="buttonStyle"
-              type="button"
-              onClick={this.handleSubmitAddCardHandler}
-            >
-              <div className="flipFront">
-                <Plus className="addCardIcon" />
-              </div>
-              <div className="flipBack">
-                <span className="buttonMessage">Add new card</span>
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  consolidateButtonStack() {
-    return (
-      <div id="consolidateButton_Positioning">
-        <div className="flipContainer">
-          <div className="flipInner">
-            <button
-              className="buttonStyle"
-              type="button"
-              onClick={this.handleSubmitReady}
-            >
-              <div className="flipFront">
-                <Consolidate className="consolidateStackIcon" />
-              </div>
-              <div className="flipBack">
-                <span className="buttonMessage">CONSOLIDATE Changes</span>
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  infoCard() {
-    return (
-      <div id="infoCardWrap">
-        <div className="flipInfoCard">
-          <div className="flipInfoCardInner">
-            <p className="flipInfoCardFront">
-              In order to make the new card, click on plus (+).
-            </p>
-            <p className="flipInfoCardBack">
-              After you finish adding all the cards, click on consolidate button
-              to save all the changes. Your stack must have at least 3 cards.
-            </p>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  handleSubmitAddCardHandler = (event) => {
-    event.preventDefault();
-    let newCard = { front: this.state.newFront, back: this.state.newBack };
-    console.log("New: ", newCard);
-    this.setState({
-      newCardsToStack: this.state.newCardsToStack.concat([newCard]),
-    });
-    console.log("new state: ", this.state);
-  };
-
-  handleFrontCardChange = (e) => {
-    let addFront = e.target.value;
-    console.log("handle: ", addFront);
-    this.setState({ newFront: addFront });
-  };
-
-  handleBackCardChange = (e) => {
-    let addBack = e.target.value;
-    console.log("handle back: ", addBack);
-    this.setState({ newBack: addBack });
-  };
-
-  handleSubmitReady() {
-    console.table(this.state);
-    console.log(
-      "Ready to submit",
-      this.state.newStackName,
-      this.state.currentUser.id,
-      this.state.newFront,
-      this.state.newBack
-    );
-    const newStack = {
-      stackName: this.state.newStackName,
-      createdBy: this.state.currentUser.id,
-      cards: [
-        {
-          front: this.state.newFront,
-          back: this.state.newBack,
-        },
-      ],
-    };
-    console.log("NewStack", newStack);
-    this.consolidateNewStack(newStack);
-  }
-
-  AddCardForm() {
-    return (
-      <React.Fragment>
-        <div>
-          <form>
-            <div className="formElement">
-              <label>Front of the card</label>
-              <input
-                className="cardInput"
-                type="text"
-                name="front"
-                onChange={this.handleFrontCardChange}
-              />
-            </div>
-            <div className="formElement">
-              <label>Back of the card</label>
-              <input
-                className="cardInput"
-                type="text"
-                name="front"
-                onChange={this.handleBackCardChange}
-              />
-            </div>
-            <br />
-            <div id="AddCardButtons">
-              {this.AddCardButton()}
-              {this.consolidateButtonStack()}
-            </div>
-            {this.infoCard()}
-          </form>
-          {this.state.readyToSend ? <div></div> : <div></div>}
-        </div>
       </React.Fragment>
     );
   }
