@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { NavLink, Redirect } from "react-router-dom";
+// Visual elements
+import Pile from "../icons/pile";
+import Play from "../icons/play";
 import Loader from "./Loader";
 
 class ConsolidateChanges extends Component {
@@ -26,16 +29,36 @@ class ConsolidateChanges extends Component {
   finalView() {
     return (
       <div id="finalView">
-        <h1>Changes were consolidated</h1>
-        <p> Navigate to desired link</p>
-        <ul>
-          <li>
-            <NavLink to="/curStack">Read Stack </NavLink>
-          </li>
-          <li>
-            <NavLink to="/cardSet">Play Stack </NavLink>
-          </li>
-        </ul>
+        <div id="backToBeginning">
+          <h4>The changes you made re consolidated in the Database</h4>
+          <br />
+          <p> Now you can :</p>
+          <br />
+          <ul>
+            <div className="flipMenu">
+              <li className="navigationLink">
+                <NavLink to="/curStack" className="flipMenuInner">
+                  <div className="flipMenuFront">
+                    <Pile className="flipMenuFront" />
+                  </div>
+                  <div className="flipMenuBack">
+                    Read Stack or select another one
+                  </div>
+                </NavLink>
+              </li>
+              <li className="navigationLink">
+                <NavLink to="/cardSet" className="flipMenuInner">
+                  <div className="flipMenuFront">
+                    <Play className="flipMenuFront" />
+                  </div>
+                  <div className="flipMenuBack">Play the current Stack</div>
+                </NavLink>
+              </li>
+            </div>
+          </ul>
+          <br />
+          <p>Let's flip some cards. :-D </p>
+        </div>
       </div>
     );
   }

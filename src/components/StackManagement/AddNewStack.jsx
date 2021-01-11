@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 // hooks
 import useDB_Connection from "../../Data/DB-hook/connection-hook";
 // Icons
@@ -13,7 +14,7 @@ export default class AddNewStack extends Component {
       currentUser: props.currentUser,
       currentStack: props.currentStack,
       messageToUser:
-        "In order to make the new card, click on plus (+). After you finish adding all the cards, click on consolidate button.",
+        "In order to make the new card, click on plus (+). After you finish adding at least 3 new cards, click on consolidate button.",
       messageToUserBack: "Your stack must have at least 3 cards.",
       frontValue: "",
       backValue: "",
@@ -22,6 +23,8 @@ export default class AddNewStack extends Component {
       newStackName: "",
       newCardsToStack: [],
       readyToSend: true,
+      numberOfCardsAdded: 0,
+      redirect: false,
     };
     this.handleSubmitAddCardHandler = this.handleSubmitAddCardHandler.bind(
       this
@@ -35,6 +38,7 @@ export default class AddNewStack extends Component {
     this.infoCard = this.infoCard.bind(this);
     this.checkButton = this.checkButton.bind(this);
     this.AddCardButton = this.AddCardButton.bind(this);
+    this.renderRedirect = this.renderRedirect.bind(this);
   }
 
   consolidateNewStack(newStack) {
@@ -88,26 +92,30 @@ export default class AddNewStack extends Component {
   }
 
   consolidateButtonStack() {
-    return (
-      <div id="consolidateButton_Positioning">
-        <div className="flipContainer">
-          <div className="flipInner">
-            <button
-              className="buttonStyle"
-              type="button"
-              onClick={this.handleSubmitReady}
-            >
-              <div className="flipFront">
-                <Consolidate className="consolidateStackIcon" />
-              </div>
-              <div className="flipBack">
-                <span className="buttonMessage">CONSOLIDATE Changes</span>
-              </div>
-            </button>
+    if (this.state.numberOfCardsAdded > 2) {
+      return (
+        <div id="consolidateButton_Positioning">
+          <div className="flipContainer">
+            <div className="flipInner">
+              <button
+                className="buttonStyle"
+                type="button"
+                onClick={this.handleSubmitReady}
+              >
+                <div className="flipFront">
+                  <Consolidate className="consolidateStackIcon" />
+                </div>
+                <div className="flipBack">
+                  <span className="buttonMessage">CONSOLIDATE Changes</span>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return <div></div>;
+    }
   }
 
   infoCard() {
@@ -143,6 +151,7 @@ export default class AddNewStack extends Component {
     };
     console.log("NewStack", newStack);
     this.consolidateNewStack(newStack);
+    this.setState({ redirect: true });
   }
 
   handleSubmitAddCardHandler = (event) => {
@@ -155,9 +164,26 @@ export default class AddNewStack extends Component {
       front: this.state.newFront,
       back: this.state.newBack,
     });
-    this.setState({ frontValue: "", backValue: "" });
+    this.setState({
+      frontValue: "",
+      backValue: "",
+      numberOfCardsAdded: this.state.numberOfCardsAdded + 1,
+    });
     console.log("new cards to stack: ", this.state.newCardsToStack);
   };
+
+  // View Methods
+
+  renderRedirect() {
+    if (this.state.redirect) {
+      return (
+        <Redirect
+          to="/consolidateChanges"
+          userIsLoggedIn={this.state.userIsLoggedIn}
+        />
+      );
+    }
+  }
 
   AddCardButton() {
     return (
@@ -233,12 +259,12 @@ export default class AddNewStack extends Component {
             </div>
             <br />
             <div id="AddCardButtons">
-              {this.AddCardButton()}
-              {this.consolidateButtonStack()}
+              <div>{this.AddCardButton()}</div>
+              <div> {this.consolidateButtonStack()}</div>
             </div>
           </form>
           {this.infoCard()}
-          {/* {this.state.readyToSend ? <div></div> : <div></div>} */}
+          {this.renderRedirect()}
         </div>
       </React.Fragment>
     );
