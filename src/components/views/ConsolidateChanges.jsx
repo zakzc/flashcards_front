@@ -8,7 +8,11 @@ import Loader from "./Loader";
 class ConsolidateChanges extends Component {
   constructor(props) {
     super(props);
-    this.state = { userIsLoggedIn: props.userIsLoggedIn, viewSwitch: true };
+    this.state = {
+      userIsLoggedIn: props.userIsLoggedIn,
+      viewSwitch: true,
+      errorMessage: "",
+    };
     this.initialView = this.initialView.bind(this);
     this.finalView = this.finalView.bind(this);
     this.ConsolidateChangesLayout = this.ConsolidateChangesLayout.bind(this);
@@ -57,7 +61,12 @@ class ConsolidateChanges extends Component {
             </div>
           </ul>
           <br />
-          <p>Let's flip some cards. :-D </p>
+          <h4>
+            Note that some changes (adding a new stack, for example) will only
+            be visible when you reload the application (or, log out and back
+            in).{" "}
+          </h4>
+          <p>Now let's flip some cards. :-D </p>
         </div>
       </div>
     );

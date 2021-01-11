@@ -34,7 +34,6 @@ export default class RemoveCurStack extends Component {
     this.setState({ redirectUser: true });
   }
 
-  // TODO reformat the button, since it is still using the css from the menu buttons
   deleteButton() {
     return (
       <div id="confirmDeleteButton_Positioning">
@@ -70,8 +69,13 @@ export default class RemoveCurStack extends Component {
           </strong>
         </h3>
         <p>
-          Clicking the button will delete the stack. Are you sure about this?
-          This action can't be undone.
+          Clicking the button will delete the stack. If you want to delete
+          another stack, you must go to current stack and select the stack you
+          want to delete.
+        </p>
+        <p>
+          But, before you continue,aAre you sure about this? This action can't
+          be undone.
         </p>
       </div>
     );

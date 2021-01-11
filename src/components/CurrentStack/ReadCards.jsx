@@ -11,31 +11,44 @@ export default class ReadCards extends Component {
     };
   }
 
-  render() {
-    return (
-      <React.Fragment>
-        <h2>
-          Hi there. Your current stack of cards is:{" "}
-          <strong className="currentSelectedStack">
-            {this.state.currentStack.stackName}
-            {". "}
-          </strong>
-        </h2>
-        Hover over the card to see the back, or click on it if you are on a
-        mobile.
-        {this.state.currentStack.cards.map((m, j) => {
-          return (
-            <div className="flipCard" key={j}>
-              <div className="flipCardInner" label={m.back}>
-                <li value={m.front}>
-                  <div className="flipCardFront"> {m.front} </div>
-                  <div className="flipCardBack">{m.back}</div>
-                </li>
+  showCurrentStack() {
+    if (this.state.currentStack.stackName) {
+      return (
+        <div>
+          <h2>
+            Hi there. Your current stack of cards is:{" "}
+            <strong className="currentSelectedStack">
+              {this.state.currentStack.stackName}
+            </strong>
+          </h2>
+          Hover over the card to see the back, or click on it if you are on a
+          mobile.
+          {this.state.currentStack.cards.map((m, j) => {
+            return (
+              <div className="flipCard" key={j}>
+                <div className="flipCardInner" label={m.back}>
+                  <li value={m.front}>
+                    <div className="flipCardFront"> {m.front} </div>
+                    <div className="flipCardBack">{m.back}</div>
+                  </li>
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </React.Fragment>
-    );
+            );
+          })}
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <h3>
+            There was an error retrieving your cards. Reload the application
+          </h3>
+        </div>
+      );
+    }
+  }
+
+  render() {
+    return <React.Fragment>{this.showCurrentStack()}</React.Fragment>;
   }
 }
