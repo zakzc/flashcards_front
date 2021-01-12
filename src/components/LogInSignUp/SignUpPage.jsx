@@ -41,7 +41,7 @@ export default class SignUpPage extends Component {
       firstName: firstName,
       lastName: lastName,
     });
-    const userList = useDB_Connection(
+    useDB_Connection(
       "http://localhost:5000/userAPI/signUp",
       "POST",
       requestBody,
@@ -53,19 +53,15 @@ export default class SignUpPage extends Component {
       this.logInOrSignUpSwitch();
       this.setState({ redirectUser: true });
     });
-    console.log("Verify: ", userEmail, password, firstName, lastName);
-    console.log("against: ", userList);
-    // TODO Display error message if error
-    // TODO Redirect to View current stack if OK
   }
 
   validateAccessCredentials(userEmail, userPassword) {
-    console.log("validate: ", userEmail, userPassword);
+    // console.log("validate: ", userEmail, userPassword);
 
     if (this.validateEmail(userEmail) === true) {
       if (this.validatePasswordInput(userPassword) === true) {
-        console.log("validated");
-        console.log("proper input");
+        // console.log("validated");
+        // console.log("proper input");
         return true;
       }
     } else {
@@ -82,13 +78,13 @@ export default class SignUpPage extends Component {
       userFirstNameSignUp: this.firstName.value,
       userLastNameSignUp: this.lastName.value,
     };
-    console.log(
-      "Received: ",
-      credentials.userEmailSignUp,
-      credentials.userPswSignUp,
-      credentials.userFirstNameSignUp,
-      credentials.userLastNameSignUp
-    );
+    // console.log(
+    //   "Received: ",
+    //   credentials.userEmailSignUp,
+    //   credentials.userPswSignUp,
+    //   credentials.userFirstNameSignUp,
+    //   credentials.userLastNameSignUp
+    // );
     if (
       this.validateAccessCredentials(
         credentials.userEmailSignUp,

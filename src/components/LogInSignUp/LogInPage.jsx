@@ -44,10 +44,10 @@ export default class LogInPage extends Component {
       }
     );
     const data = userLogInCheck;
-    console.log("data from hook", data);
+    // console.log("data from hook", data);
     try {
       let userData = JSON.parse(data.response);
-      console.log("Data handling --> ", userData.id, typeof userData);
+      // console.log("Data handling --> ", userData.id, typeof userData);
       if (data.returnStatus === 401) {
         this.setState({
           errorMessage:
@@ -55,7 +55,7 @@ export default class LogInPage extends Component {
         });
         console.log("Access not authorized");
       } else if (data.returnStatus === 200) {
-        console.log("calling Update user", userData);
+        // console.log("calling Update user", userData);
         this.logIn_User(userData);
       }
     } catch (error) {
@@ -71,7 +71,6 @@ export default class LogInPage extends Component {
     if (this.validateEmail(e) === true) {
       if (this.validatePasswordInput(p) === true) {
         this.logUserIn(e, p);
-        console.log("proper input");
       }
     } else {
       this.setState({ errorMessage: "improper input on log in form" });
@@ -80,12 +79,6 @@ export default class LogInPage extends Component {
 
   handleSubmitLogInForm(event) {
     event.preventDefault();
-    console.log(
-      "Received: ",
-      this.userEmail.value,
-      " and ",
-      this.userPsw.value
-    );
     this.validateCredentials(this.userEmail.value, this.userPsw.value);
   }
 

@@ -6,7 +6,7 @@ async function useDB_Connection(
   body = null,
   headers = {}
 ) {
-  console.log("Connection to API requested");
+  console.log("Connection to API");
   try {
     const data = await fetch(url, {
       method,
@@ -24,7 +24,7 @@ async function useDB_Connection(
     // });
     // const responseData = await returnData.json();
     // console.log("response: ", responseData);
-    console.log(data);
+    // console.log(data);
     // if (!responseData.ok) {
     //   console.log("error on return Data");
     //   throw new Error(responseData.message);
@@ -33,6 +33,7 @@ async function useDB_Connection(
     return data;
   } catch (err) {
     console.log("Connection error on connection hook: ", err);
+    return false;
   }
 }
 

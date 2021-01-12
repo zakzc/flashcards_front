@@ -58,11 +58,10 @@ export default class App extends React.Component {
   ///
 
   setCurrentStack(stackNo) {
-    console.log("Set new current stack");
     // retrieve new stack data from API
     updateCurrentStack(stackNo)
       .then((response) => {
-        console.log("response awaiting", response);
+        // console.log("response awaiting", response);
         this.setState({
           currentStack: response,
         });
@@ -87,12 +86,10 @@ export default class App extends React.Component {
   }
 
   logIn_User(userData) {
-    console.log("User Data from Log in: ", userData);
     let stackId = userData.userStacks[0].stack_id;
     this.setState({
       currentUser: userData,
     });
-    console.log("Activate stack now:  ", stackId);
     // update stack
     this.setCurrentStack(stackId);
   }
@@ -235,6 +232,7 @@ export default class App extends React.Component {
   }
 
   appView() {
+    console.log("APP");
     if (this.state.userIsLoggedIn === true) {
       return (
         <div className="appWrapper">

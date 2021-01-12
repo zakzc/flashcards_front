@@ -87,6 +87,7 @@ class ConsolidateChanges extends Component {
   }
 
   ConsolidateChangesView() {
+    console.log("CONSOLIDATE CHANGES");
     return (
       <div id="cardSetView">
         {this.state.userIsLoggedIn ? (

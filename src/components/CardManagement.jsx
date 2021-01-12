@@ -36,6 +36,7 @@ export default class StackManagement extends Component {
   }
 
   cardManagementView() {
+    console.log("CARD MANAGEMENT");
     return (
       <React.Fragment>
         <div id="cardManagementView">

@@ -43,7 +43,6 @@ export default class StackManagement extends Component {
   }
 
   AddSwitch() {
-    console.log("Add");
     this.setState((state) => ({
       add: true,
       export: false,
@@ -52,7 +51,6 @@ export default class StackManagement extends Component {
   }
 
   exportSwitch() {
-    console.log("Export");
     this.setState((state) => ({
       add: false,
       export: true,
@@ -61,7 +59,6 @@ export default class StackManagement extends Component {
   }
 
   deleteSwitch() {
-    console.log("Delete");
     this.setState((state) => ({
       add: false,
       export: false,
@@ -209,6 +206,7 @@ export default class StackManagement extends Component {
   }
 
   StackManagementView() {
+    console.log("STACK MANAGEMENT");
     return (
       <React.Fragment>
         <div id="cardManagementView">

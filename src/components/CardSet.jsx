@@ -161,8 +161,6 @@ export default class CardSet extends React.Component {
 
   cardSide() {
     try {
-      // check to see if there is a pile
-      // this can be done and is checked in the method also
       if (this.state.cards.length === 0 || this.state.stackIsOver) {
         this.setState({ stackIsOver: true });
       } else {
@@ -379,6 +377,7 @@ export default class CardSet extends React.Component {
   }
 
   cardSetView() {
+    console.log("CARD SET PLAY");
     return (
       <div id="cardSetView">
         {this.state.userIsLoggedIn ? (

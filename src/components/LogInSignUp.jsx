@@ -63,6 +63,7 @@ export default class LogInSignUp extends Component {
   }
 
   logInSignUpView() {
+    console.log("LOG IN SIGN UP");
     return (
       <React.Fragment>
         <div id="loggedInOrSignUpView">

@@ -10,7 +10,6 @@ export const validateEmail = (eMail) => {
       return false;
     } else {
       // email formatting
-      console.log("input was true");
       // backspace has to be doubled, since it is inside a string
       //let pattern = new RegExp("^\\w+@\\w+.\\w+$");
       const pattern = /^\w+@\w+\.\w+$/;
@@ -24,7 +23,6 @@ export const validateEmail = (eMail) => {
 };
 
 export const validatePasswordInput = (pswInput) => {
-  console.log("validate input: ", pswInput);
   if (CheckInput(pswInput) === true) {
     if (CheckForInvalidCharacters(pswInput) === true) {
       return true;

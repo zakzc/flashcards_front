@@ -40,7 +40,6 @@ export default class currentStack extends Component {
   }
 
   readSelectSwitch() {
-    console.log("read, select");
     this.setState((state) => ({
       readOrSelect: !state.readOrSelect,
     }));
@@ -136,6 +135,7 @@ export default class currentStack extends Component {
   }
 
   currentStackView() {
+    console.log("CURRENT STACK");
     return (
       <div id="currentStackView">
         {this.state.userIsLoggedIn ? (

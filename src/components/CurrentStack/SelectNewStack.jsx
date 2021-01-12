@@ -36,7 +36,7 @@ export default class SelectNewStack extends Component {
   getNewStackName(newStackID) {
     let listOfStacks = this.state.currentUser.userStacks;
     for (let l in listOfStacks) {
-      console.log("Checking: ", l, listOfStacks[l].stack_id);
+      // console.log("Checking: ", l, listOfStacks[l].stack_id);
       if (newStackID === listOfStacks[l].stack_id) {
         return listOfStacks[l].stack_name;
       }
@@ -47,7 +47,7 @@ export default class SelectNewStack extends Component {
   chooseNewStack(e) {
     let newStack = e.target.value;
     let newStackName = this.getNewStackName(newStack);
-    console.log("choose stack: ", newStack, "name: ", newStackName);
+    // console.log("choose stack: ", newStack, "name: ", newStackName);
     this.setState({
       chosenStackId: newStack,
       chosenStackName: newStackName,
@@ -82,10 +82,8 @@ export default class SelectNewStack extends Component {
   }
 
   confirmNewStack() {
-    console.log("confirmation for: ", this.state);
     this.setState({ redirect: true });
     this.setCurrentStack(this.state.chosenStackId);
-    console.log("Update");
   }
 
   confirmationButton() {

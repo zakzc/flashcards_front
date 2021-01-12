@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+// hooks
+import useDB_Connection from "../../Data/DB-hook/connection-hook";
 // Icons
 import Consolidate from "../icons/consolidate";
 import EditCardIcon from "../icons/cardEdit";
@@ -7,6 +10,7 @@ export default class ManageCards extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      userIsLoggedIn: props.userIsLoggedIn,
       user: props.currentUser,
       currentStack: props.currentStack,
       cardForEditing: "",
@@ -16,12 +20,15 @@ export default class ManageCards extends Component {
       tempNewBack: "",
       newStack: "",
       updatedItemMessage: false,
+      redirect: false,
+      messageToUser:
+        "If you only want to edit one element (front OR back), leave the other element empty",
+      messageToUserBack:
+        "After you change the element locally, you need to click Consolidate changes button in order to reflect these changes in the actual stack.",
     };
     // this.manageCurrentStack = this.manageCurrentStack.bind(this);
-    this.makeNewStack = this.makeNewStack.bind(this);
     this.editCard = this.editCard.bind(this);
     this.cardsInCurrentStack = this.cardsInCurrentStack.bind(this);
-    this.getCardToEdit = this.getCardToEdit.bind(this);
     this.frontEditHandler = this.frontEditHandler.bind(this);
     this.backEditHandler = this.backEditHandler.bind(this);
     this.editButtonHandler = this.editButtonHandler.bind(this);
@@ -30,32 +37,65 @@ export default class ManageCards extends Component {
     this.stackWasUpdated = this.stackWasUpdated.bind(this);
     this.plusButton = this.editButton.bind(this);
     this.consolidateButton = this.consolidateButton.bind(this);
+    this.consolidateButtonView = this.consolidateButtonView.bind(this);
     this.inputForm = this.inputForm.bind(this);
+    this.showCurrentStack = this.showCurrentStack.bind(this);
+    this.manageCardsView = this.manageCardsView.bind(this);
     this.manageCardsLayout = this.manageCardsLayout.bind(this);
   }
 
-  // TODO Connects to API and make new cardset
-  makeNewStack() {
-    console.log("preparation: ", this.state.currentStack.cards);
+  consolidateNewStack(newStack) {
+    // let requestBody = newStack;
+    try {
+      let requestBody = JSON.stringify(newStack);
+      useDB_Connection(
+        "http://localhost:5000/cardApi/addNewStack",
+        "Patch",
+        requestBody,
+        {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        }
+      );
+    } catch (e) {
+      console.log("error on : ", e);
+      return false;
+    }
   }
 
-  getCardToEdit(c) {
-    console.log("The card SELECTED: ", this.state.currentStack.cards[c]);
-    console.log("==> ", c);
-    this.setState({ cardForEditingId: c });
-    console.table(this.state);
+  handleSubmitReady() {
+    console.log(
+      "Handle submit ready: ",
+      this.state.currentStack.stackName,
+      this.state.currentStack
+    );
+    const newStack = {
+      stackName: this.state.currentStack.stackName,
+      createdBy: this.state.currentStack.createdBy,
+      cards: this.state.currentStack.cards,
+    };
+    if (this.consolidateNewStack(newStack) !== false) {
+      this.setState({
+        redirect: true,
+        messageToUser:
+          "Consolidating changes and sending the new data to your database.",
+        messageToUserBack: "You will be redirected",
+      });
+    } else {
+      this.setState({
+        messageToUser: "There was a problem fetching the data.",
+      });
+    }
   }
 
   frontEditHandler(e) {
     // e.preventDefault();
     this.setState({ tempNewFront: e.target.value });
-    console.log("card edit handler: ", this.state.tempNewFront);
   }
 
   backEditHandler(f) {
     // e.preventDefault();
     this.setState({ tempNewBack: f.target.value });
-    console.log("card edit handler back: ", this.state.tempNewFront);
   }
 
   // gets the new values for front and back
@@ -63,56 +103,45 @@ export default class ManageCards extends Component {
     e.preventDefault();
     let newValueFront = this.state.tempNewFront;
     let newValueBack = this.state.tempNewBack;
-    console.log(
-      "Edit BUTTON handler: ",
-      this.state.currentStack.cards[this.state.cardForEditing].back,
-      newValueBack,
-      newValueFront
-    );
     this.makeNewCardSet(newValueFront, newValueBack);
   }
 
-  // make a new cardset to substitute the older one
   makeNewCardSet(newFront, newBack) {
     // makes a new version of the cardSet
     let updatedStack = this.state.currentStack;
     console.log("current card set: ", updatedStack);
     updatedStack.cards[this.state.cardForEditing].back = newBack;
     updatedStack.cards[this.state.cardForEditing].front = newFront;
-    console.log("should update: ", updatedStack);
+    console.log("should update to: ", updatedStack);
     // updates local state
     this.setState((state) => ({
       currentStack: updatedStack,
       editingMode: false,
       updatedItemMessage: true,
     }));
-    // calls for update on the API
+    // TODO: calls for update on the API
+    this.handleSubmitReady();
   }
 
   chooseCard(e) {
     let selectedCard = e.target.value;
-    console.log("---> ", selectedCard);
     this.setState(() => ({
       cardForEditing: selectedCard,
       editingMode: true,
     }));
-    console.log("new value: ", this.state.cardForEditing);
-    this.getCardToEdit(selectedCard);
+    this.setState({ cardForEditingId: selectedCard });
   }
+
+  ////////////////
+  // View elements
+  ////////////////
 
   infoCard() {
     return (
       <div className="flipInfoCard">
         <div className="flipInfoCardInner">
-          <p className="flipInfoCardFront">
-            If you only want to edit one element (front OR back), leave the
-            other element empty.
-          </p>
-          <p className="flipInfoCardBack">
-            After you change the element locally, you need to click "Consolidate
-            changes" button in order to reflect these changes in the actual
-            stack.
-          </p>
+          <p className="flipInfoCardFront">{this.state.messageToUser}</p>
+          <p className="flipInfoCardBack">{this.state.messageToUserBack}</p>
         </div>
       </div>
     );
@@ -198,7 +227,6 @@ export default class ManageCards extends Component {
       <React.Fragment>
         <div id="editCardArea">
           {this.inputForm()}
-
           {this.infoCard()}
         </div>
       </React.Fragment>
@@ -236,15 +264,14 @@ export default class ManageCards extends Component {
     );
   }
 
-  currentStack() {
+  showCurrentStack() {
     return (
       <React.Fragment>
         <div>
           <h3>
             Your current stack is:{" "}
             <strong className="emphasis">
-              {" "}
-              {this.state.currentStack.stackName}{" "}
+              {this.state.currentStack.stackName}
             </strong>
           </h3>
         </div>
@@ -252,34 +279,44 @@ export default class ManageCards extends Component {
     );
   }
 
+  consolidateButtonView() {
+    return (
+      <div id="consolidateButton">
+        {this.state.updatedItemMessage ? this.consolidateButton() : <div></div>}
+      </div>
+    );
+  }
+
   manageCardsLayout() {
     return (
-      <React.Fragment>
-        <div id="manageCardsWrapper">
-          <h1>Let's manage your cards</h1>
-          <div id="consolidateButton">
-            {this.state.updatedItemMessage ? (
-              this.consolidateButton()
-            ) : (
-              <div></div>
-            )}
-          </div>
-          <div id="manageCardsArea">
-            {this.currentStack()}
-            {this.cardsInCurrentStack()}
-            {this.state.updatedItemMessage ? (
-              this.stackWasUpdated()
-            ) : (
-              <div></div>
-            )}
-            {this.state.editingMode ? this.editCard() : <div></div>}
-          </div>
+      <div id="manageCardsWrapper">
+        <h1>Let's manage your cards</h1>
+
+        <div id="manageCardsArea">
+          {this.showCurrentStack()}
+          {this.cardsInCurrentStack()}
+          {this.state.updatedItemMessage ? this.stackWasUpdated() : <div></div>}
+          {this.state.editingMode ? this.editCard() : <div></div>}
+          {this.consolidateButtonView()}
         </div>
-      </React.Fragment>
+      </div>
+    );
+  }
+
+  manageCardsView() {
+    console.log("MANAGE CARDS");
+    return (
+      <div id="manageCardsLayout">
+        {this.state.userIsLoggedIn ? (
+          <div id="loggedInView">{this.manageCardsLayout()}</div>
+        ) : (
+          <Redirect to="/login" />
+        )}
+      </div>
     );
   }
 
   render() {
-    return <React.Fragment>{this.manageCardsLayout()}</React.Fragment>;
+    return <React.Fragment>{this.manageCardsView()}</React.Fragment>;
   }
 }
