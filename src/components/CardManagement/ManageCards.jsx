@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 // hooks
-import useDB_Connection from "../../Data/DB-hook/connection-hook";
+import updateCards from "../../Data/Data_Update/updateCards";
 // Icons
 import Consolidate from "../icons/consolidate";
 import EditCardIcon from "../icons/cardEdit";
@@ -44,49 +44,19 @@ export default class ManageCards extends Component {
     this.manageCardsLayout = this.manageCardsLayout.bind(this);
   }
 
-  consolidateNewStack(newStack) {
-    // let requestBody = newStack;
-    try {
-      let requestBody = JSON.stringify(newStack);
-      useDB_Connection(
-        "http://localhost:5000/cardApi/addNewStack",
-        "Patch",
-        requestBody,
-        {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        }
-      );
-    } catch (e) {
-      console.log("error on : ", e);
-      return false;
-    }
-  }
-
-  handleSubmitReady() {
-    console.log(
-      "Handle submit ready: ",
-      this.state.currentStack.stackName,
-      this.state.currentStack
-    );
-    const newStack = {
-      stackName: this.state.currentStack.stackName,
-      createdBy: this.state.currentStack.createdBy,
-      cards: this.state.currentStack.cards,
-    };
-    if (this.consolidateNewStack(newStack) !== false) {
-      this.setState({
-        redirect: true,
-        messageToUser:
-          "Consolidating changes and sending the new data to your database.",
-        messageToUserBack: "You will be redirected",
-      });
-    } else {
-      this.setState({
-        messageToUser: "There was a problem fetching the data.",
-      });
-    }
-  }
+  handleSubmitReady = () => {
+    console.log("Handle submit ready");
+    const stackToUpdate = this.state.newStack;
+    updateCards(stackToUpdate)
+      .then(
+        this.setState({
+          messageToUser:
+            "Consolidating changes and sending the new data to your database.",
+          messageToUserBack: "You will be redirected",
+        })
+      )
+      .then(this.setState({ redirect: true }));
+  };
 
   frontEditHandler(e) {
     // e.preventDefault();
@@ -100,6 +70,7 @@ export default class ManageCards extends Component {
 
   // gets the new values for front and back
   editButtonHandler(e) {
+    console.log("edit button handler");
     e.preventDefault();
     let newValueFront = this.state.tempNewFront;
     let newValueBack = this.state.tempNewBack;
@@ -107,23 +78,22 @@ export default class ManageCards extends Component {
   }
 
   makeNewCardSet(newFront, newBack) {
+    console.log("make new card set");
     // makes a new version of the cardSet
     let updatedStack = this.state.currentStack;
-    console.log("current card set: ", updatedStack);
     updatedStack.cards[this.state.cardForEditing].back = newBack;
     updatedStack.cards[this.state.cardForEditing].front = newFront;
     console.log("should update to: ", updatedStack);
     // updates local state
     this.setState((state) => ({
-      currentStack: updatedStack,
+      newStack: updatedStack,
       editingMode: false,
       updatedItemMessage: true,
     }));
-    // TODO: calls for update on the API
-    this.handleSubmitReady();
   }
 
   chooseCard(e) {
+    console.log("choose card");
     let selectedCard = e.target.value;
     this.setState(() => ({
       cardForEditing: selectedCard,
@@ -131,7 +101,6 @@ export default class ManageCards extends Component {
     }));
     this.setState({ cardForEditingId: selectedCard });
   }
-
   ////////////////
   // View elements
   ////////////////
@@ -298,6 +267,14 @@ export default class ManageCards extends Component {
           {this.state.updatedItemMessage ? this.stackWasUpdated() : <div></div>}
           {this.state.editingMode ? this.editCard() : <div></div>}
           {this.consolidateButtonView()}
+          {this.state.redirect ? (
+            <Redirect
+              to="/consolidateChanges"
+              userIsLoggedIn={this.state.userIsLoggedIn}
+            />
+          ) : (
+            <div></div>
+          )}
         </div>
       </div>
     );

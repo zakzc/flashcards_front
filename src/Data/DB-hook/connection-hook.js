@@ -6,7 +6,7 @@ async function useDB_Connection(
   body = null,
   headers = {}
 ) {
-  console.log("Connection to API");
+  console.log("Connection to API", url, method, body);
   try {
     const data = await fetch(url, {
       method,
