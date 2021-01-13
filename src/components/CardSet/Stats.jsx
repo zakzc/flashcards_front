@@ -41,6 +41,13 @@ export default class Stats extends Component {
     if (this.state.lengthOfStack <= 10) {
       level = " easy";
       infoLevel = " (any stack with less than 10 cards is considered easy).";
+    } else if (this.state.lengthOfStack <= 20) {
+      level = " in an intermediate level";
+      infoLevel =
+        " (any stack with more than 10 cards, but less than 20, is considered easy).";
+    } else {
+      level = " hard";
+      infoLevel = " (any stack with more than 20 cards is considered hard).";
     }
     return (
       <div>
@@ -61,9 +68,11 @@ export default class Stats extends Component {
     console.log("cover: ", cover, typeof cover);
     return (
       <div id="pieChartGraph">
-        <svg id="pieGraph" viewBox="0 0 32 32" transform="rotate(270)">
+        {/* <svg id="pieGraph" viewBox="0 0 32 32" transform="rotate(270)">
           <circle className="first" strokeDasharray={cover}></circle>
-          {/*    <circle class="second" stroke-dasharray="50 100"></circle> */}
+        </svg> */}
+        <svg width="100" height="100" id="pieGraph">
+          <circle r="25" cx="50" cy="50" class="pie" strokeDasharray={cover} />
         </svg>
       </div>
     );

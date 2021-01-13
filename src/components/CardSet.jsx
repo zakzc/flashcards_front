@@ -57,14 +57,14 @@ export default class CardSet extends React.Component {
   // Reload method, will be called from Stats
   reSetGame() {
     this.setState({
-      userIsLoggedIn: this.userIsLoggedIn,
-      currentStack: this.currentStack,
-      cards: this.currentStack.cards,
+      userIsLoggedIn: this.props.userIsLoggedIn,
+      currentStack: this.props.currentStack,
+      cards: this.props.currentStack.cards,
       current: 0,
       face: true,
       right: 0,
       wrong: 0,
-      lengthOfStack: this.currentStack.cards.length,
+      lengthOfStack: this.props.currentStack.cards.length,
       stackIsOver: false,
     });
   }
