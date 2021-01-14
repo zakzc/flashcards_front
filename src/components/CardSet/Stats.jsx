@@ -19,7 +19,7 @@ export default class Stats extends Component {
     this.reSetGame = props.reSetGame;
     this.reStart = this.reStart.bind(this);
     this.stackLevel = this.stackLevel.bind(this);
-    this.pieChart = this.pieChart.bind(this);
+    // this.pieChart = this.pieChart.bind(this);
     this.reStartButton = this.reStartButton.bind(this);
     this.gameStatsButton = this.gameStatsButton.bind(this);
     this.gameStatsContents = this.gameStatsContents.bind(this);
@@ -61,22 +61,22 @@ export default class Stats extends Component {
     );
   }
 
-  pieChart() {
-    let correct = parseInt(this.state.percentage, 10) + 0.53;
-    console.log("correct: ", correct, typeof correct);
-    let cover = correct.toString() + " 100";
-    console.log("cover: ", cover, typeof cover);
-    return (
-      <div id="pieChartGraph">
-        {/* <svg id="pieGraph" viewBox="0 0 32 32" transform="rotate(270)">
-          <circle className="first" strokeDasharray={cover}></circle>
-        </svg> */}
-        <svg width="100" height="100" id="pieGraph">
-          <circle r="25" cx="50" cy="50" class="pie" strokeDasharray={cover} />
-        </svg>
-      </div>
-    );
-  }
+  // pieChart() {
+  //   let correct = parseInt(this.state.percentage, 10) + 0.53;
+  //   console.log("correct: ", correct, typeof correct);
+  //   let cover = correct.toString() + " 100";
+  //   console.log("cover: ", cover, typeof cover);
+  //   return (
+  //     <div id="pieChartGraph">
+  //       {/* <svg id="pieGraph" viewBox="0 0 32 32" transform="rotate(270)">
+  //         <circle className="first" strokeDasharray={cover}></circle>
+  //       </svg> */}
+  //       <svg width="100" height="100" id="pieGraph">
+  //         <circle r="25" cx="50" cy="50" class="pie" strokeDasharray={cover} />
+  //       </svg>
+  //     </div>
+  //   );
+  // }
 
   gameStatsButton() {
     return (
@@ -121,11 +121,11 @@ export default class Stats extends Component {
           <strong className="statInfo"> {this.state.percentage}% </strong>of
           your guesses right.
           <br />
-          <div id="graphView">
+          {/* <div id="graphView">
             Graphical view (<strong className="statEmphasis">yellow </strong>{" "}
             represents the right answers):
-          </div>
-          {this.pieChart()}
+          </div> */}
+          {/* {this.pieChart()} */}
         </div>
       </div>
     );
