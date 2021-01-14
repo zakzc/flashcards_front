@@ -81,8 +81,20 @@ export default class ManageCards extends Component {
     console.log("make new card set");
     // makes a new version of the cardSet
     let updatedStack = this.state.currentStack;
-    updatedStack.cards[this.state.cardForEditing].back = newBack;
-    updatedStack.cards[this.state.cardForEditing].front = newFront;
+    if (newBack) {
+      updatedStack.cards[this.state.cardForEditing].back = newBack;
+    } else {
+      updatedStack.cards[
+        this.state.cardForEditing
+      ].back = this.state.currentStack.cards[this.state.cardForEditing].back;
+    }
+    if (newFront) {
+      updatedStack.cards[this.state.cardForEditing].front = newFront;
+    } else {
+      updatedStack.cards[
+        this.state.cardForEditing
+      ].front = this.state.currentStack.cards[this.state.cardForEditing].front;
+    }
     console.log("should update to: ", updatedStack);
     // updates local state
     this.setState((state) => ({
