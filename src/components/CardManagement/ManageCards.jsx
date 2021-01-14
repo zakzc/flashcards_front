@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 // hooks
 import updateCards from "../../Data/Data_Update/updateCards";
+import { CheckForInvalidCharacters } from "../../Data/Validation/validate";
 // Icons
 import Consolidate from "../icons/consolidate";
 import EditCardIcon from "../icons/cardEdit";
@@ -26,12 +27,15 @@ export default class ManageCards extends Component {
       messageToUserBack:
         "After you change the element locally, you need to click Consolidate changes button in order to reflect these changes in the actual stack.",
     };
+    // utils
+    this.CheckForInvalidCharacters = CheckForInvalidCharacters;
     // this.manageCurrentStack = this.manageCurrentStack.bind(this);
     this.editCard = this.editCard.bind(this);
     this.cardsInCurrentStack = this.cardsInCurrentStack.bind(this);
     this.frontEditHandler = this.frontEditHandler.bind(this);
     this.backEditHandler = this.backEditHandler.bind(this);
     this.editButtonHandler = this.editButtonHandler.bind(this);
+    this.validateInput = this.validateInput.bind(this);
     this.makeNewCardSet = this.makeNewCardSet.bind(this);
     this.chooseCard = this.chooseCard.bind(this);
     this.stackWasUpdated = this.stackWasUpdated.bind(this);
@@ -77,31 +81,56 @@ export default class ManageCards extends Component {
     this.makeNewCardSet(newValueFront, newValueBack);
   }
 
+  validateInput(front, back) {
+    if (!this.CheckForInvalidCharacters(front)) {
+      this.setState({
+        messageToUser: "You entered an invalid character in the front card",
+      });
+      return false;
+    }
+    if (!this.CheckForInvalidCharacters(back)) {
+      this.setState({
+        messageToUser: "You entered an invalid character in the back card",
+      });
+      return false;
+    }
+    this.setState({
+      messageToUser: "Valid input",
+    });
+    return true;
+  }
+
   makeNewCardSet(newFront, newBack) {
     console.log("make new card set");
-    // makes a new version of the cardSet
-    let updatedStack = this.state.currentStack;
-    if (newBack) {
-      updatedStack.cards[this.state.cardForEditing].back = newBack;
+    if (this.validateInput(newFront, newBack) === true) {
+      // makes a new version of the cardSet
+      let updatedStack = this.state.currentStack;
+      if (newBack) {
+        updatedStack.cards[this.state.cardForEditing].back = newBack;
+      } else {
+        updatedStack.cards[
+          this.state.cardForEditing
+        ].back = this.state.currentStack.cards[this.state.cardForEditing].back;
+      }
+      if (newFront) {
+        updatedStack.cards[this.state.cardForEditing].front = newFront;
+      } else {
+        updatedStack.cards[
+          this.state.cardForEditing
+        ].front = this.state.currentStack.cards[
+          this.state.cardForEditing
+        ].front;
+      }
+      console.log("should update to: ", updatedStack);
+      // updates local state
+      this.setState((state) => ({
+        newStack: updatedStack,
+        editingMode: false,
+        updatedItemMessage: true,
+      }));
     } else {
-      updatedStack.cards[
-        this.state.cardForEditing
-      ].back = this.state.currentStack.cards[this.state.cardForEditing].back;
+      this.setState({ messageToUser: "invalid input" });
     }
-    if (newFront) {
-      updatedStack.cards[this.state.cardForEditing].front = newFront;
-    } else {
-      updatedStack.cards[
-        this.state.cardForEditing
-      ].front = this.state.currentStack.cards[this.state.cardForEditing].front;
-    }
-    console.log("should update to: ", updatedStack);
-    // updates local state
-    this.setState((state) => ({
-      newStack: updatedStack,
-      editingMode: false,
-      updatedItemMessage: true,
-    }));
   }
 
   chooseCard(e) {

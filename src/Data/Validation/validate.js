@@ -40,7 +40,7 @@ const CheckInput = (inputToCheck) => {
   }
 };
 
-const CheckForInvalidCharacters = (dataToCheck) => {
+export const CheckForInvalidCharacters = (dataToCheck) => {
   let invalidCharacters = [
     ">",
     "<",
@@ -58,6 +58,7 @@ const CheckForInvalidCharacters = (dataToCheck) => {
     "&",
     "\b",
     "\t",
+    ";",
   ];
   let invalidInput = invalidCharacters.map((c) => dataToCheck.includes(c));
   if (invalidInput.includes(true)) {
