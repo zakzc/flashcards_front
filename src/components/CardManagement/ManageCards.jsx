@@ -48,6 +48,10 @@ export default class ManageCards extends Component {
     this.manageCardsLayout = this.manageCardsLayout.bind(this);
   }
 
+  ////////////////
+  // Implementation methods
+  ////////////////
+
   handleSubmitReady = () => {
     console.log("Handle submit ready");
     const stackToUpdate = this.state.newStack;
@@ -142,8 +146,9 @@ export default class ManageCards extends Component {
     }));
     this.setState({ cardForEditingId: selectedCard });
   }
+
   ////////////////
-  // View elements
+  // View methods
   ////////////////
 
   infoCard() {

@@ -21,6 +21,10 @@ export default class StackManagement extends Component {
     this.UserIsLoggedOut = UserIsLoggedOut;
   }
 
+  ////////////////
+  // View methods
+  ////////////////
+
   cardManagementLayout() {
     return (
       <React.Fragment>

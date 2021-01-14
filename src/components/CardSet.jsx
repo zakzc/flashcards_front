@@ -69,7 +69,9 @@ export default class CardSet extends React.Component {
     });
   }
 
-  // * Methods related to managing the cards and pile
+  ////////////////
+  // Implementation methods
+  ////////////////
 
   // Removes the item from the pile (called upon Right answer)
   removeFromPile() {
@@ -147,6 +149,10 @@ export default class CardSet extends React.Component {
       face: !state.face,
     }));
   }
+
+  ////////////////
+  // View methods
+  ////////////////
 
   infoCard() {
     return (

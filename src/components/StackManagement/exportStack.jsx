@@ -19,6 +19,10 @@ export default class ExportStack extends Component {
     this.infoOnExport = this.infoOnExport.bind(this);
   }
 
+  ////////////////
+  // Implemntation methods
+  ////////////////
+
   prepareData() {
     // Data selection: omits the '_id' and 'created by id' of the stack for security reasons
     let dataToExport = this.state.currentStack;
@@ -41,6 +45,10 @@ export default class ExportStack extends Component {
     document.body.removeChild(a);
     console.log("Export handler");
   }
+
+  ////////////////
+  // View methods
+  ////////////////
 
   exportButton() {
     return (

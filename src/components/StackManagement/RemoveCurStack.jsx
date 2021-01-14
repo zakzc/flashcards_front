@@ -24,6 +24,10 @@ export default class RemoveCurStack extends Component {
     this.deleteStackView = this.deleteStackView.bind(this);
   }
 
+  ////////////////
+  // Implementation methods
+  ////////////////
+
   deleteHandler() {
     console.log("Request for delete on frontend");
     this.removeThisStack(this.state.currentStack.id);
@@ -33,6 +37,10 @@ export default class RemoveCurStack extends Component {
     this.setCurrentStack(newStack);
     this.setState({ redirectUser: true });
   }
+
+  ////////////////
+  // View methods
+  ////////////////
 
   deleteButton() {
     return (

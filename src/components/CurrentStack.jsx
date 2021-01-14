@@ -35,15 +35,22 @@ export default class currentStack extends Component {
     this.SelectDifferentStackButton = this.SelectDifferentStackButton.bind(
       this
     );
-    // Views
     this.currentStackView = this.currentStackView.bind(this);
   }
+
+  ////////////////
+  // Implementation methods
+  ////////////////
 
   readSelectSwitch() {
     this.setState((state) => ({
       readOrSelect: !state.readOrSelect,
     }));
   }
+
+  ////////////////
+  // View methods
+  ////////////////
 
   SelectDifferentStackButton() {
     return (

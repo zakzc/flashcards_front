@@ -41,7 +41,9 @@ export default class ReadCards extends Component {
       return (
         <div>
           <h3>
-            There was an error retrieving your cards. Reload the application
+            There was an error retrieving your cards. Please, Reload the
+            application and if the problem persists, inform the owner of the
+            site.
           </h3>
         </div>
       );

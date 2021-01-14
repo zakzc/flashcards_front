@@ -26,7 +26,10 @@ export default class Stats extends Component {
     this.statsLayout = this.statsLayout.bind(this);
   }
 
-  // TODO: this is reloading the page, which logs the user out, I need to resettle the state.
+  ////////////////
+  // Implementation methods
+  ////////////////
+
   reStart(event) {
     event.preventDefault();
     // TODO: nodeJs routing to save the data into json (log)??
@@ -34,6 +37,23 @@ export default class Stats extends Component {
     this.reSetGame();
     console.log("current card: ", this.state.current);
   }
+
+  // pieChart() {
+  //   let correct = parseInt(this.state.percentage, 10) + 0.53;
+  //   console.log("correct: ", correct, typeof correct);
+  //   let cover = correct.toString() + " 100";
+  //   console.log("cover: ", cover, typeof cover);
+  //   return (
+  //     <div id="pieChartGraph">
+  //       {/* <svg id="pieGraph" viewBox="0 0 32 32" transform="rotate(270)">
+  //         <circle className="first" strokeDasharray={cover}></circle>
+  //       </svg> */}
+  //       <svg width="100" height="100" id="pieGraph">
+  //         <circle r="25" cx="50" cy="50" class="pie" strokeDasharray={cover} />
+  //       </svg>
+  //     </div>
+  //   );
+  // }
 
   stackLevel() {
     let level = "";
@@ -61,22 +81,9 @@ export default class Stats extends Component {
     );
   }
 
-  // pieChart() {
-  //   let correct = parseInt(this.state.percentage, 10) + 0.53;
-  //   console.log("correct: ", correct, typeof correct);
-  //   let cover = correct.toString() + " 100";
-  //   console.log("cover: ", cover, typeof cover);
-  //   return (
-  //     <div id="pieChartGraph">
-  //       {/* <svg id="pieGraph" viewBox="0 0 32 32" transform="rotate(270)">
-  //         <circle className="first" strokeDasharray={cover}></circle>
-  //       </svg> */}
-  //       <svg width="100" height="100" id="pieGraph">
-  //         <circle r="25" cx="50" cy="50" class="pie" strokeDasharray={cover} />
-  //       </svg>
-  //     </div>
-  //   );
-  // }
+  ////////////////
+  // View methods
+  ////////////////
 
   gameStatsButton() {
     return (

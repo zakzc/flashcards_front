@@ -86,6 +86,10 @@ export default class SelectNewStack extends Component {
     this.setCurrentStack(this.state.chosenStackId);
   }
 
+  ////////////////
+  // View methods
+  ////////////////
+
   confirmationButton() {
     return (
       <div>

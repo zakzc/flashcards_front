@@ -42,6 +42,10 @@ export default class StackManagement extends Component {
     this.StackManagementLayout = this.StackManagementLayout.bind(this);
   }
 
+  ////////////////
+  // Implementation methods
+  ////////////////
+
   AddSwitch() {
     this.setState((state) => ({
       add: true,
@@ -65,6 +69,10 @@ export default class StackManagement extends Component {
       delete: true,
     }));
   }
+
+  ////////////////
+  // View methods
+  ////////////////
 
   addStackButton() {
     return (

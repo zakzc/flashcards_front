@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 // hooks
 import useDB_Connection from "../../Data/DB-hook/connection-hook";
+import { CheckForInvalidCharacters } from "../../Data/Validation/validate";
 // Icons
 import Consolidate from "../icons/consolidate";
 import Plus from "../icons/plus";
@@ -26,6 +27,9 @@ export default class AddNewStack extends Component {
       numberOfCardsAdded: 0,
       redirect: false,
     };
+    // utils
+    this.CheckForInvalidCharacters = CheckForInvalidCharacters;
+    // methods
     this.handleSubmitAddCardHandler = this.handleSubmitAddCardHandler.bind(
       this
     );
@@ -40,6 +44,10 @@ export default class AddNewStack extends Component {
     this.AddCardButton = this.AddCardButton.bind(this);
     this.renderRedirect = this.renderRedirect.bind(this);
   }
+
+  ////////////////
+  // Implementation methods
+  ////////////////
 
   consolidateNewStack(newStack) {
     // let requestBody = newStack;
@@ -67,6 +75,115 @@ export default class AddNewStack extends Component {
     console.log("stack name handler");
     console.table(this.state);
   };
+
+  handleSubmitReady() {
+    this.setState({
+      messageToUser:
+        "Consolidating changes and sending the new data to your database.",
+    });
+    const newStack = {
+      stackName: this.state.newStackName,
+      createdBy: this.state.currentUser.id,
+      cards: this.state.newCardsToStack,
+    };
+    this.consolidateNewStack(newStack);
+    this.setState({ redirect: true });
+  }
+
+  handleSubmitAddCardHandler = (event) => {
+    event.preventDefault();
+    this.setState({
+      messageToUser:
+        "Now add more cards and, when done, click on consolidate changes.",
+    });
+    if (
+      this.validateInput(this.state.newFront) &&
+      this.validateInput(this.state.newBack)
+    ) {
+      this.state.newCardsToStack.push({
+        front: this.state.newFront,
+        back: this.state.newBack,
+      });
+      this.setState({
+        frontValue: "",
+        backValue: "",
+        numberOfCardsAdded: this.state.numberOfCardsAdded + 1,
+      });
+      console.log("new cards to stack: ", this.state.newCardsToStack);
+    } else {
+      this.setState({
+        messageToUser: "Your input is invalid. Please correct it.",
+      });
+    }
+  };
+
+  validateInput(newData) {
+    if (!this.CheckForInvalidCharacters(newData)) {
+      this.setState({
+        messageToUser: "You entered an invalid character",
+        messageToUserBack:
+          "You can't add and non-alpha characters or punctuations except for fod(.)",
+      });
+      return false;
+    } else {
+      this.setState({
+        messageToUser: "Valid input",
+      });
+      return true;
+    }
+  }
+
+  handleFrontCardChange = (e) => {
+    this.setState({ frontValue: e.target.value });
+    let addFront = e.target.value;
+    console.log("handle: ", addFront);
+    if (addFront) {
+      this.setState({
+        newFront: addFront,
+        messageToUser: "don't forget to add the back of the card.",
+      });
+    }
+  };
+
+  handleBackCardChange = (e) => {
+    this.setState({ backValue: e.target.value });
+    let addBack = e.target.value;
+    console.log("handle back: ", addBack);
+    if (addBack) {
+      this.setState({
+        newBack: addBack,
+        messageToUser: "Did you already add the back of the card?",
+      });
+    }
+  };
+
+  ////////////////
+  // View methods
+  ////////////////
+
+  renderRedirect() {
+    if (this.state.redirect) {
+      return (
+        <Redirect
+          to="/consolidateChanges"
+          userIsLoggedIn={this.state.userIsLoggedIn}
+        />
+      );
+    }
+  }
+
+  infoCard() {
+    return (
+      <div id="infoCardWrap">
+        <div className="flipInfoCard">
+          <div className="flipInfoCardInner">
+            <p className="flipInfoCardFront">{this.state.messageToUser}</p>
+            <p className="flipInfoCardBack">{this.state.messageToUserBack}</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   checkButton() {
     return (
@@ -118,73 +235,6 @@ export default class AddNewStack extends Component {
     }
   }
 
-  infoCard() {
-    return (
-      <div id="infoCardWrap">
-        <div className="flipInfoCard">
-          <div className="flipInfoCardInner">
-            <p className="flipInfoCardFront">{this.state.messageToUser}</p>
-            <p className="flipInfoCardBack">{this.state.messageToUserBack}</p>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  handleSubmitReady() {
-    this.setState({
-      messageToUser:
-        "Consolidating changes and sending the new data to your database.",
-    });
-    console.table(this.state);
-    console.log(
-      "Ready to submit",
-      this.state.newStackName,
-      this.state.currentUser.id,
-      this.state.newFront,
-      this.state.newBack
-    );
-    const newStack = {
-      stackName: this.state.newStackName,
-      createdBy: this.state.currentUser.id,
-      cards: this.state.newCardsToStack,
-    };
-    console.log("NewStack", newStack);
-    this.consolidateNewStack(newStack);
-    this.setState({ redirect: true });
-  }
-
-  handleSubmitAddCardHandler = (event) => {
-    event.preventDefault();
-    this.setState({
-      messageToUser:
-        "Now add more cards and, when done, click on consolidate changes.",
-    });
-    this.state.newCardsToStack.push({
-      front: this.state.newFront,
-      back: this.state.newBack,
-    });
-    this.setState({
-      frontValue: "",
-      backValue: "",
-      numberOfCardsAdded: this.state.numberOfCardsAdded + 1,
-    });
-    console.log("new cards to stack: ", this.state.newCardsToStack);
-  };
-
-  // View Methods
-
-  renderRedirect() {
-    if (this.state.redirect) {
-      return (
-        <Redirect
-          to="/consolidateChanges"
-          userIsLoggedIn={this.state.userIsLoggedIn}
-        />
-      );
-    }
-  }
-
   AddCardButton() {
     return (
       <div id="addCardButton_Positioning">
@@ -207,30 +257,6 @@ export default class AddNewStack extends Component {
       </div>
     );
   }
-
-  handleFrontCardChange = (e) => {
-    this.setState({ frontValue: e.target.value });
-    let addFront = e.target.value;
-    console.log("handle: ", addFront);
-    if (addFront) {
-      this.setState({
-        newFront: addFront,
-        messageToUser: "don't forget to add the back of the card.",
-      });
-    }
-  };
-
-  handleBackCardChange = (e) => {
-    this.setState({ backValue: e.target.value });
-    let addBack = e.target.value;
-    console.log("handle back: ", addBack);
-    if (addBack) {
-      this.setState({
-        newBack: addBack,
-        messageToUser: "Did you already add the back of the card?",
-      });
-    }
-  };
 
   AddCardForm() {
     return (
