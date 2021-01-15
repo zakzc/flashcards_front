@@ -28,7 +28,7 @@ export default class ReadCards extends Component {
               <div className="flipCard" key={j}>
                 <div className="flipCardInner" label={m.back}>
                   <li value={m.front}>
-                    <div className="flipCardFront"> {m.front} </div>
+                    <div className="flipCardFront">{m.front}</div>
                     <div className="flipCardBack">{m.back}</div>
                   </li>
                 </div>
@@ -43,7 +43,7 @@ export default class ReadCards extends Component {
           <h3>
             There was an error retrieving your cards. Please, Reload the
             application and if the problem persists, inform the owner of the
-            site.
+            application.
           </h3>
         </div>
       );

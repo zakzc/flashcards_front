@@ -71,6 +71,8 @@
 .flipMenuBack {
   font-weight: bolder;
   transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
   //background-color: $contrastColor;
   position: relative;
   top: -45px;

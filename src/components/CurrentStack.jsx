@@ -66,7 +66,7 @@ export default class currentStack extends Component {
                 <Collection className="readSelectButtonStyle" />
               </div>
               <div className="flipBack">
-                <span className="buttonMessage">Select a different stack</span>
+                <span className="buttonMessage">Select stack</span>
               </div>
             </button>
           </div>
@@ -89,7 +89,7 @@ export default class currentStack extends Component {
                 <CheckEye className="readSelectButtonStyle" />
               </div>
               <div className="flipBack">
-                <span className="buttonMessage">Read current stack</span>
+                <span className="buttonMessage">Read stack</span>
               </div>
             </button>
           </div>
