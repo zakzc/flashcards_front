@@ -110,94 +110,96 @@ export default class App extends React.Component {
     return (
       <div className="flex-container">
         <Router>
-          <Navigation
-            currentUser={this.state.currentUser}
-            userIsLoggedIn={this.state.userIsLoggedIn}
-            logOut_User={this.logOut_User}
-          />
           <Title />
-          <Switch>
-            {/* <Route exact path="/" component={BaseRoute} /> */}
-            <Route
-              exact
-              path="/curStack"
-              render={(props) => (
-                <CurrentStack
-                  {...props}
-                  userIsLoggedIn={this.state.userIsLoggedIn}
-                  currentUser={this.state.currentUser}
-                  currentStack={this.state.currentStack}
-                  setCurrentStack={this.setCurrentStack}
-                />
-              )}
+          <div id="Main_contents">
+            <Navigation
+              currentUser={this.state.currentUser}
+              userIsLoggedIn={this.state.userIsLoggedIn}
+              logOut_User={this.logOut_User}
             />
-            <Route
-              exact
-              path="/cardManagement"
-              render={(props) => (
-                <CardManagement
-                  {...props}
-                  userIsLoggedIn={this.state.userIsLoggedIn}
-                  currentUser={this.state.currentUser}
-                  userStacks={this.state.currentUser.userStacks}
-                  currentStack={this.state.currentStack}
-                />
-              )}
-            />
-            <Route
-              exact
-              path="/stackManagement"
-              render={(props) => (
-                <StackManagement
-                  {...props}
-                  userIsLoggedIn={this.state.userIsLoggedIn}
-                  currentUser={this.state.currentUser}
-                  userStacks={this.state.currentUser.userStacks}
-                  currentStack={this.state.currentStack}
-                  setCurrentStack={this.setCurrentStack}
-                />
-              )}
-            />
-            <Route
-              exact
-              path="/cardSet"
-              render={(props) => (
-                <CardSet
-                  {...props}
-                  userIsLoggedIn={this.state.userIsLoggedIn}
-                  currentStack={this.state.currentStack}
-                />
-              )}
-            />
-            <Route
-              exact
-              path="/consolidateChanges"
-              render={(props) => (
-                <ConsolidateChanges
-                  {...props}
-                  userIsLoggedIn={this.state.userIsLoggedIn}
-                  currentStack={this.state.currentStack}
-                />
-              )}
-            />
-            <Route exact path="/logIn">
-              {this.state.userIsLoggedIn ? (
-                <Redirect to="/curStack" />
-              ) : (
-                <Redirect to="/logIn" />
-              )}
-            </Route>
-            {/* <Route exact path="/">
+            <Switch>
+              {/* <Route exact path="/" component={BaseRoute} /> */}
+              <Route
+                exact
+                path="/curStack"
+                render={(props) => (
+                  <CurrentStack
+                    {...props}
+                    userIsLoggedIn={this.state.userIsLoggedIn}
+                    currentUser={this.state.currentUser}
+                    currentStack={this.state.currentStack}
+                    setCurrentStack={this.setCurrentStack}
+                  />
+                )}
+              />
+              <Route
+                exact
+                path="/cardManagement"
+                render={(props) => (
+                  <CardManagement
+                    {...props}
+                    userIsLoggedIn={this.state.userIsLoggedIn}
+                    currentUser={this.state.currentUser}
+                    userStacks={this.state.currentUser.userStacks}
+                    currentStack={this.state.currentStack}
+                  />
+                )}
+              />
+              <Route
+                exact
+                path="/stackManagement"
+                render={(props) => (
+                  <StackManagement
+                    {...props}
+                    userIsLoggedIn={this.state.userIsLoggedIn}
+                    currentUser={this.state.currentUser}
+                    userStacks={this.state.currentUser.userStacks}
+                    currentStack={this.state.currentStack}
+                    setCurrentStack={this.setCurrentStack}
+                  />
+                )}
+              />
+              <Route
+                exact
+                path="/cardSet"
+                render={(props) => (
+                  <CardSet
+                    {...props}
+                    userIsLoggedIn={this.state.userIsLoggedIn}
+                    currentStack={this.state.currentStack}
+                  />
+                )}
+              />
+              <Route
+                exact
+                path="/consolidateChanges"
+                render={(props) => (
+                  <ConsolidateChanges
+                    {...props}
+                    userIsLoggedIn={this.state.userIsLoggedIn}
+                    currentStack={this.state.currentStack}
+                  />
+                )}
+              />
+              <Route exact path="/logIn">
+                {this.state.userIsLoggedIn ? (
+                  <Redirect to="/curStack" />
+                ) : (
+                  <Redirect to="/logIn" />
+                )}
+              </Route>
+              {/* <Route exact path="/">
               <Redirect to="/curStack" />
             </Route> */}
-            <Route exact path="*">
-              {this.state.userIsLoggedIn ? (
-                <Redirect to="/curStack" />
-              ) : (
-                <Redirect to="/logIn" />
-              )}
-            </Route>
-          </Switch>
+              <Route exact path="*">
+                {this.state.userIsLoggedIn ? (
+                  <Redirect to="/curStack" />
+                ) : (
+                  <Redirect to="/logIn" />
+                )}
+              </Route>
+            </Switch>
+          </div>
         </Router>
       </div>
     );
