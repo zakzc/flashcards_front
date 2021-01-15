@@ -1,79 +1,18 @@
-//////////////
-// * Responsive layout
-//////////////
-
-// Small devices < 600px
-@media #{$smallDevices} {
-  #buttonArea {
-    margin: 2% 0 10% 30%;
-    display: block;
-    background-color: $mainBackColor;
-  }
-  #readSelectButton_Positioning {
-    align-items: center;
-  }
-
-  .cardViewWrap {
-    display: flex;
-    flex-direction: column;
-    margin-left: 5%;
-  }
+#currentStackLayout {
+  display: grid;
+  grid-template-rows: 1fr auto;
 }
 
-// Medium: 601 to 1199 px
-@media #{$mediumDevices} {
-  #buttonArea {
-    margin: 22% 0 8% 40%;
-    display: block;
-    background-color: $mainBackColor;
-  }
-  #readSelectButton_Positioning {
-    align-items: center;
-  }
-
-  .cardViewWrap {
-    display: flex;
-    flex-direction: column;
-    margin-left: 15%;
-  }
+#tinyNavBar {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  justify-content: center;
+  align-content: center;
 }
 
-// Standard: 1200 to 2500px
-@media #{$standardView} {
-  #currentStackLayout {
-    background-color: $mainBackColor;
-    color: $colorCardText;
-    height: auto;
-    padding-top: 6%;
-    padding-bottom: 5%;
-  }
-
-  #readSelectButton_Positioning {
-    float: right;
-  }
-
-  .cardViewWrap {
-    display: flex;
-    flex-direction: column;
-    margin-left: 35%;
-  }
-}
-
-// large: > 2500
-@media #{$largeDevices} {
-}
-//////////////
-// * General Layout
-//////////////
-
-.readSelectButtonStyle {
-  // width: 50%;
-  color: $contrastColor;
-  background-color: $backColorNav;
-}
-
-#saluteTheUser {
-  position: relative;
-  margin-top: -5%;
-  margin-bottom: 5%;
+.cardViewWrap {
+  display: grid;
+  grid-template-rows: auto;
+  justify-content: center;
+  align-content: center;
 }

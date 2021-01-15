@@ -114,11 +114,13 @@ export default class currentStack extends Component {
     return (
       <React.Fragment>
         <div id="currentStackLayout">
-          {this.changeStackButton()}
-          <div id="saluteTheUser">
-            <h3>Hi {this.state.currentUser.firstName}, welcome back </h3>
-            <br />
-            <p>The current stack is: {this.state.currentStack.stackName}</p>
+          <div id="tinyNavBar">
+            <div id="saluteTheUser">
+              <h3>Hi {this.state.currentUser.firstName}, welcome back </h3>
+              <br />
+              <p>The current stack is: {this.state.currentStack.stackName}</p>
+            </div>
+            {this.changeStackButton()}
           </div>
           <div className="cardViewWrap">
             {this.state.readOrSelect ? (
