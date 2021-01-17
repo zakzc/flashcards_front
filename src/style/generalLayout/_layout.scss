@@ -4,6 +4,7 @@ body {
   background-color: $backColorNav;
   font-size: $fontSizePhone;
 }
+
 #wrapper {
   padding: 0;
   margin: 0;
@@ -11,21 +12,55 @@ body {
   display: block;
 }
 
-#mainContents {
-  float: right;
-  width: 100%;
-  padding: 0;
-  height: auto;
-  background-color: $mainBackColor;
-  //background-color: blue;
-}
-
-.flex-container {
-  display: grid;
-  grid-template-rows: 80px auto;
+#titlePage {
+  grid-area: title;
 }
 
 #Main_contents {
+  grid-area: mainArea;
   display: grid;
-  grid-template-columns: 100px auto;
+}
+
+// Layouts
+
+// General layout any size
+#App_View {
+  display: grid;
+  grid-template-areas:
+    " title"
+    " mainArea";
+  gap: 4px;
+  grid-template-rows: 80px auto;
+  // width: 100%;
+  // padding: 0;
+  // height: auto;
+  background-color: $mainBackColor;
+}
+
+// Responsive
+#navBar {
+  grid-area: navbar;
+}
+
+#currentView {
+  grid-area: currentView;
+}
+
+// smaller screens sizes > 768
+@media only screen and (max-width: 767px) {
+  #Main_contents {
+    display: grid;
+    grid-template-areas:
+      " navbar"
+      " currentView";
+    gap: 4px;
+  }
+}
+// bigger screen sizes > 768
+@media only screen and (min-width: 768px) {
+  #Main_contents {
+    display: grid;
+    grid-template-areas: " navbar currentView";
+    gap: 4px;
+  }
 }
