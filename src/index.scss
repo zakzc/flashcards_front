@@ -1,5 +1,5 @@
 // Normalize
-@import "./style/normalize";
+@import "./style/generalLayout/normalize";
 
 // Variables
 @import "./style/variables/fonts";
@@ -7,7 +7,7 @@
 @import "./style/variables/colors";
 
 // Responsive Layout
-@import "./style/responsiveLayout/breakpoints";
+@import "./style/variables/breakpoints";
 @import "./style/generalLayout/scaleGraph";
 
 // General layout elements or elements that apply to all layouts
