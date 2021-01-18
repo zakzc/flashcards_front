@@ -1,257 +1,79 @@
-//////////////
-// * Responsive layout
-//////////////
-
-// Small devices < 600px
-@media #{$smallDevices} {
-  #cardAreaWrapper {
-    background-color: $mainBackColor;
-    color: $backColorNav;
-    padding-left: 1%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  #cardArea {
-    //display: flex;
-    padding: 5%;
-    // float: left;
-    // width: 60%;
-  }
-
-  #controlCardArea {
-    // float: right;
-    display: flex;
-    margin-top: -50px;
-    //width: 35%;
-  }
-
-  #buttonsArea {
-    float: left;
-    width: 50%;
-  }
-
-  #scoreCardArea {
-    float: right;
-    width: 50%;
-    margin-left: 5%;
-  }
-
-  #card {
-    border-radius: 20px;
-    background-color: transparent;
-  }
-
-  #cardFront {
-    background-color: $mainColor;
-    color: $backColorNav;
-    border-radius: 20px;
-    width: 100%;
-    height: 120px;
-    // margin-left: -10px;
-    // margin-right: 10px;
-    // margin-top: -100px;
-    text-align: center;
-    align-items: center;
-    top: 5%;
-    font-size: 120%;
-    padding-top: 6%;
-    padding-left: 1%;
-    padding-right: 1%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  }
-
-  #cardBack {
-    background-color: $contrastColor;
-    color: white;
-    border-radius: 20px;
-    width: 100%;
-    height: 120px;
-    // margin-left: -10px;
-    // margin-right: 10px;
-    // margin-top: -100px;
-    text-align: center;
-    align-items: center;
-    top: 5%;
-    font-size: 120%;
-    padding-top: 6%;
-    padding-left: 1%;
-    padding-right: 1%;
-  }
+#cardAreaWrapper {
+  background-color: $mainBackColor;
+  color: $backColorNav;
+  padding-left: 1%;
+  height: 100%;
+  display: block;
+  //padding-bottom: 15%;
+  width: 100%;
 }
 
-// Medium: 601 to 1199 px
-@media #{$mediumDevices} {
-  #cardAreaWrapper {
-    background-color: $contrastColor;
-    color: $backColorNav;
-    padding-left: 1%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    //padding-bottom: 15%;
-    width: 100%;
-  }
-
-  #cardArea {
-    //display: flex;
-    padding: 5%;
-    // float: left;
-    // width: 60%;
-  }
-
-  #controlCardArea {
-    // float: right;
-    display: flex;
-    margin-top: -50px;
-  }
-
-  #buttonsArea {
-    float: left;
-    width: 15%;
-    margin-top: -40px;
-  }
-
-  #buttonsWrapper {
-    margin-left: 3%;
-  }
-
-  #scoreCardArea {
-    float: right;
-    width: 45%;
-    margin-left: 5%;
-    margin-top: -70px;
-  }
-
-  #card {
-    border-radius: 20px;
-    background-color: transparent;
-  }
-
-  #cardFront {
-    background-color: $mainColor;
-    color: $backColorNav;
-    border-radius: 20px;
-    width: 100%;
-    height: 150px;
-    width: 60%;
-    margin-left: 120px;
-    // margin-right: 10px;
-    // margin-top: -100px;
-    text-align: center;
-    align-items: center;
-    top: 5%;
-    font-size: 120%;
-    padding-top: 6%;
-    padding-left: 1%;
-    padding-right: 1%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  }
-
-  #cardBack {
-    background-color: $contrastColor;
-    color: white;
-    border-radius: 20px;
-    width: 100%;
-    height: 150px;
-    // margin-left: -10px;
-    // margin-right: 10px;
-    // margin-top: -100px;
-    text-align: center;
-    align-items: center;
-    top: 5%;
-    font-size: 120%;
-    padding-top: 6%;
-    padding-left: 1%;
-    padding-right: 1%;
-  }
+#cardArea {
+  //display: flex;
+  padding-top: 10%;
+  float: left;
+  width: 55%;
 }
 
-// Standard: 1200 to 2500px
-@media #{$standardView} {
-  #cardAreaWrapper {
-    background-color: $mainBackColor;
-    color: $backColorNav;
-    padding-left: 1%;
-    height: 100%;
-    display: block;
-    //padding-bottom: 15%;
-    width: 100%;
-  }
-
-  #cardArea {
-    //display: flex;
-    padding-top: 10%;
-    float: left;
-    width: 55%;
-  }
-
-  #controlCardArea {
-    float: right;
-    display: flex;
-    width: 35%;
-  }
-
-  #buttonsArea {
-    float: left;
-    //width: 34%;
-  }
-
-  #scoreCardArea {
-    float: right;
-    width: 30%;
-    margin-left: 5%;
-  }
-
-  #card {
-    border-radius: 20px;
-    background-color: transparent;
-  }
-
-  #cardFront {
-    background-color: $mainColor;
-    color: $backColorNav;
-    border-radius: 20px;
-    width: 100%;
-    height: 250px;
-    margin-left: -10px;
-    margin-right: 10px;
-    margin-top: -100px;
-    text-align: center;
-    align-items: center;
-    top: 5%;
-    font-size: 120%;
-    padding-top: 6%;
-    padding-left: 1%;
-    padding-right: 1%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  }
-
-  #cardBack {
-    background-color: $contrastColor;
-    color: white;
-    border-radius: 20px;
-    width: 100%;
-    height: 250px;
-    margin-left: -10px;
-    margin-right: 10px;
-    margin-top: -100px;
-    text-align: center;
-    align-items: center;
-    top: 5%;
-    font-size: 120%;
-    padding-top: 6%;
-    padding-left: 1%;
-    padding-right: 1%;
-  }
+#controlCardArea {
+  float: right;
+  display: flex;
+  width: 35%;
 }
 
-// large: > 2500
-@media #{$largeDevices} {
+#buttonsArea {
+  float: left;
+  //width: 34%;
 }
-//////////////
+
+#scoreCardArea {
+  float: right;
+  width: 30%;
+  margin-left: 5%;
+}
+
+#card {
+  border-radius: 20px;
+  background-color: transparent;
+}
+
+#cardFront {
+  background-color: $mainColor;
+  color: $backColorNav;
+  border-radius: 20px;
+  width: 100%;
+  height: 250px;
+  margin-left: -10px;
+  margin-right: 10px;
+  margin-top: -100px;
+  text-align: center;
+  align-items: center;
+  top: 5%;
+  font-size: 120%;
+  padding-top: 6%;
+  padding-left: 1%;
+  padding-right: 1%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+#cardBack {
+  background-color: $contrastColor;
+  color: white;
+  border-radius: 20px;
+  width: 100%;
+  height: 250px;
+  margin-left: -10px;
+  margin-right: 10px;
+  margin-top: -100px;
+  text-align: center;
+  align-items: center;
+  top: 5%;
+  font-size: 120%;
+  padding-top: 6%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
 // * General Layout
 //////////////
 
