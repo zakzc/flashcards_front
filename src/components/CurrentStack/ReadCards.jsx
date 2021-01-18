@@ -14,15 +14,7 @@ export default class ReadCards extends Component {
   showCurrentStack() {
     if (this.state.currentStack.stackName) {
       return (
-        <div>
-          <h2>
-            Hi there. Your current stack of cards is:{" "}
-            <strong className="currentSelectedStack">
-              {this.state.currentStack.stackName}
-            </strong>
-          </h2>
-          Hover over the card to see the back, or click on it if you are on a
-          mobile.
+        <div id="readCards">
           {this.state.currentStack.cards.map((m, j) => {
             return (
               <div className="flipCard" key={j}>

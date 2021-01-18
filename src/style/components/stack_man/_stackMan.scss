@@ -1,4 +1,93 @@
 //////////////
+// * Responsive layout
+//////////////
+
+// Small devices < 600px
+@media #{$smallDevices} {
+  #stackManWrapper {
+    // background-color: $mainBackColor;
+    // color: $colorCardText;
+    //padding-left: 25px;
+    padding-top: 1%;
+    //margin-left: 10%;
+    height: auto;
+    padding-bottom: 25%;
+  }
+
+  .StackNavAdjust {
+    //color: $contrastColor;
+    margin-bottom: 15%;
+    display: inline;
+  }
+  #chosenFunctionalityArea {
+    margin-top: 30%;
+  }
+
+  #stackNavButtons {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 12%;
+  }
+}
+
+// Medium: 601 to 1199 px
+@media #{$mediumDevices} {
+  #stackManWrapper {
+    // background-color: $mainBackColor;
+    // color: $colorCardText;
+    //padding-left: 25px;
+    padding-top: 1%;
+    //margin-left: 10%;
+    height: auto;
+    padding-bottom: 25%;
+  }
+
+  .StackNavAdjust {
+    color: $contrastColor;
+    margin-bottom: 15%;
+    display: inline;
+  }
+  #chosenFunctionalityArea {
+    margin-top: 30%;
+  }
+
+  #stackNavButtons {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 12%;
+  }
+}
+
+// Standard: 1200 to 2500px
+@media #{$standardView} {
+  #stackManWrapper {
+    // background-color: $mainBackColor;
+    // color: $colorCardText;
+    padding-left: 25px;
+    padding-top: 1%;
+    margin-left: 10%;
+    height: auto;
+    padding-bottom: 25%;
+  }
+
+  .StackNavAdjust {
+    color: $contrastColor;
+  }
+  #chosenFunctionalityArea {
+    margin-top: 2%;
+  }
+
+  #stackNavButtons {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 12%;
+  }
+}
+
+// large: > 2500
+@media #{$largeDevices} {
+}
+//////////////
 // * General Layout
 //////////////
 

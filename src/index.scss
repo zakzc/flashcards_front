@@ -1,5 +1,5 @@
 // Normalize
-@import "./style/generalLayout/normalize";
+@import "./style/normalize";
 
 // Variables
 @import "./style/variables/fonts";
@@ -7,7 +7,7 @@
 @import "./style/variables/colors";
 
 // Responsive Layout
-@import "./style/variables/breakpoints";
+@import "./style/responsiveLayout/breakpoints";
 @import "./style/generalLayout/scaleGraph";
 
 // General layout elements or elements that apply to all layouts
@@ -33,7 +33,6 @@
 @import "./style/components/cur_stack/currentStack";
 // cardSet
 @import "./style/components/card_set/card";
-@import "./style/components/card_set/score";
 @import "./style/components/card_set/stats";
 @import "./style/components/card_set/play_buttons";
 // views

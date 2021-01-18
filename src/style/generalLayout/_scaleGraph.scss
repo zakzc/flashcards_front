@@ -3,29 +3,32 @@
 //////////////
 
 // Small devices < 600px
-// @media #{$smallDevices} {
-//   svg {
-//     width: 40px;
-//     border-radius: 20%;
-//   }
-// }
+@media #{$smallDevices} {
+  svg {
+    width: 40px;
+    border-radius: 20%;
+  }
+}
 
 // Medium: 601 to 1199 px
-// @media #{$mediumDevices} {
-//   svg {
-//     width: 60px;
-//     border-radius: 20%;
-//   }
-// }
+@media #{$mediumDevices} {
+  svg {
+    width: 60px;
+    border-radius: 20%;
+  }
+}
 
 // Standard: 1200 to 2500px
-// @media #{$standardView} {
-//   svg {
-//     width: 80px;
-//     border-radius: 20%;
-//   }
-// }
+@media #{$standardView} {
+  svg {
+    width: 80px;
+    border-radius: 20%;
+  }
+}
 
+// large: > 2500
+@media #{$largeDevices} {
+}
 //////////////
 // * General Layout
 //////////////

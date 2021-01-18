@@ -1,22 +1,92 @@
-#titlePage {
-  background-color: $backColorNav;
-  //background-color: orange;
-  // height: 55px;
-  // margin-top: -13px;
-  // margin-bottom: 2px;
+//////////////
+// * Responsive layout
+//////////////
+
+// Small devices < 600px
+@media #{$smallDevices} {
+  #titlePage {
+    background-color: $backColorNav;
+    height: 55px;
+    margin-top: -13px;
+    margin-bottom: 2px;
+  }
+
+  #title {
+    text-align: center;
+    color: $contrastColor;
+  }
+
+  .pileLogo {
+    //background-color: $backColorNav;
+    background-color: $backColorNav;
+    width: 8%;
+    height: 8%;
+    //position: block;
+    color: $contrastColor;
+    transform: rotate(0deg);
+  }
 }
 
-#title {
-  text-align: center;
-  color: $contrastColor;
+// Medium: 601 to 1199 px
+@media #{$mediumDevices} {
+  #titlePage {
+    background-color: $backColorNav;
+    height: 40px;
+    margin-top: -15px;
+    margin-bottom: 2px;
+  }
+
+  #title {
+    text-align: center;
+    color: $contrastColor;
+  }
+
+  .pileLogo {
+    //background-color: $backColorNav;
+    background-color: $backColorNav;
+    width: 3%;
+    height: 3%;
+    //position: block;
+    color: $contrastColor;
+    transform: rotate(0deg);
+  }
 }
 
-.pileLogo {
-  //background-color: $backColorNav;
-  background-color: $backColorNav;
-  width: 4%;
-  height: 4%;
-  //position: block;
-  color: $contrastColor;
-  transform: rotate(0deg);
+// Standard: 1200 to 2500
+@media #{$standardView} {
+  #title {
+    text-align: center;
+    color: $contrastColor;
+  }
+
+  .pileLogo {
+    //background-color: $backColorNav;
+    background-color: $backColorNav;
+    width: 3%;
+    height: 3%;
+    //position: block;
+    color: $contrastColor;
+    transform: rotate(0deg);
+  }
 }
+
+// large: > 2500
+@media #{$largeDevices} {
+  #title {
+    text-align: center;
+    color: $contrastColor;
+  }
+
+  .pileLogo {
+    //background-color: $backColorNav;
+    background-color: $backColorNav;
+    width: 3%;
+    height: 3%;
+    //position: block;
+    color: $contrastColor;
+    transform: rotate(0deg);
+  }
+}
+//////////////
+// * General Layout
+//////////////
