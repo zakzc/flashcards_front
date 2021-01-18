@@ -1,3 +1,57 @@
+//////////////
+// * Responsive layout
+//////////////
+
+// Small devices < 600px
+@media #{$smallDevices} {
+  #buttonsAreaWrapper {
+    margin-top: 15%;
+    margin-left: 40%;
+    padding: 4%;
+    width: 40px;
+  }
+}
+
+// Medium: 601 to 1199 px
+@media #{$mediumDevices} {
+  #buttonsAreaWrapper {
+    margin-top: 15%;
+    margin-left: 40%;
+    padding: 4%;
+  }
+  #buttonsWrapper {
+    margin-left: -2px;
+  }
+}
+
+// Note: The flipping effect on hover only happens
+// on larger screen sizes
+
+// Standard: 1200 to 2500px
+@media #{$standardView} {
+  #flipButton_Positioning {
+    margin-top: 15%;
+    padding: 4%;
+  }
+
+  #correctButton_Positioning {
+    padding: 1%;
+    margin-left: 5px;
+  }
+}
+
+// large: > 2500
+@media #{$largeDevices} {
+}
+//////////////
+// * General Layout
+//////////////
+
+#buttonsAreaWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 #correctButton_Positioning {
   padding: 1%;
 }
