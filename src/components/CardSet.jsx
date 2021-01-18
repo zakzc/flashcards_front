@@ -201,7 +201,6 @@ export default class CardSet extends React.Component {
                 /*               </AnimatePresence> */
               )}
             </motion.div>
-            {this.infoCard()}
           </React.Fragment>
         );
       }
@@ -308,8 +307,8 @@ export default class CardSet extends React.Component {
     return (
       <React.Fragment>
         <div id="buttonsAreaWrapper">
-          {this.flipButton()}
-          {this.controlButtons()}
+          <div id="flipButton">{this.flipButton()}</div>
+          <div id="controlButtons">{this.controlButtons()}</div>
         </div>
       </React.Fragment>
     );
@@ -346,19 +345,23 @@ export default class CardSet extends React.Component {
         </div>
         <div id="controlCardArea">
           <div id="buttonsArea">{this.buttonArea()}</div>
+          <div id="info">{this.infoCard()}</div>
           <div id="scoreCardArea">
             <Score
               rightAnswers={this.state.right}
               wrongAnswers={this.state.wrong}
             />
-            <div> {this.cardCount()} </div>
+            <div id="cardCount"> {this.cardCount()} </div>
 
             <br />
-            <p>Current stack is: </p>
-            <strong className="currentSelectedStack">
+            <div id="currentPlayStack">
               {" "}
-              {this.state.currentStack.stackName}
-            </strong>
+              <p>Current stack is: </p>
+              <strong className="currentSelectedStack">
+                {" "}
+                {this.state.currentStack.stackName}
+              </strong>
+            </div>
           </div>
         </div>
       </React.Fragment>
