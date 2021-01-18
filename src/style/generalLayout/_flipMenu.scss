@@ -40,3 +40,19 @@
   position: relative;
   // top: -45px;
 }
+
+// Style of flip menu
+/* Style the front side (fallback if image is missing) */
+.flipMenuFront {
+  font-weight: bold;
+  color: $backColorNav;
+  width: 70px;
+}
+
+/* Style the back side */
+.flipMenuBack {
+  font-weight: bolder;
+  background-color: $contrastColor;
+  position: relative;
+  top: -45px;
+}

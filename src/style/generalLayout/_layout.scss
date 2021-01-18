@@ -28,4 +28,5 @@ body {
 #Main_contents {
   display: grid;
   grid-template-columns: 100px auto;
+  background-color: $mainBackColor;
 }
