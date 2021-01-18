@@ -22,7 +22,7 @@
 .flipMenuBack {
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
-  display: flex;
+  // display: flex;
 }
 
 /* Style the front side (fallback if image is missing) */
@@ -33,12 +33,9 @@
 
 /* Style the back side */
 .flipMenuBack {
-  font-weight: bolder;
   transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
-  position: relative;
-  // top: -45px;
 }
 
 // Style of flip menu
@@ -47,6 +44,7 @@
   font-weight: bold;
   color: $backColorNav;
   width: 70px;
+  border-radius: 20%;
 }
 
 /* Style the back side */

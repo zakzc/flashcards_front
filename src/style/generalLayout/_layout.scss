@@ -4,6 +4,7 @@ body {
   background-color: $backColorNav;
   font-size: $fontSizePhone;
 }
+
 #wrapper {
   padding: 0;
   margin: 0;
@@ -11,22 +12,107 @@ body {
   display: block;
 }
 
-#mainContents {
-  float: right;
-  width: 100%;
-  padding: 0;
-  height: auto;
-  background-color: $mainBackColor;
-  //background-color: blue;
-}
-
-.flex-container {
-  display: grid;
-  grid-template-rows: 80px auto;
+#titlePage {
+  grid-area: title;
+  background-color: blueviolet;
 }
 
 #Main_contents {
+  grid-area: Main_contents;
   display: grid;
-  grid-template-columns: 100px auto;
-  background-color: $mainBackColor;
+}
+
+// Layouts
+
+// General layout any size
+#App_View {
+  display: grid;
+  grid-template-areas:
+    " title"
+    " Main_contents ";
+  gap: 4px;
+  // grid-template-rows: 80px auto;
+  // background-color: $mainBackColor;
+  background-color: pink;
+}
+
+// Main_contents area
+
+// Responsive
+#navBar {
+  grid-area: navbar;
+  background-color: green;
+}
+
+#currentView {
+  display: grid;
+  grid-area: currentView;
+  background-color: aqua;
+}
+
+// smaller screens sizes > 768
+@media only screen and (max-width: 767px) {
+  #Main_contents {
+    display: grid;
+    grid-template-rows: 70px auto;
+    grid-template-areas:
+      " navbar"
+      " currentView";
+    gap: 1px;
+  }
+  // navBar displayed horizontally on smaller devices
+  #navBar {
+    display: grid;
+    gap: 1px;
+    justify-content: center;
+    align-content: space-between;
+  }
+
+  #navigationIcons {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(5, 1fr);
+    margin-left: 2%;
+  }
+}
+// bigger screen sizes > 768
+@media only screen and (min-width: 768px) {
+  #Main_contents {
+    display: grid;
+    grid-template-columns: 90px auto;
+    grid-template-areas: "navbar currentView";
+    gap: 4px;
+    flex-direction: column;
+  }
+
+  #navBar {
+    justify-content: center;
+    align-content: center;
+    grid-auto-flow: column;
+  }
+
+  #navigationIcons {
+    margin-left: 10%;
+  }
+}
+
+@media only screen and (min-width: 2400px) {
+  #Main_contents {
+    display: grid;
+    grid-template-columns: 200px auto;
+    grid-template-areas: "navbar currentView";
+    gap: 4px;
+    flex-direction: column;
+  }
+
+  #navigationIcons {
+    margin-left: 25%;
+  }
+}
+
+svg {
+  width: 80px;
+  border-radius: 20%;
 }
