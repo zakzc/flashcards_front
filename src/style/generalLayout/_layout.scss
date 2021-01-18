@@ -47,7 +47,7 @@ body {
 #currentView {
   display: grid;
   grid-area: currentView;
-  background-color: aqua;
+  background-color: $mainBackColor;
 }
 
 // smaller screens sizes > 768
@@ -110,4 +110,9 @@ body {
   #navigationIcons {
     margin-left: 25%;
   }
+}
+
+svg {
+  width: 80px;
+  border-radius: 20%;
 }

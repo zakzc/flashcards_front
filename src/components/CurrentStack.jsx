@@ -119,11 +119,6 @@ export default class currentStack extends Component {
               <h3>Hi {this.state.currentUser.firstName}, welcome back </h3>
               <br />
               <p>The current stack is: {this.state.currentStack.stackName}</p>
-              <p>
-                Hover over the card to see the back, or click on it if you are
-                on
-              </p>
-              a mobile.
             </div>
             {this.changeStackButton()}
           </div>

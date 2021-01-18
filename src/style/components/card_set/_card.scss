@@ -1,113 +1,82 @@
-//////////////
-// * General Layout
-//////////////
-
-#cardText {
-  grid-area: cardText;
-}
-
-#cardFront {
-  background-color: hotpink;
-  padding: 100px 200px 100px 200px;
-  border-radius: 20px;
-  font-size: 100%;
-}
-
-#cardBack {
-  background-color: yellowgreen;
-  padding: 100px 200px 100px 200px;
-  border-radius: 20px;
-  font-size: 100%;
-}
-
-#card {
-  grid-area: card;
-  display: grid;
-  grid-template-areas:
-    ". . ."
-    ". cardText ."
-    ". . . ";
-  justify-content: center;
-  align-content: center;
-  background-color: darkslategray;
-  // border-radius: 20px;
-  // text-align: center;
-  // align-items: center;
-}
-
-#info {
-  grid-area: info;
-}
-
-#buttonsArea {
-  grid-area: buttonsArea;
-  display: grid;
-}
-
-#scoreCardArea {
-  grid-area: scoreCardArea;
+#cardAreaWrapper {
+  background-color: $mainBackColor;
+  color: $backColorNav;
+  padding-left: 1%;
+  height: 100%;
+  display: block;
+  //padding-bottom: 15%;
+  width: 100%;
 }
 
 #cardArea {
-  grid-area: cardArea;
-  display: grid;
-  grid-template-areas: "card";
-  grid-template-rows: 3fr 1fr;
+  //display: flex;
+  padding-top: 10%;
+  float: left;
+  width: 55%;
 }
 
 #controlCardArea {
-  grid-area: cardControl;
-  display: grid;
-  grid-template-areas:
-    "buttonsArea"
-    "scoreCardArea"
-    "info";
-  grid-template-rows: repeat(3, 1fr);
+  float: right;
+  display: flex;
+  width: 35%;
 }
 
-#flipButton {
-  grid-area: flip;
-  background-color: darkslateblue;
+#buttonsArea {
+  float: left;
+  //width: 34%;
 }
 
-#controlButtons {
-  grid-area: control;
+#scoreCardArea {
+  float: right;
+  width: 30%;
+  margin-left: 5%;
 }
 
-#buttonsAreaWrapper {
-  display: grid;
-  grid-template-areas: " flip control control";
-  grid-template-columns: 1fr 2fr;
-  background-color: wheat;
+#card {
+  border-radius: 20px;
+  background-color: transparent;
 }
 
+#cardFront {
+  background-color: $mainColor;
+  color: $backColorNav;
+  border-radius: 20px;
+  width: 100%;
+  height: 250px;
+  margin-left: -10px;
+  margin-right: 10px;
+  margin-top: -100px;
+  text-align: center;
+  align-items: center;
+  top: 5%;
+  font-size: 120%;
+  padding-top: 6%;
+  padding-left: 1%;
+  padding-right: 1%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+#cardBack {
+  background-color: $contrastColor;
+  color: white;
+  border-radius: 20px;
+  width: 100%;
+  height: 250px;
+  margin-left: -10px;
+  margin-right: 10px;
+  margin-top: -100px;
+  text-align: center;
+  align-items: center;
+  top: 5%;
+  font-size: 120%;
+  padding-top: 6%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+// * General Layout
 //////////////
-// * Responsive
-//////////////
 
-@media only screen and (max-width: 767px) {
-  #cardAreaWrapper {
-    display: grid;
-    grid-template-areas:
-      "cardArea"
-      "cardControl";
-    grid-template-columns: 4fr 1fr;
-  }
-}
-
-// bigger screen sizes > 768
-@media only screen and (min-width: 768px) {
-  #cardAreaWrapper {
-    display: grid;
-    grid-template-areas: "cardArea cardControl";
-    grid-template-columns: 4fr 1fr;
-    // gap: 20px;
-  }
-}
-
-//////////////
-// * Buttons and effects
-//////////////
 #flipButtonMessage {
   color: $mainColor;
   margin-top: -28px;
@@ -139,11 +108,11 @@
   visibility: visible;
 }
 
-// @keyframes cssAnimation {
-//   to {
-//     visibility: hidden;
-//   }
-// }
+@keyframes cssAnimation {
+  to {
+    visibility: hidden;
+  }
+}
 
 .infoCard_cardSet {
   margin-top: 5%;
