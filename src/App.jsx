@@ -108,18 +108,15 @@ export default class App extends React.Component {
 
   loggedInView() {
     return (
-      // <div className="flex-container">
-      <Router>
-        <Title />
-        <div id="Main_contents">
-          <div id="navBar">
+      <div className="flex-container">
+        <Router>
+          <Title />
+          <div id="Main_contents">
             <Navigation
               currentUser={this.state.currentUser}
               userIsLoggedIn={this.state.userIsLoggedIn}
               logOut_User={this.logOut_User}
             />
-          </div>
-          <div id="currentView">
             <Switch>
               {/* <Route exact path="/" component={BaseRoute} /> */}
               <Route
@@ -203,9 +200,8 @@ export default class App extends React.Component {
               </Route>
             </Switch>
           </div>
-        </div>
-      </Router>
-      // </div>
+        </Router>
+      </div>
     );
   }
 
@@ -240,13 +236,21 @@ export default class App extends React.Component {
   appView() {
     console.log("APP");
     if (this.state.userIsLoggedIn === true) {
-      return <div id="user_is_logged_in">{this.loggedInView()}</div>;
+      return (
+        <div className="appWrapper">
+          <div id="user_is_logged_in">{this.loggedInView()}</div>
+        </div>
+      );
     } else {
-      return <div id="user_is_logged_out">{this.loggedOutView()}</div>;
+      return (
+        <div className="appWrapper">
+          <div id="user_is_logged_out">{this.loggedOutView()}</div>
+        </div>
+      );
     }
   }
 
   render() {
-    return <div id="App_View">{this.appView()}</div>;
+    return <div id="App View">{this.appView()}</div>;
   }
 }

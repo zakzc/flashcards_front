@@ -1,10 +1,7 @@
 // Responsive design
 // $small: "only screen and (max-device-width : 321px))";
-// $phone: "only screen and (max-device-width : 480px)";
-// $phoneHorizontal: "only screen and (min-device-width : 481px) and (max-device-width : 767px))";
-// $pad: "only screen and (min-device-width : 768px) and (max-device-width : 1023px)";
-// $desk: "only screen and (min-device-width : 1024px) and (max-device-width : 2500px)";
-// $large: "only screen and (min-device-width : 2501px) ";
-
-$mobile: "max-device-width : 767px";
-$standard: "min-device-width : 768px";
+$phone: "only screen and (max-device-width : 480px)";
+$phoneHorizontal: "only screen and (min-device-width : 481px) and (max-device-width : 767px))";
+$pad: "only screen and (min-device-width : 768px) and (max-device-width : 1023px)";
+$desk: "only screen and (min-device-width : 1024px) and (max-device-width : 2500px)";
+$large: "only screen and (min-device-width : 2501px) ";
