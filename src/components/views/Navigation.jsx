@@ -48,6 +48,7 @@ export default class Navigation extends Component {
         <ul
           style={{ listStyleType: "none", padding: 0 }}
           activeclassname="active"
+          id="navigationIcons"
         >
           <div className="flipMenu">
             <li className="navigationLink">
@@ -133,12 +134,11 @@ export default class Navigation extends Component {
 
   navigationLayout() {
     return (
-      <div id="navBar">
-        {" "}
+      <div id="navigation">
         {this.state.userIsLoggedIn ? (
-          <div id="navigation">{this.loggedInNavBar()}</div>
+          <div>{this.loggedInNavBar()}</div>
         ) : (
-          <div id="navigation">{this.loggedOutNavBar()}</div>
+          <div>{this.loggedOutNavBar()}</div>
         )}
       </div>
     );

@@ -1,13 +1,41 @@
 #currentStackLayout {
   display: grid;
   grid-template-rows: 1fr auto;
+  gap: 20px;
 }
 
-#tinyNavBar {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  justify-content: center;
-  align-content: center;
+#saluteTheUser {
+  grid-area: salute;
+}
+
+#buttonArea {
+  grid-area: buttonArea;
+}
+
+// Adjusts for responsiveness
+@media only screen and (max-width: 767px) {
+  #tinyNavBar {
+    display: grid;
+    grid-template-rows: repeat(5, auto);
+    justify-content: space-around;
+    align-content: center;
+    grid-template-areas:
+      "."
+      "salute"
+      "."
+      "buttonArea"
+      ".";
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #tinyNavBar {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    justify-content: space-around;
+    align-content: center;
+    grid-template-areas: " . salute . buttonArea .";
+  }
 }
 
 .cardViewWrap {
