@@ -5,3 +5,22 @@ $phoneHorizontal: "only screen and (min-device-width : 481px) and (max-device-wi
 $pad: "only screen and (min-device-width : 768px) and (max-device-width : 1023px)";
 $desk: "only screen and (min-device-width : 1024px) and (max-device-width : 2500px)";
 $large: "only screen and (min-device-width : 2501px) ";
+
+$mobile: "max-device-width : 767px";
+$standard: "min-device-width : 768px";
+$large: "min-device-width : 2501px";
+
+//Breakpoints to erase
+
+// * Responsive design
+// Small devices: phones and small tablets
+$smallDevices: "only screen and (max-device-width : 600px)  and (-webkit-min-device-pixel-ratio: 2)";
+
+// Medium devices: tablets in general until small desktop
+$mediumDevices: "only screen and (min-device-width : 601px) and (max-device-width: 1199px) and (-webkit-min-device-pixel-ratio: 1))";
+
+// Standard: normal screen sizes
+$standardView: "only screen and (min-device-width : 1200px)";
+
+//Large: large screens
+$largeDevices: "only screen and (min-device-width : 2501px) ";

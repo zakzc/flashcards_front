@@ -1,15 +1,15 @@
 #navigationWrapper {
-  position: relative;
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  background-color: $backColorNav;
+  // position: relative;
+  // min-height: 100%;
+  // height: auto !important;
+  // height: 100%;
+  // background-color: $backColorNav;
 }
 
 #navigation {
-  background-color: $backColorNav;
-  min-height: 100%;
-  height: 100%;
+  // background-color: $backColorNav;
+  // min-height: 100%;
+  // height: 100%;
   // padding-top: 80px;
   // padding-left: 20px;
 }
@@ -17,23 +17,23 @@
 // elements that apply to all screen sizes:
 #currentUser,
 #currentStack {
-  color: $contrastColor;
+  // color: $contrastColor;
   //padding-left: 10px;
 }
 .largerText {
-  font-size: 120%;
+  // font-size: 120%;
 }
 
 .navigationLink {
-  background-color: $contrastColor;
-  color: $backColorNav;
-  border-radius: 20px;
-  width: 100px;
+  // background-color: $contrastColor;
+  // color: $backColorNav;
+  // border-radius: 20px;
+  // width: 100px;
 }
 
 .active {
   .flipMenuFront {
-    color: $mainColor;
+    // color: $mainColor;
   }
 }
 
@@ -42,16 +42,16 @@
 }
 
 .logOutIcon {
-  background-color: $contrastColor;
-  color: $backColorNav;
+  // background-color: $contrastColor;
+  // color: $backColorNav;
   transform: rotate(180deg);
 }
 
 //Links
 a {
-  color: $backColorNav;
-  padding: 15px 18px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+  // color: $backColorNav;
+  // padding: 15px 18px;
+  // text-align: center;
+  // text-decoration: none;
+  // display: inline-block;
 }

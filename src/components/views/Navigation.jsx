@@ -133,8 +133,7 @@ export default class Navigation extends Component {
 
   navigationLayout() {
     return (
-      <div id="navBar">
-        {" "}
+      <div>
         {this.state.userIsLoggedIn ? (
           <div id="navigation">{this.loggedInNavBar()}</div>
         ) : (
