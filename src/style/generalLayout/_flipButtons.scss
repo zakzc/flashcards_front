@@ -1,26 +1,29 @@
 .buttonStyle {
-  color: $contrastColor;
-  background-color: $backColorNav;
+  // color: $contrastColor;
+  background-color: $contrastColor;
+  border-radius: 20px;
+  margin-bottom: 40%;
   // width: 140px;
   // height: 100px;
   // border-radius: 20px;
   border: 0;
-  padding: 0.5%;
+  padding: 0;
   margin: 0;
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
-  position: relative;
+  // position: relative;
 }
 
 .buttonMessage {
-  color: $mainColor;
-  //background-color: orangered;
-  margin-top: -75px;
-  margin-left: -35px;
-  vertical-align: middle;
-  position: absolute;
+  color: $backColorNav;
+  border-radius: 20px;
   z-index: 5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  // position: relative;
+  padding-left: 20px;
 }
 
 // * Flipping buttons
@@ -28,10 +31,14 @@
 // Flip
 .flipContainer {
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  background-color: transparent;
 }
 
 /* This container is needed to position the front and back side */
 .flipInner {
+  width: 100%;
+  height: 100%;
+  text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
   border-radius: 20px;
@@ -47,12 +54,11 @@
 /* Position the front and back side */
 .flipFront,
 .flipBack {
-  //position: absolute;
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
-  display: flex;
+  // display: flex;
 }
 
 /* Style the front side (fallback if image is missing) */
@@ -68,5 +74,4 @@
   //-moz-transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
   border-radius: 20px;
-  position: relative;
 }
