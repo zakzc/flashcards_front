@@ -98,7 +98,7 @@ export default class ExportStack extends Component {
   render() {
     return (
       <React.Fragment>
-        <div id="deleteCurStackWrapper">
+        <div id="exportCurStackWrapper">
           <div>{this.infoOnExport()}</div>
           <div>{this.exportButton()}</div>
         </div>

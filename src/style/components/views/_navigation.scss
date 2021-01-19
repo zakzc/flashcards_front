@@ -33,12 +33,13 @@
 
 .active {
   .flipMenuFront {
-    // color: $mainColor;
+    color: $mainColor;
   }
 }
 
 #logOutButton {
   border-radius: 20px;
+  margin-left: 2%;
 }
 
 .logOutIcon {

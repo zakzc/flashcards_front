@@ -1,5 +1,5 @@
 #confirmDeleteButton_Positioning {
-  float: left;
+  // float: left;
 }
 
 .deleteButtonIcon {
@@ -11,26 +11,26 @@
   background-color: $mainBackColor;
   border: none;
   text-decoration: none;
-  width: 80px;
-  height: 80px;
+  // width: 80px;
+  // height: 80px;
   border-radius: 20px;
 }
 
 #delButton {
   background-color: $contrastColor;
-  height: 100px;
-  width: 120px;
+  // height: 100px;
+  // width: 120px;
   border-radius: 20px;
 }
 
 #delButtonBack {
   color: $backColorNav;
-  height: 20px;
-  margin-top: -40px;
+  // height: 20px;
+  // margin-top: -40px;
 }
 
 #deleteConfirmButton {
-  margin-top: -15px;
+  // margin-top: -15px;
   color: $mainColor;
 }
 
@@ -68,7 +68,7 @@
 .flipDelFront {
   font-weight: bold;
   //color: $backColorNav;
-  width: 70px;
+  // width: 70px;
   //transform: rotate(180deg);
 }
 
@@ -78,10 +78,6 @@
   transform: rotateY(180deg);
   //background-color: $contrastColor;
   position: relative;
-  top: -30px;
+  // top: -30px;
   overflow: inherit;
-}
-
-#deleteCurStackWrapper {
-  margin-top: -100px;
 }

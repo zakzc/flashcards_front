@@ -63,7 +63,7 @@ body {
   // navBar displayed horizontally on smaller devices
   #navBar {
     display: grid;
-    gap: 1px;
+    gap: 4px;
     justify-content: center;
     align-content: space-between;
   }
@@ -94,7 +94,8 @@ body {
   }
 
   #navigationIcons {
-    margin-left: 10%;
+    margin-left: 2%;
+    grid-template-rows: repeat(5, 1fr);
   }
 }
 
@@ -113,6 +114,6 @@ body {
 }
 
 svg {
-  // width: 80px;
+  width: 50px;
   border-radius: 20%;
 }

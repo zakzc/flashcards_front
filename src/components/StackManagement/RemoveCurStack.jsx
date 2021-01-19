@@ -99,7 +99,7 @@ export default class RemoveCurStack extends Component {
 
   deleteStackView() {
     return (
-      <div id="deleteCurStackWrapper">
+      <div id="deleteCurStackLayout">
         <div id="deleteWarning">{this.warning()}</div>
         <div id="deleteButtonConfirmation">{this.deleteButton()}</div>
         {this.state.redirectUser ? this.redirectToConsolidate() : <div></div>}

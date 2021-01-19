@@ -154,14 +154,12 @@ export default class StackManagement extends Component {
 
   stackNav() {
     return (
-      <div className="StackNavAdjust">
-        <div id="stackNavButtons">
-          <div id="stackNavLeft" className="optionIsActive">
-            {this.addStackButton()}
-          </div>
-          <div id="stackNavCenter">{this.exportStackButton()}</div>
-          <div id="stackNavRight">{this.deleteStackButton()}</div>
+      <div id="StackNav">
+        <div id="stackNavLeft" className="optionIsActive">
+          {this.addStackButton()}
         </div>
+        <div id="stackNavCenter">{this.exportStackButton()}</div>
+        <div id="stackNavRight">{this.deleteStackButton()}</div>
       </div>
     );
   }
@@ -205,7 +203,7 @@ export default class StackManagement extends Component {
   StackManagementLayout() {
     return (
       <React.Fragment>
-        <div id="stackManWrapper">
+        <div id="stackManLayout">
           {this.stackNav()}
           {this.chosenFunctionality()}
         </div>
@@ -216,15 +214,13 @@ export default class StackManagement extends Component {
   StackManagementView() {
     console.log("STACK MANAGEMENT");
     return (
-      <React.Fragment>
-        <div id="cardManagementView">
-          {this.state.userIsLoggedIn ? (
-            <div id="loggedInView">{this.StackManagementLayout()}</div>
-          ) : (
-            <Redirect to="/login" />
-          )}
-        </div>
-      </React.Fragment>
+      <div id="StackManagementView">
+        {this.state.userIsLoggedIn ? (
+          <div id="loggedInView">{this.StackManagementLayout()}</div>
+        ) : (
+          <Redirect to="/login" />
+        )}
+      </div>
     );
   }
 

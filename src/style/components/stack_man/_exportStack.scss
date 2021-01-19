@@ -1,5 +1,5 @@
 #exportStackButton_Positioning {
-  float: left;
+  // float: left;
 }
 
 .exportButtonIcon {
@@ -28,9 +28,9 @@
 
 #expButtonBack {
   color: $backColorNav;
-  height: 20px;
-  width: 80px;
-  margin-top: -40px;
+  // height: 20px;
+  // width: 80px;
+  // margin-top: -40px;
 }
 
 // Flip delete
@@ -43,7 +43,7 @@
 .flipExpInner {
   transition: transform 0.8s;
   transform-style: preserve-3d;
-  height: 45px;
+  // height: 45px;
   border-radius: 20px;
 }
 
@@ -64,7 +64,7 @@
 .flipExpFront {
   font-weight: bold;
   color: $backColorNav;
-  width: 70px;
+  // width: 70px;
   //transform: rotate(180deg);
   border-radius: 20px;
 }
@@ -76,10 +76,6 @@
   background-color: $contrastColor;
   border-radius: 20px;
   position: relative;
-  top: -30px;
+  // top: -30px;
   overflow: hidden;
 }
-
-// #deleteCurStackWrapper {
-//   margin-top: -100px;
-// }
