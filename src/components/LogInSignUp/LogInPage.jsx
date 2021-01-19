@@ -113,7 +113,7 @@ export default class LogInPage extends Component {
 
   logInView() {
     return (
-      <div id="loggedInPageView">
+      <div id="loggedInView">
         <h2>Log In Page</h2>
         {this.logInForm()}
         <div id="errorMessage">{this.state.errorMessage}</div>

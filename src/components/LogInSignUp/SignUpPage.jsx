@@ -161,7 +161,7 @@ export default class SignUpPage extends Component {
 
   signUpView() {
     return (
-      <div id="loggedInView">
+      <div id="signUpView">
         <h2>Sign Up Page</h2>
         {this.signUpForm()}
         {this.state.redirectUser ? this.redirectUser() : <div></div>}

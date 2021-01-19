@@ -14,7 +14,6 @@ body {
 
 #titlePage {
   grid-area: title;
-  background-color: blueviolet;
 }
 
 #Main_contents {
@@ -30,10 +29,8 @@ body {
   grid-template-areas:
     " title"
     " Main_contents ";
-  gap: 4px;
-  // grid-template-rows: 80px auto;
-  // background-color: $mainBackColor;
-  background-color: pink;
+  grid-template-rows: 80px auto;
+  background-color: $backColorNav;
 }
 
 // Main_contents area
@@ -41,7 +38,7 @@ body {
 // Responsive
 #navBar {
   grid-area: navbar;
-  background-color: green;
+  background-color: $backColorNav;
 }
 
 #currentView {
@@ -81,7 +78,7 @@ body {
 @media only screen and (min-width: 768px) {
   #Main_contents {
     display: grid;
-    grid-template-columns: 90px auto;
+    grid-template-columns: 70px auto;
     grid-template-areas: "navbar currentView";
     gap: 4px;
     flex-direction: column;
@@ -102,16 +99,16 @@ body {
 @media only screen and (min-width: 2400px) {
   #Main_contents {
     display: grid;
-    grid-template-columns: 200px auto;
+    grid-template-columns: 100px auto;
     grid-template-areas: "navbar currentView";
     gap: 4px;
     flex-direction: column;
   }
-
-  #navigationIcons {
-    // margin-left: 25%;
-  }
 }
+
+//////////////////////////
+// * Navigational elements
+//////////////////////////
 
 svg {
   width: 50px;

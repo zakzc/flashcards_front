@@ -1,7 +1,12 @@
+#manageCardsLayout {
+  // adjust of the container positioning
+  margin-top: 1%;
+  margin-left: 1%;
+}
+
 #cardManagementWrapper {
   background-color: $mainBackColor;
   color: $colorCardText;
-  padding-left: 25px;
   height: auto;
   display: flex;
   padding-bottom: 15%;

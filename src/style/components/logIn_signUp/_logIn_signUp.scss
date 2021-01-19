@@ -9,3 +9,16 @@
   margin-left: 20%;
   margin-top: 2%;
 }
+
+#loggedInView {
+  background-color: $mainBackColor;
+}
+
+#signUpView {
+  background-color: $mainBackColor;
+}
+
+#logInOrSignUpViewSwitch {
+  padding: 1%;
+  background-color: $mainBackColor;
+}

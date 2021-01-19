@@ -7,14 +7,14 @@
 }
 
 #cardFront {
-  background-color: hotpink;
+  background-color: $mainColor;
   padding: 100px 200px 100px 200px;
   border-radius: 20px;
   font-size: 100%;
 }
 
 #cardBack {
-  background-color: yellowgreen;
+  background-color: $contrastColor;
   padding: 100px 200px 100px 200px;
   border-radius: 20px;
   font-size: 100%;
@@ -23,16 +23,9 @@
 #card {
   grid-area: card;
   display: grid;
-  grid-template-areas:
-    ". . ."
-    ". cardText ."
-    ". . . ";
   justify-content: center;
   align-content: center;
-  background-color: darkslategray;
-  // border-radius: 20px;
-  // text-align: center;
-  // align-items: center;
+  background-color: $mainBackColor;
 }
 
 #info {
@@ -67,7 +60,7 @@
 
 #flipButton {
   grid-area: flip;
-  background-color: darkslateblue;
+  background-color: $mainBackColor;
 }
 
 #controlButtons {
@@ -78,7 +71,7 @@
   display: grid;
   grid-template-areas: " flip control control";
   grid-template-columns: 1fr 2fr;
-  background-color: wheat;
+  background-color: $mainBackColor;
 }
 
 //////////////
@@ -103,55 +96,4 @@
     grid-template-columns: 4fr 1fr;
     // gap: 20px;
   }
-}
-
-//////////////
-// * Buttons and effects
-//////////////
-#flipButtonMessage {
-  color: $mainColor;
-  margin-top: -28px;
-}
-
-// Fade effects on card
-
-.fade-enter {
-  opacity: 0.01;
-}
-
-.fade-enter.fade-enter-active {
-  opacity: 1;
-  transition: opacity 3000ms ease-in;
-}
-
-.fade-exit {
-  opacity: 1;
-}
-
-.fade-exit.fade-exit-active {
-  opacity: 0.01;
-  transition: opacity 2500ms ease-in;
-}
-
-// InfoCard short message
-#shortMessage {
-  animation: cssAnimation 0s 7s forwards;
-  visibility: visible;
-}
-
-// @keyframes cssAnimation {
-//   to {
-//     visibility: hidden;
-//   }
-// }
-
-.infoCard_cardSet {
-  margin-top: 5%;
-  box-shadow: 0 4px 8px 0#2e303f;
-  background-color: $mainColor;
-  border-radius: 5px;
-  opacity: 0.8;
-  width: 250px;
-  display: flex;
-  justify-content: space-between;
 }

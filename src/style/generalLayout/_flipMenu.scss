@@ -1,5 +1,6 @@
 // Flipping navigation cards
 .flipMenu {
+  // text-align: center;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 
@@ -22,35 +23,24 @@
 .flipMenuBack {
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
-  // display: flex;
+  display: flex;
 }
 
 /* Style the front side (fallback if image is missing) */
 .flipMenuFront {
   font-weight: bold;
+  //color: $backColorNav;
+  //width: 70px;
   transform: rotate(180deg);
 }
 
 /* Style the back side */
 .flipMenuBack {
+  font-weight: bolder;
   transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
-}
-
-// Style of flip menu
-/* Style the front side (fallback if image is missing) */
-.flipMenuFront {
-  font-weight: bold;
-  color: $backColorNav;
-  width: 70px;
-  border-radius: 20%;
-}
-
-/* Style the back side */
-.flipMenuBack {
-  font-weight: bolder;
-  background-color: $contrastColor;
+  //background-color: $contrastColor;
   position: relative;
   top: -45px;
 }

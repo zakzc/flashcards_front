@@ -40,33 +40,37 @@ export default class LogInSignUp extends Component {
 
   logInOrSignUpDisplay() {
     return (
-      <React.Fragment>
-        <button
-          type="button"
-          className="buttonStyle"
-          onClick={this.logInOrSignUpSwitch}
-        >
+      <div id="logInOrSignUpLayout">
+        <div id="buttonArea">
+          <button
+            type="button"
+            className="buttonStyle"
+            onClick={this.logInOrSignUpSwitch}
+          >
+            {this.state.logInOrSignUpState ? (
+              <p>Sign up instead</p>
+            ) : (
+              <p> Log in instead</p>
+            )}
+          </button>
+        </div>
+        <div id="logInOrSignUpViewSwitch">
           {this.state.logInOrSignUpState ? (
-            <p>Sign up instead</p>
+            <LogInPage
+              user={this.state.currentUser}
+              currentStack={this.state.currentStack}
+              logIn_User={this.logIn_User}
+            />
           ) : (
-            <p> Log in instead</p>
+            <SignUpPage
+              user={this.state.currentUser}
+              currentStack={this.state.currentStack}
+              updateUser={this.updateUser}
+              logInOrSignUpSwitch={this.logInOrSignUpSwitch}
+            />
           )}
-        </button>
-        {this.state.logInOrSignUpState ? (
-          <LogInPage
-            user={this.state.currentUser}
-            currentStack={this.state.currentStack}
-            logIn_User={this.logIn_User}
-          />
-        ) : (
-          <SignUpPage
-            user={this.state.currentUser}
-            currentStack={this.state.currentStack}
-            updateUser={this.updateUser}
-            logInOrSignUpSwitch={this.logInOrSignUpSwitch}
-          />
-        )}
-      </React.Fragment>
+        </div>
+      </div>
     );
   }
 
