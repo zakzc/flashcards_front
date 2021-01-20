@@ -1,7 +1,7 @@
 .buttonStyle {
   position: absolute;
   background-color: transparent;
-  // text-decoration: none;
+  text-decoration: none;
   border: none;
   margin: none;
   padding: none;
@@ -12,6 +12,8 @@
   color: $mainColor;
   z-index: 5;
   position: absolute;
+  margin-left: -5px;
+  overflow: hidden;
 }
 
 // * Flipping buttons
@@ -19,9 +21,11 @@
 // Flip
 .flipContainer {
   background-color: transparent;
+  ///
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
   -moz-perspective: 1000px;
   -webkit-perspective: 1000px;
+  ///
   width: 70px;
   height: 70px;
 }
@@ -80,7 +84,6 @@
   transform: rotateY(0deg);
   -moz-transform: rotateY(0deg);
   -webkit-transform: rotateY(0deg);
-  z-index: 1;
 }
 
 /* Style the back side */
@@ -98,5 +101,4 @@
   border-radius: 20px;
   // adjusts the position of the text in the container
   margin-top: 25px;
-  z-index: 2;
 }

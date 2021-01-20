@@ -117,7 +117,7 @@ export default class StackManagement extends Component {
                   <Export className="navIconStackMan" />
                 </div>
                 <div className="flipBack">
-                  <span className="buttonMessage">DOWNLOAD</span>
+                  <span className="buttonMessage">Download</span>
                 </div>
               </button>
             </div>
@@ -143,7 +143,7 @@ export default class StackManagement extends Component {
                   <Trash className="navIconStackMan" />
                 </div>
                 <div className="flipBack">
-                  <span className="buttonMessage">DELETE</span>
+                  <span className="buttonMessage">Delete</span>
                 </div>
               </button>
             </div>

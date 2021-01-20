@@ -1,18 +1,38 @@
-// Flipping navigation cards
+// * Flipping navigation cards
 .flipMenu {
-  // text-align: center;
+  background-color: gray;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  -moz-perspective: 1000px;
+  -webkit-perspective: 1000px;
+  width: 70px;
+  height: 70px;
 }
 
 /* This container is needed to position the front and back side */
 .flipMenuInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  ///
   transition: transform 0.8s;
+  -webkit-transition: transform 0.8s;
+  -moz-transition: transform 0.8s;
+  ///
   transform-style: preserve-3d;
-  height: 45px;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  ///
+  border-radius: 20px;
+  overflow: visible;
+  ///
+  background-color: $contrastColor;
+  border-radius: 20px;
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
-.flipMenu:hover .flipMenuInner {
+.flipMenu:hover .flipMenuInner,
+.flipMenu.hover .flipMenuInner {
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
@@ -21,26 +41,42 @@
 /* Position the front and back side */
 .flipMenuFront,
 .flipMenuBack {
-  -webkit-backface-visibility: hidden; /* Safari */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  ///
   backface-visibility: hidden;
-  display: flex;
+  -webkit-backface-visibility: hidden; /* Safari */
+  -moz-backface-visibility: hidden;
+  background-color: blue;
 }
 
 /* Style the front side (fallback if image is missing) */
 .flipMenuFront {
   font-weight: bold;
-  //color: $backColorNav;
-  //width: 70px;
-  transform: rotate(180deg);
+  border-radius: 20px;
+  // adjusts the position of the svg, to juxtapose it over the text
+  margin-left: -35px;
+  ///
+  // Necessary for this to work with Mozilla
+  transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
 }
 
 /* Style the back side */
 .flipMenuBack {
   font-weight: bolder;
+  ///
   transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
-  //background-color: $contrastColor;
-  position: relative;
-  top: -45px;
+  ///
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; /* Safari */
+  -moz-backface-visibility: hidden;
+  ///
+  border-radius: 20px;
+  // adjusts the position of the text in the container
+  margin-top: 25px;
 }

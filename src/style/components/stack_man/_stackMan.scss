@@ -49,17 +49,24 @@
 }
 
 .buttonIsActive {
-  background-color: $contrastColor;
   color: $backColorNav;
-}
-
-.buttonIsOff {
-  color: $mainColor;
-  background-color: $backColorNav;
+  position: absolute;
+  background-color: transparent;
+  // text-decoration: none;
+  border: none;
+  margin: none;
+  padding: none;
   border-radius: 20px;
 }
 
-.buttonIsActive {
+.buttonIsOff {
+  color: $mainBackColor;
+  position: absolute;
+  background-color: transparent;
+  // text-decoration: none;
+  border: none;
+  margin: none;
+  padding: none;
   border-radius: 20px;
 }
 

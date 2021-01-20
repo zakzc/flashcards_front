@@ -116,3 +116,12 @@ svg {
   // background: $contrastColor;
   // color: $backColorNav;
 }
+
+.simpleButtonStyle {
+  background-color: $contrastColor;
+  color: $mainBackColor;
+  border-radius: 20px;
+  width: 85px;
+  height: 65px;
+  margin-left: 20px;
+}

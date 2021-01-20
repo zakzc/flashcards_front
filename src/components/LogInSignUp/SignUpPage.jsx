@@ -152,7 +152,10 @@ export default class SignUpPage extends Component {
             ref={(input) => (this.lastName = input)}
           ></input>
         </div>
-        <button className="buttonStyle" onClick={this.handleSubmitSignUpForm}>
+        <button
+          className="simpleButtonStyle"
+          onClick={this.handleSubmitSignUpForm}
+        >
           Register
         </button>
       </form>

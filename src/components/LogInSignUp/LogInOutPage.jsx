@@ -105,7 +105,10 @@ export default class LogInPage extends Component {
               ref={(input) => (this.userPsw = input)}
             ></input>
           </div>
-          <button className="buttonStyle" onClick={this.handleSubmitLogInForm}>
+          <button
+            className="simpleButtonStyle"
+            onClick={this.handleSubmitLogInForm}
+          >
             Log me in
           </button>
         </form>

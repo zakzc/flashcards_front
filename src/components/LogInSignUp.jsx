@@ -45,14 +45,16 @@ export default class LogInSignUp extends Component {
       <div id="logInOrSignUpLayout">
         <div id="inOutButtonArea">
           <h1 id="logInTextMessage">
-            Log in or Sign up{" "}
+            Log in or Sign up
             <span>
               <PileLogo className="pileLogo" />
             </span>
           </h1>
+        </div>
+        <div id="logInOrSignUpViewSwitch">
           <button
             type="button"
-            className="buttonStyle"
+            className="simpleButtonStyle"
             onClick={this.logInOrSignUpSwitch}
           >
             {this.state.logInOrSignUpState ? (
@@ -61,8 +63,6 @@ export default class LogInSignUp extends Component {
               <p> Log in instead</p>
             )}
           </button>
-        </div>
-        <div id="logInOrSignUpViewSwitch">
           {this.state.logInOrSignUpState ? (
             <LogInPage
               user={this.state.currentUser}
