@@ -19,16 +19,13 @@ export default class Navigation extends Component {
     this.logOut_User = this.props.logOut_User;
     this.loggedInNavBar = this.loggedInNavBar.bind(this);
     this.loggedOutNavBar = this.loggedOutNavBar.bind(this);
+    this.logUserOut = this.logUserOut.bind(this);
     // Methods
     // this.logInLogOut = props.logInLogOut();
   }
 
   logUserOut() {
     console.log("Log me out");
-    this.setState({
-      currentUser: "",
-      userIsLoggedIn: false,
-    });
     this.logOut_User();
   }
 
@@ -39,7 +36,7 @@ export default class Navigation extends Component {
           id="logOutButton"
           type="button"
           onClick={() => {
-            this.logUserOut();
+            window.location.reload();
           }}
         ></button>
       </React.Fragment>
@@ -102,9 +99,10 @@ export default class Navigation extends Component {
             </NavLink>
           </li>
           <li className="navigationLink">
-            <NavLink to="/logIn">
-              <div className="flipMenuInner">
-                <div className="flipMenu">
+            <NavLink to="/">
+              <div className="flipMenu">
+                {" "}
+                <div className="flipMenuInner">
                   <div className="flipMenuFront">
                     <LogOut className="logOutIcon" />
                   </div>{" "}

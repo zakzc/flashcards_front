@@ -67,6 +67,7 @@
 /* Style the back side */
 .flipMenuBack {
   font-weight: bolder;
+  color: $mainBackColor;
   ///
   transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
