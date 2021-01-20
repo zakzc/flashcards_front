@@ -32,10 +32,12 @@
   grid-area: info;
 }
 
-#buttonsArea {
-  grid-area: buttonsArea;
-  display: grid;
-}
+// #buttonsArea {
+//   grid-area: buttonsArea;
+//   display: grid;
+//   background-color: green;
+//   grid-template-areas: "flip control control";
+// }
 
 #scoreCardArea {
   grid-area: scoreCardArea;
@@ -67,11 +69,17 @@
   grid-area: control;
 }
 
-#buttonsAreaWrapper {
+#buttonsArea {
   display: grid;
   grid-template-areas: " flip control control";
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: repeat(3, auto-fit);
   background-color: $mainBackColor;
+}
+
+#buttonsWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 25px;
 }
 
 //////////////
@@ -84,7 +92,7 @@
     grid-template-areas:
       "cardArea"
       "cardControl";
-    grid-template-columns: 4fr 1fr;
+    grid-template-columns: 2.5fr 1.5fr;
   }
 }
 
@@ -93,7 +101,7 @@
   #cardAreaWrapper {
     display: grid;
     grid-template-areas: "cardArea cardControl";
-    grid-template-columns: 4fr 1fr;
+    grid-template-columns: 2.5fr 1.5fr;
     // gap: 20px;
   }
 }

@@ -305,12 +305,10 @@ export default class CardSet extends React.Component {
 
   buttonArea() {
     return (
-      <React.Fragment>
-        <div id="buttonsAreaWrapper">
-          <div id="flipButton">{this.flipButton()}</div>
-          <div id="controlButtons">{this.controlButtons()}</div>
-        </div>
-      </React.Fragment>
+      <div id="buttonsArea">
+        <div id="flipButton">{this.flipButton()}</div>
+        <div id="controlButtons">{this.controlButtons()}</div>
+      </div>
     );
   }
 
@@ -344,7 +342,7 @@ export default class CardSet extends React.Component {
           <div id="card">{this.cardSide()}</div>
         </div>
         <div id="controlCardArea">
-          <div id="buttonsArea">{this.buttonArea()}</div>
+          {this.buttonArea()}
           <div id="info">{this.infoCard()}</div>
           <div id="scoreCardArea">
             <Score
