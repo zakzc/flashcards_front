@@ -48,65 +48,75 @@ export default class Navigation extends Component {
 
   loggedInNavBar() {
     return (
-      <React.Fragment>
+      <div id="NavigationMenu">
         <ul
           style={{ listStyleType: "none", padding: 0 }}
           activeclassname="active"
         >
-          <div className="flipMenu">
-            <li className="navigationLink">
-              <NavLink to="/curStack" className="flipMenuInner">
-                <div className="flipMenuFront">
-                  <Pile className="flipMenuFront" />
-                </div>{" "}
-                <div className="flipMenuBack">Current Stack</div>
-              </NavLink>
-            </li>
-          </div>
-          <div className="flipMenu">
-            <li className="navigationLink">
-              <NavLink to="/cardSet" className="flipMenuInner">
-                <div className="flipMenuFront">
-                  <Play className="flipMenuFront" />
-                </div>{" "}
-                <div className="flipMenuBack">Play stack</div>
-              </NavLink>
-            </li>
-          </div>
-          <div className="flipMenu">
-            <li className="navigationLink">
-              <NavLink to="/cardManagement" className="flipMenuInner">
-                <div className="flipMenuFront">
-                  <EditCard className="flipMenuFront" />
-                </div>{" "}
-                <div className="flipMenuBack">Manage cards</div>
-              </NavLink>
-            </li>
-          </div>
-          <div className="flipMenu">
-            <li className="navigationLink">
-              <NavLink to="/stackManagement" className="flipMenuInner">
-                <div className="flipMenuFront">
-                  <EditStacks className="flipMenuFront" />
-                </div>{" "}
-                <div className="flipMenuBack">Manage stacks</div>
-              </NavLink>
-            </li>
-          </div>
-          <div className="flipMenu">
-            <li className="navigationLink">
-              <NavLink to="/logIn" className="flipMenuInner">
-                <div className="flipMenuFront">
-                  <LogOut className="logOutIcon" />
-                </div>{" "}
-                <div className="flipMenuBack" onClick={this.logUserOut}>
-                  Log Out
+          <li className="navigationLink ">
+            <NavLink to="/curStack">
+              <div className="flipMenu">
+                <div className="flipMenuInner">
+                  <div className="flipMenuFront">
+                    <Pile />
+                  </div>
+                  <div className="flipMenuBack">Current Stack</div>
                 </div>
-              </NavLink>
-            </li>
-          </div>
+              </div>
+            </NavLink>
+          </li>
+          <li className="navigationLink">
+            <NavLink to="/cardSet">
+              <div className="flipMenu">
+                <div className="flipMenuInner">
+                  <div className="flipMenuFront">
+                    <Play />
+                  </div>
+                  <div className="flipMenuBack">Play stack</div>
+                </div>
+              </div>
+            </NavLink>
+          </li>
+          <li className="navigationLink">
+            <NavLink to="/cardManagement">
+              <div className="flipMenu">
+                <div className="flipMenuInner">
+                  <div className="flipMenuFront">
+                    <EditCard />
+                  </div>
+                  <div className="flipMenuBack">Manage cards</div>
+                </div>
+              </div>
+            </NavLink>
+          </li>
+          <li className="navigationLink">
+            <NavLink to="/stackManagement">
+              <div className="flipMenu">
+                <div className="flipMenuInner">
+                  <div className="flipMenuFront">
+                    <EditStacks />
+                  </div>{" "}
+                  <div className="flipMenuBack">Manage stacks</div>
+                </div>
+              </div>
+            </NavLink>
+          </li>
+          <li className="navigationLink">
+            <NavLink to="/logIn">
+              <div className="flipMenuInner">
+                <div className="flipMenu">
+                  <div className="flipMenuFront">
+                    <LogOut className="logOutIcon" />
+                  </div>{" "}
+                  <div className="flipMenuBack" onClick={this.logUserOut}>
+                    Log Out
+                  </div>
+                </div>{" "}
+              </div>
+            </NavLink>
+          </li>
         </ul>
-      </React.Fragment>
+      </div>
     );
   }
 

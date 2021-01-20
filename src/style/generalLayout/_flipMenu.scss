@@ -1,11 +1,12 @@
 // * Flipping navigation cards
 .flipMenu {
-  background-color: gray;
+  background-color: $contrastColor;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
   -moz-perspective: 1000px;
   -webkit-perspective: 1000px;
   width: 70px;
   height: 70px;
+  border-radius: 20px;
 }
 
 /* This container is needed to position the front and back side */
@@ -48,7 +49,6 @@
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden; /* Safari */
   -moz-backface-visibility: hidden;
-  background-color: blue;
 }
 
 /* Style the front side (fallback if image is missing) */
@@ -56,7 +56,7 @@
   font-weight: bold;
   border-radius: 20px;
   // adjusts the position of the svg, to juxtapose it over the text
-  margin-left: -35px;
+  // margin-left: -35px;
   ///
   // Necessary for this to work with Mozilla
   transform: rotateY(0deg);

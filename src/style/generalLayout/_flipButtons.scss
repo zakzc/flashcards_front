@@ -75,6 +75,7 @@
 
 /* Style the front side (fallback if image is missing) */
 .flipFront {
+  color: $backColorNav;
   font-weight: bold;
   border-radius: 20px;
   // adjusts the position of the svg, to juxtapose it over the text
