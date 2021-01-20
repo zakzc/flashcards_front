@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import LogInPage from "./LogInSignUp/LogInPage";
+import LogInPage from "./LogInSignUp/LogInOutPage";
 import SignUpPage from "./LogInSignUp/SignUpPage";
 // import { useDB_Connection } from "../DB/DB-hook/connection-hook";
+//
+import PileLogo from "./icons/pileLogo";
 // Style
 import "../../src/index.css";
 
@@ -41,7 +43,13 @@ export default class LogInSignUp extends Component {
   logInOrSignUpDisplay() {
     return (
       <div id="logInOrSignUpLayout">
-        <div id="buttonArea">
+        <div id="inOutButtonArea">
+          <h1 id="logInTextMessage">
+            Log in or Sign up{" "}
+            <span>
+              <PileLogo className="pileLogo" />
+            </span>
+          </h1>
           <button
             type="button"
             className="buttonStyle"
@@ -77,13 +85,11 @@ export default class LogInSignUp extends Component {
   logInSignUpView() {
     console.log("LOG IN SIGN UP");
     return (
-      <React.Fragment>
-        <div id="loggedInOrSignUpView">
-          {this.state.userIsLoggedIn
-            ? this.state.userIsLoggedIn
-            : this.logInOrSignUpDisplay()}
-        </div>
-      </React.Fragment>
+      <div id="loggedInOrSignUpView">
+        {this.state.userIsLoggedIn
+          ? this.state.userIsLoggedIn
+          : this.logInOrSignUpDisplay()}
+      </div>
     );
   }
 

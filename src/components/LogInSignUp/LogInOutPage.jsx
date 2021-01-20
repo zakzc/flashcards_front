@@ -85,29 +85,31 @@ export default class LogInPage extends Component {
 
   logInForm() {
     return (
-      <form>
-        <div className="formElement">
-          <label>Enter your email</label>
-          <br />
-          <input
-            type="email"
-            label="enter your email here"
-            ref={(input) => (this.userEmail = input)}
-          ></input>
-        </div>
-        <div className="formElement">
-          <label>Enter password</label>
-          <br />
-          <input
-            type="password"
-            label="enter your password here"
-            ref={(input) => (this.userPsw = input)}
-          ></input>
-        </div>
-        <button className="buttonStyle" onClick={this.handleSubmitLogInForm}>
-          Log me in
-        </button>
-      </form>
+      <div id="form">
+        <form>
+          <div className="formElement">
+            <label>Enter your email</label>
+            <br />
+            <input
+              type="email"
+              label="enter your email here"
+              ref={(input) => (this.userEmail = input)}
+            ></input>
+          </div>
+          <div className="formElement">
+            <label>Enter password</label>
+            <br />
+            <input
+              type="password"
+              label="enter your password here"
+              ref={(input) => (this.userPsw = input)}
+            ></input>
+          </div>
+          <button className="buttonStyle" onClick={this.handleSubmitLogInForm}>
+            Log me in
+          </button>
+        </form>
+      </div>
     );
   }
 

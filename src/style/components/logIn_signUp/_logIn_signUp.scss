@@ -19,6 +19,26 @@
 }
 
 #logInOrSignUpViewSwitch {
-  padding: 1%;
+  // padding: 1%;
   background-color: $mainBackColor;
+}
+
+#inOutButtonArea {
+  grid-area: inOutButton;
+}
+
+#logInOrSignUpViewSwitch {
+  grid-area: inOutSwitch;
+}
+
+#logInOrSignUpLayout {
+  display: grid;
+  grid-template-areas:
+    "inOutButton"
+    "inOutSwitch";
+}
+#logInTextMessage {
+  color: $mainBackColor;
+  text-align: center;
+  margin-bottom: 20px;
 }

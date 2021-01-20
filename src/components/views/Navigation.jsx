@@ -24,8 +24,12 @@ export default class Navigation extends Component {
   }
 
   logUserOut() {
-    console.log("Log out functionality, to be implemented");
-    this.logInLogOut();
+    console.log("Log me out");
+    this.setState({
+      currentUser: "",
+      userIsLoggedIn: false,
+    });
+    this.logOut_User();
   }
 
   logInButton() {
@@ -48,7 +52,6 @@ export default class Navigation extends Component {
         <ul
           style={{ listStyleType: "none", padding: 0 }}
           activeclassname="active"
-          id="navigationIcons"
         >
           <div className="flipMenu">
             <li className="navigationLink">
@@ -92,16 +95,11 @@ export default class Navigation extends Component {
           </div>
           <div className="flipMenu">
             <li className="navigationLink">
-              <NavLink to="/stackManagement" className="flipMenuInner">
+              <NavLink to="/logIn" className="flipMenuInner">
                 <div className="flipMenuFront">
                   <LogOut className="logOutIcon" />
                 </div>{" "}
-                <div
-                  className="flipMenuBack"
-                  onClick={() => {
-                    this.logOut_User();
-                  }}
-                >
+                <div className="flipMenuBack" onClick={this.logUserOut}>
                   Log Out
                 </div>
               </NavLink>
@@ -134,11 +132,11 @@ export default class Navigation extends Component {
 
   navigationLayout() {
     return (
-      <div id="navigation">
+      <div>
         {this.state.userIsLoggedIn ? (
-          <div>{this.loggedInNavBar()}</div>
+          <div id="navigation">{this.loggedInNavBar()}</div>
         ) : (
-          <div>{this.loggedOutNavBar()}</div>
+          <div id="navigation">{this.loggedOutNavBar()}</div>
         )}
       </div>
     );

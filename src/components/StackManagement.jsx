@@ -38,6 +38,7 @@ export default class StackManagement extends Component {
     this.exportStackButton = this.exportStackButton.bind(this);
     this.deleteStackButton = this.deleteStackButton.bind(this);
     this.stackNav = this.stackNav.bind(this);
+    this.StackMessage = this.StackMessage.bind(this);
     this.chosenFunctionality = this.chosenFunctionality.bind(this);
     this.StackManagementLayout = this.StackManagementLayout.bind(this);
   }
@@ -116,7 +117,7 @@ export default class StackManagement extends Component {
                   <Export className="navIconStackMan" />
                 </div>
                 <div className="flipBack">
-                  <span className="buttonMessage">DOWNLOAD Stack</span>
+                  <span className="buttonMessage">DOWNLOAD</span>
                 </div>
               </button>
             </div>
@@ -142,7 +143,7 @@ export default class StackManagement extends Component {
                   <Trash className="navIconStackMan" />
                 </div>
                 <div className="flipBack">
-                  <span className="buttonMessage">DELETE stack</span>
+                  <span className="buttonMessage">DELETE</span>
                 </div>
               </button>
             </div>
@@ -200,10 +201,22 @@ export default class StackManagement extends Component {
     );
   }
 
+  StackMessage() {
+    return (
+      <div id="stackMessage">
+        <h2>
+          Here you can manage your stack. You can: add a new stack, download or
+          delete the current stack. Choose the option bellow:
+        </h2>
+      </div>
+    );
+  }
+
   StackManagementLayout() {
     return (
       <React.Fragment>
         <div id="stackManLayout">
+          {this.StackMessage()}
           {this.stackNav()}
           {this.chosenFunctionality()}
         </div>

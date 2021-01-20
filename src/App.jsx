@@ -95,11 +95,13 @@ export default class App extends React.Component {
   }
 
   logOut_User() {
+    console.log("Log out user");
     this.setState({
       userIsLoggedIn: false,
       currenUser: " ",
       currentStack: " ",
     });
+    window.location.reload();
   }
 
   ///
