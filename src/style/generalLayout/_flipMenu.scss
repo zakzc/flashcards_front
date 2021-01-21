@@ -1,12 +1,14 @@
 // * Flipping navigation cards
+
 .flipMenu {
   background-color: $contrastColor;
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
-  -moz-perspective: 1000px;
-  -webkit-perspective: 1000px;
   width: 70px;
   height: 70px;
   border-radius: 20px;
+  ///
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  -moz-perspective: 1000px;
+  -webkit-perspective: 1000px;
 }
 
 /* This container is needed to position the front and back side */
@@ -26,9 +28,6 @@
   ///
   border-radius: 20px;
   overflow: visible;
-  ///
-  background-color: $contrastColor;
-  border-radius: 20px;
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
@@ -55,8 +54,6 @@
 .flipMenuFront {
   font-weight: bold;
   border-radius: 20px;
-  // adjusts the position of the svg, to juxtapose it over the text
-  // margin-left: -35px;
   ///
   // Necessary for this to work with Mozilla
   transform: rotateY(0deg);

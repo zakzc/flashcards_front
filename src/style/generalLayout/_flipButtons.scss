@@ -10,7 +10,7 @@
 
 .buttonMessage {
   color: $mainBackColor;
-  z-index: 5;
+  // z-index: 5;
   position: absolute;
   overflow: hidden;
 }
@@ -48,7 +48,6 @@
   overflow: visible;
   ///
   background-color: $contrastColor;
-  border-radius: 20px;
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */

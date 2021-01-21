@@ -104,7 +104,7 @@ export default class Navigation extends Component {
                 {" "}
                 <div className="flipMenuInner">
                   <div className="flipMenuFront">
-                    <LogOut className="logOutIcon" />
+                    <LogOut />
                   </div>{" "}
                   <div className="flipMenuBack" onClick={this.logUserOut}>
                     Log Out

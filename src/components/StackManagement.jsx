@@ -88,7 +88,7 @@ export default class StackManagement extends Component {
                 onClick={this.AddSwitch}
               >
                 <div className="flipFront">
-                  <Plus className="navIconStackMan" />
+                  <Plus />
                 </div>
                 <div className="flipBack">
                   <span className="buttonMessage">NEW stack</span>

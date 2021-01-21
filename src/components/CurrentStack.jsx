@@ -118,7 +118,12 @@ export default class currentStack extends Component {
             <div id="saluteTheUser">
               <h3>Hi {this.state.currentUser.firstName}, welcome back </h3>
               <br />
-              <p>The current stack is: {this.state.currentStack.stackName}</p>
+              <p>
+                The current stack is:{" "}
+                <span className="highlight">
+                  {this.state.currentStack.stackName}
+                </span>
+              </p>
               <p>
                 Hover over the card to see the back, or click on it if you are
                 on
