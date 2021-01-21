@@ -1,9 +1,26 @@
-#backToBeginning {
-  display: block;
-  margin: 5%;
-}
-
 #initialView {
   display: block;
   margin: 5%;
+}
+#backToBeginning {
+  display: grid;
+  grid-template-areas:
+    "confirm"
+    "miniMenu"
+    "warn";
+  margin: 5%;
+}
+
+#confirm {
+  grid-area: confirm;
+}
+
+#warn {
+  grid-area: warn;
+}
+
+#miniLinks {
+  background-color: blue;
+  display: inline;
+  // grid-template-columns: 1fr, 1fr;
 }

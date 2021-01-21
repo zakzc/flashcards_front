@@ -61,7 +61,7 @@ export default class ExportStack extends Component {
               onClick={this.prepareData}
             >
               <div className="flipFront">
-                <Download className="exportButtonIcon" />
+                <Download />
               </div>
               <div className="flipBack">
                 <span className="buttonMessage">Download</span>

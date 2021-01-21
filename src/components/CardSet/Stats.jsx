@@ -74,7 +74,7 @@ export default class Stats extends Component {
         <p>
           {" "}
           This is considered to be
-          <strong className="statInfo">{level}</strong>
+          <strong className="highlight">{level}</strong>
           {infoLevel}
         </p>
       </div>
@@ -114,18 +114,19 @@ export default class Stats extends Component {
         <h2>Game Stats</h2>
         <div>
           You finished your stack. This stack was made up of
-          <strong className="statInfo"> {this.state.lengthOfStack} </strong>
+          <strong className="highlight"> {this.state.lengthOfStack} </strong>
           cards. {this.stackLevel()}
         </div>
         <p>
           You guessed{" "}
-          <strong className="statInfo"> {this.state.guesses}</strong> times, of
+          <strong className="highlight"> {this.state.guesses}</strong> times, of
           which
-          <strong className="statInfo"> {this.state.wrong} </strong> were wrong.
+          <strong className="highlight"> {this.state.wrong} </strong> were
+          wrong.
         </p>
         <div id="percentage">
           That means you got{" "}
-          <strong className="statInfo"> {this.state.percentage}% </strong>of
+          <strong className="highlight"> {this.state.percentage}% </strong>of
           your guesses right.
           <br />
           {/* <div id="graphView">

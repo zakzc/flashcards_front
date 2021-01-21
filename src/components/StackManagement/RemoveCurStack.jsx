@@ -54,7 +54,7 @@ export default class RemoveCurStack extends Component {
               onClick={this.deleteHandler}
             >
               <div className="flipFront">
-                <Trash className="deleteButtonIcon" />
+                <Trash />
               </div>
               <div className="flipBack">
                 <span className="buttonMessage">Confirm DELETE</span>

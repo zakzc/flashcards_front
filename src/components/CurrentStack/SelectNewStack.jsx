@@ -96,7 +96,7 @@ export default class SelectNewStack extends Component {
         <h3> You chose: {this.state.chosenStackName}</h3>
         {this.renderRedirect()}
         <button
-          className="buttonStyle"
+          className="simpleButtonStyle"
           type="button"
           onClick={this.confirmNewStack}
         >

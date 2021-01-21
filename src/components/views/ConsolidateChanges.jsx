@@ -34,39 +34,31 @@ class ConsolidateChanges extends Component {
     return (
       <div id="finalView">
         <div id="backToBeginning">
-          <h4>The changes you made re consolidated in the Database</h4>
-          <br />
-          <p> Now you can :</p>
-          <br />
-          <ul>
-            <div className="flipMenu">
-              <li className="navigationLink">
-                <NavLink to="/curStack" className="flipMenuInner">
-                  <div className="flipMenuFront">
-                    <Pile className="flipMenuFront" />
-                  </div>
-                  <div className="flipMenuBack">
-                    Read Stack or select another one
-                  </div>
-                </NavLink>
-              </li>
-              <li className="navigationLink">
-                <NavLink to="/cardSet" className="flipMenuInner">
-                  <div className="flipMenuFront">
-                    <Play className="flipMenuFront" />
-                  </div>
-                  <div className="flipMenuBack">Play the current Stack</div>
-                </NavLink>
-              </li>
-            </div>
-          </ul>
-          <br />
-          <h4>
-            Note that some changes (adding a new stack, for example) will only
-            be visible when you reload the application (or, log out and back
-            in).{" "}
-          </h4>
-          <p>Now let's flip some cards. :-D </p>
+          <div id="confirm">
+            <h4>The changes you made re consolidated in the Database</h4>
+
+            <p> Now you can :</p>
+          </div>
+          <div id="backToApp">
+            <p>
+              Now you can
+              <NavLink to="/curStack">
+                <strong className="highlight"> READ </strong>
+              </NavLink>
+              the new current stack or{" "}
+              <NavLink to="/cardSet">
+                <strong className="highlight"> PLAY </strong>
+              </NavLink>{" "}
+              it.
+            </p>
+          </div>
+          <div id="warn">
+            <h4>
+              Note that some changes (adding a new stack, for example) will only
+              be visible when you reload the application.
+            </h4>
+            <p>Now let's flip some cards. :-D </p>
+          </div>
         </div>
       </div>
     );
