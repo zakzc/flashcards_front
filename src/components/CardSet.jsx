@@ -178,18 +178,11 @@ export default class CardSet extends React.Component {
             >
               {this.state.face ? (
                 <AnimatePresence>
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    /*               initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }} */
-                    /*    exit={{ rotateX: 360 }} */
-                    id="cardFront"
-                  >
+                  <motion.div whileHover={{ scale: 1.02 }} id="cardFront">
                     {this.state.cards[this.state.current].front}
                   </motion.div>
                 </AnimatePresence>
               ) : (
-                /*            <AnimatePresence> */
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   animate={{ rotateY: 360 }}
@@ -198,7 +191,6 @@ export default class CardSet extends React.Component {
                 >
                   {this.state.cards[this.state.current].back}
                 </motion.div>
-                /*               </AnimatePresence> */
               )}
             </motion.div>
           </React.Fragment>
