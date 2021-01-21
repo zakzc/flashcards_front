@@ -114,7 +114,7 @@ export default class StackManagement extends Component {
                 onClick={this.exportSwitch}
               >
                 <div className="flipFront">
-                  <Export className="navIconStackMan" />
+                  <Export />
                 </div>
                 <div className="flipBack">
                   <span className="buttonMessage">Download</span>
@@ -140,7 +140,7 @@ export default class StackManagement extends Component {
                 onClick={this.deleteSwitch}
               >
                 <div className="flipFront">
-                  <Trash className="navIconStackMan" />
+                  <Trash />
                 </div>
                 <div className="flipBack">
                   <span className="buttonMessage">Delete</span>

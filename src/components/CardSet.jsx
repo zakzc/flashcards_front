@@ -226,10 +226,10 @@ export default class CardSet extends React.Component {
               onClick={this.handleClick}
             >
               <div className="flipFront">
-                <Check className="flipButtonStyle" />
+                <Check />
               </div>
               <div className="flipBack">
-                <span className="buttonMessage">Flip card</span>
+                <span className="buttonMessage">Flip</span>
               </div>
             </button>
           </div>
@@ -251,10 +251,10 @@ export default class CardSet extends React.Component {
               {" "}
               <div onClick={this.handleClick}>
                 <div className="flipFront">
-                  <Right className="correctButtonStyle" />
+                  <Right />
                 </div>
                 <div className="flipBack">
-                  <span className="buttonMessage">Answer was right</span>
+                  <span className="buttonMessage">Right</span>
                 </div>
               </div>
             </button>
@@ -276,10 +276,10 @@ export default class CardSet extends React.Component {
             >
               <div onClick={this.handleClick}>
                 <div className="flipFront">
-                  <Wrong className="wrongButtonStyle" />
+                  <Wrong />
                 </div>
                 <div className="flipBack">
-                  <span className="buttonMessage">Answer was wrong</span>
+                  <span className="buttonMessage">Wrong</span>
                 </div>
               </div>
             </button>

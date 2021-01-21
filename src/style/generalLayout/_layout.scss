@@ -2,7 +2,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $backColorNav;
-  font-size: $fontSizePhone;
+  font: $myFonts;
 }
 
 #wrapper {
@@ -49,6 +49,9 @@ body {
 
 // smaller screens sizes > 768
 @media only screen and (max-width: 767px) {
+  body {
+    font-size: $fontSizePhone;
+  }
   #Main_contents {
     display: grid;
     grid-template-rows: 70px auto;
@@ -76,6 +79,9 @@ body {
 }
 // bigger screen sizes > 768
 @media only screen and (min-width: 768px) {
+  body {
+    font-size: $fontSizeDesk;
+  }
   #Main_contents {
     display: grid;
     grid-template-columns: 70px auto;
@@ -97,6 +103,9 @@ body {
 }
 
 @media only screen and (min-width: 2400px) {
+  body {
+    font-size: $fontSizeLarge;
+  }
   #Main_contents {
     display: grid;
     grid-template-columns: 100px auto;
@@ -107,7 +116,7 @@ body {
 }
 
 //////////////////////////
-// * Navigational elements
+// * General elements
 //////////////////////////
 
 svg {

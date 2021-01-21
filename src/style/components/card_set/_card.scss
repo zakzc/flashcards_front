@@ -57,12 +57,14 @@
     "buttonsArea"
     "scoreCardArea"
     "info";
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto-fit);
+  gap: 15px;
 }
 
 #flipButton {
   grid-area: flip;
   background-color: $mainBackColor;
+  margin-top: 25px;
 }
 
 #controlButtons {
@@ -71,8 +73,7 @@
 
 #buttonsArea {
   display: grid;
-  grid-template-areas: " flip control control";
-  grid-template-columns: repeat(3, auto-fit);
+  grid-template-areas: "flip control control";
   background-color: $mainBackColor;
 }
 
