@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { NavLink, Redirect } from "react-router-dom";
 // Visual elements
-import Pile from "../icons/pile";
-import Play from "../icons/play";
 import Loader from "./Loader";
 
 class ConsolidateChanges extends Component {
