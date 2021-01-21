@@ -101,15 +101,14 @@ export default class Navigation extends Component {
           <li className="navigationLink">
             <NavLink to="/">
               <div className="flipMenu">
-                {" "}
                 <div className="flipMenuInner">
                   <div className="flipMenuFront">
                     <LogOut />
-                  </div>{" "}
+                  </div>
                   <div className="flipMenuBack" onClick={this.logUserOut}>
                     Log Out
                   </div>
-                </div>{" "}
+                </div>
               </div>
             </NavLink>
           </li>
