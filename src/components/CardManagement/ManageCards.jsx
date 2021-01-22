@@ -196,10 +196,10 @@ export default class ManageCards extends Component {
               onClick={this.editButtonHandler}
             >
               <div className="flipFront">
-                <EditCardIcon className="editCardButtonStyle" />
+                <EditCardIcon />
               </div>
               <div className="flipBack">
-                <span className="buttonMessage">Click to make changes</span>
+                <span className="buttonMessage">Change</span>
               </div>
             </button>
           </div>

@@ -209,75 +209,62 @@ export default class CardSet extends React.Component {
 
   flipButton() {
     return (
-      <div id="flipButton_Positioning">
+      <button className="buttonStyle" type="button" onClick={this.handleClick}>
         <div className="flipContainer">
           <div className="flipInner">
-            <button
-              className="buttonStyle"
-              type="button"
-              onClick={this.handleClick}
-            >
-              <div className="flipFront">
-                <Check />
-              </div>
-              <div className="flipBack">
-                <span className="buttonMessage">Flip</span>
-              </div>
-            </button>
+            <div className="flipFront">
+              <Check />
+            </div>
+            <div className="flipBack">
+              <span className="buttonMessage">Flip</span>
+            </div>{" "}
           </div>
         </div>
-      </div>
+      </button>
     );
   }
 
   rightAnswerButton() {
     return (
       <div id="correctButton_Positioning">
-        <div className="flipContainer">
-          <div className="flipInner">
-            <button
-              className="buttonStyle"
-              type="button"
-              onClick={() => this.setAnswerRight(this.state)}
-            >
-              {" "}
-              <div onClick={this.handleClick}>
-                <div className="flipFront">
-                  <Right />
-                </div>
-                <div className="flipBack">
-                  <span className="buttonMessage">Right</span>
-                </div>
+        <button
+          className="buttonStyle"
+          type="button"
+          onClick={() => this.setAnswerRight(this.state)}
+        >
+          <div className="flipContainer">
+            <div className="flipInner" onClick={this.handleClick}>
+              <div className="flipFront">
+                <Right />
               </div>
-            </button>
+              <div className="flipBack">
+                <span className="buttonMessage">Right</span>
+              </div>
+            </div>
           </div>
-        </div>
+        </button>
       </div>
     );
   }
 
   wrongAnswerButton() {
     return (
-      <div id="wrongButton_Positioning">
+      <button
+        className="buttonStyle"
+        type="button"
+        onClick={() => this.setAnswerWrong(this.state)}
+      >
         <div className="flipContainer">
-          <div className="flipInner">
-            <button
-              className="buttonStyle"
-              type="button"
-              onClick={() => this.setAnswerWrong(this.state)}
-            >
-              <div onClick={this.handleClick}>
-                <div className="flipFront">
-                  <Wrong />
-                </div>
-                <div className="flipBack">
-                  <span className="buttonMessage">Wrong</span>
-                </div>
-              </div>
-            </button>
+          <div className="flipInner" onClick={this.handleClick}>
+            <div className="flipFront">
+              <Wrong />
+            </div>
+            <div className="flipBack">
+              <span className="buttonMessage">Wrong</span>
+            </div>
           </div>
         </div>
-      </div>
+      </button>
     );
   }
 

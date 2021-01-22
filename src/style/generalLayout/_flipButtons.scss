@@ -1,5 +1,5 @@
 .buttonStyle {
-  position: absolute;
+  // position: absolute;
   background-color: transparent;
   text-decoration: none;
   border: none;
@@ -13,6 +13,8 @@
   // z-index: 5;
   position: absolute;
   overflow: hidden;
+  margin-top: 18px;
+  margin-left: -22px;
 }
 
 // * Flipping buttons
@@ -76,7 +78,7 @@
   font-weight: bold;
   border-radius: 20px;
   // adjusts the position of the svg, to juxtapose it over the text
-  margin-left: -35px;
+  // margin-left: -35px;
   ///
   // Necessary for this to work with Mozilla
   transform: rotateY(0deg);
@@ -98,7 +100,7 @@
   ///
   border-radius: 20px;
   // adjusts the position of the text in the container
-  margin-top: 18px;
-  margin-right: 20px;
+  // margin-top: 18px;
+  // margin-right: 20px;
   font-size: $fontSizePad;
 }

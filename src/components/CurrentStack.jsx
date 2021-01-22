@@ -54,47 +54,43 @@ export default class currentStack extends Component {
 
   SelectDifferentStackButton() {
     return (
-      <div id="readSelectButton_Positioning">
+      <button
+        className="buttonStyle"
+        type="button"
+        onClick={this.readSelectSwitch}
+      >
         <div className="flipContainer">
           <div className="flipInner">
-            <button
-              className="buttonStyle"
-              type="button"
-              onClick={this.readSelectSwitch}
-            >
-              <div className="flipFront">
-                <Collection className="readSelectButtonStyle" />
-              </div>
-              <div className="flipBack">
-                <span className="buttonMessage">Select stack</span>
-              </div>
-            </button>
+            <div className="flipFront">
+              <Collection />
+            </div>
+            <div className="flipBack">
+              <span className="buttonMessage">Select stack</span>
+            </div>
           </div>
         </div>
-      </div>
+      </button>
     );
   }
 
   ReadStackButton() {
     return (
-      <div id="readSelectButton_Positioning">
+      <button
+        className="buttonStyle"
+        type="button"
+        onClick={this.readSelectSwitch}
+      >
         <div className="flipContainer">
           <div className="flipInner">
-            <button
-              className="buttonStyle"
-              type="button"
-              onClick={this.readSelectSwitch}
-            >
-              <div className="flipFront">
-                <CheckEye className="readSelectButtonStyle" />
-              </div>
-              <div className="flipBack">
-                <span className="buttonMessage">Read stack</span>
-              </div>
-            </button>
+            <div className="flipFront">
+              <CheckEye className="readSelectButtonStyle" />
+            </div>
+            <div className="flipBack">
+              <span className="buttonMessage">Read stack</span>
+            </div>{" "}
           </div>
         </div>
-      </div>
+      </button>
     );
   }
 
