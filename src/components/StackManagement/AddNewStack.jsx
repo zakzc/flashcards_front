@@ -187,24 +187,22 @@ export default class AddNewStack extends Component {
 
   checkButton() {
     return (
-      <div id="editCardButton_Positioning">
+      <button
+        className="buttonStyle"
+        type="button"
+        onClick={this.StackNameSubmitHandler}
+      >
         <div className="flipContainer">
           <div className="flipInner">
-            <button
-              className="buttonStyle"
-              type="button"
-              onClick={this.StackNameSubmitHandler}
-            >
-              <div className="flipFront">
-                <Right className="buttonStyle" />
-              </div>
-              <div className="flipBack">
-                <span className="buttonMessage">Add name</span>
-              </div>
-            </button>
-          </div>
+            <div className="flipFront">
+              <Right className="buttonStyle" />
+            </div>
+            <div className="flipBack">
+              <span className="buttonMessage">Add name</span>
+            </div>{" "}
+          </div>{" "}
         </div>
-      </div>
+      </button>
     );
   }
 
@@ -237,24 +235,22 @@ export default class AddNewStack extends Component {
 
   AddCardButton() {
     return (
-      <div id="addCardButton_Positioning">
+      <button
+        className="buttonStyle"
+        type="button"
+        onClick={this.handleSubmitAddCardHandler}
+      >
         <div className="flipContainer">
           <div className="flipInner">
-            <button
-              className="buttonStyle"
-              type="button"
-              onClick={this.handleSubmitAddCardHandler}
-            >
-              <div className="flipFront">
-                <Plus className="addCardIcon" />
-              </div>
-              <div className="flipBack">
-                <span className="buttonMessage">Add new card</span>
-              </div>
-            </button>
+            <div className="flipFront">
+              <Plus className="addCardIcon" />
+            </div>
+            <div className="flipBack">
+              <span className="buttonMessage">Add new card</span>
+            </div>
           </div>
         </div>
-      </div>
+      </button>
     );
   }
 

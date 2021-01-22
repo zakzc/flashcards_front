@@ -77,79 +77,67 @@ export default class StackManagement extends Component {
 
   addStackButton() {
     return (
-      <div id="navButton">
-        <div id="addStackButton_Positioning">
-          <div className="flipContainer">
-            <div className="flipInner">
-              <button
-                // className="buttonStyle"
-                className={this.state.add ? "buttonIsActive" : "buttonIsOff"}
-                type="button"
-                onClick={this.AddSwitch}
-              >
-                <div className="flipFront">
-                  <Plus />
-                </div>
-                <div className="flipBack">
-                  <span className="buttonMessage">NEW stack</span>
-                </div>
-              </button>
+      <button
+        // className="buttonStyle"
+        className={this.state.add ? "buttonIsActive" : "buttonIsOff"}
+        type="button"
+        onClick={this.AddSwitch}
+      >
+        <div className="flipContainer">
+          <div className="flipInner">
+            <div className="flipFront">
+              <Plus />
+            </div>
+            <div className="flipBack">
+              <span className="buttonMessage">NEW stack</span>
             </div>
           </div>
         </div>
-      </div>
+      </button>
     );
   }
 
   exportStackButton() {
     return (
-      <div id="navButton">
-        <div id="exportStackButton_Positioning">
-          <div className="flipContainer">
-            <div className="flipInner">
-              <button
-                // className="buttonStyle"
-                className={this.state.export ? "buttonIsActive" : "buttonIsOff"}
-                type="button"
-                onClick={this.exportSwitch}
-              >
-                <div className="flipFront">
-                  <Export />
-                </div>
-                <div className="flipBack">
-                  <span className="buttonMessage">Download</span>
-                </div>
-              </button>
+      <button
+        // className="buttonStyle"
+        className={this.state.export ? "buttonIsActive" : "buttonIsOff"}
+        type="button"
+        onClick={this.exportSwitch}
+      >
+        <div className="flipContainer">
+          <div className="flipInner">
+            <div className="flipFront">
+              <Export />
+            </div>
+            <div className="flipBack">
+              <span className="buttonMessage">Download</span>
             </div>
           </div>
         </div>
-      </div>
+      </button>
     );
   }
 
   deleteStackButton() {
     return (
-      <div id="navButton">
-        <div id="deleteStackButton_Positioning">
-          <div className="flipContainer">
-            <div className="flipInner">
-              <button
-                // className="buttonStyle"
-                className={this.state.delete ? "buttonIsActive" : "buttonIsOff"}
-                type="button"
-                onClick={this.deleteSwitch}
-              >
-                <div className="flipFront">
-                  <Trash />
-                </div>
-                <div className="flipBack">
-                  <span className="buttonMessage">Delete</span>
-                </div>
-              </button>
+      <button
+        // className="buttonStyle"
+        className={this.state.delete ? "buttonIsActive" : "buttonIsOff"}
+        type="button"
+        onClick={this.deleteSwitch}
+      >
+        <div className="flipContainer">
+          <div className="flipInner">
+            <div className="flipFront">
+              <Trash />
             </div>
+            <div className="flipBack">
+              <span className="buttonMessage">Delete</span>
+            </div>{" "}
           </div>
         </div>
-      </div>
+      </button>
     );
   }
 

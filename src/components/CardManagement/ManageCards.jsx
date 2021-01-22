@@ -187,24 +187,22 @@ export default class ManageCards extends Component {
 
   editButton() {
     return (
-      <div id="editCardButton_Positioning">
+      <button
+        className="buttonStyle"
+        type="button"
+        onClick={this.editButtonHandler}
+      >
         <div className="flipContainer">
           <div className="flipInner">
-            <button
-              className="buttonStyle"
-              type="button"
-              onClick={this.editButtonHandler}
-            >
-              <div className="flipFront">
-                <EditCardIcon />
-              </div>
-              <div className="flipBack">
-                <span className="buttonMessage">Change</span>
-              </div>
-            </button>
+            <div className="flipFront">
+              <EditCardIcon />
+            </div>
+            <div className="flipBack">
+              <span className="buttonMessage">Change</span>
+            </div>{" "}
           </div>
         </div>
-      </div>
+      </button>
     );
   }
 

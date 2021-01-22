@@ -52,24 +52,18 @@ export default class ExportStack extends Component {
 
   exportButton() {
     return (
-      <div id="exportStackButton_Positioning">
+      <button className="buttonStyle" type="button" onClick={this.prepareData}>
         <div className="flipContainer">
           <div className="flipInner">
-            <button
-              className="buttonStyle"
-              type="button"
-              onClick={this.prepareData}
-            >
-              <div className="flipFront">
-                <Download />
-              </div>
-              <div className="flipBack">
-                <span className="buttonMessage">Download</span>
-              </div>
-            </button>
+            <div className="flipFront">
+              <Download />
+            </div>
+            <div className="flipBack">
+              <span className="buttonMessage">Download</span>
+            </div>{" "}
           </div>
         </div>
-      </div>
+      </button>
     );
   }
 

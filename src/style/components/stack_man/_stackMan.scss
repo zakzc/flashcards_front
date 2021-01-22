@@ -22,11 +22,12 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-areas: ". stackNavLeft . stackNavCenter . stackNavRight .";
+  margin-top: 2%;
+  margin-bottom: 5%;
 }
 
 #stackMessage {
   grid-area: stackMessage;
-  margin-top: 5px;
 }
 
 #stackManLayout {
@@ -36,7 +37,7 @@
     "stackMessage"
     "stackNav"
     "functionality";
-  gap: 8px;
+  gap: 18px;
   grid-template-rows: auto, 1fr, 3fr;
   background-color: $mainBackColor;
   // adjust of the container positioning
@@ -47,10 +48,6 @@
 //////////////////////
 // * Stack Nav buttons
 //////////////////////
-
-#navButton {
-  border: none;
-}
 
 .buttonIsActive {
   color: $mainBackColor;

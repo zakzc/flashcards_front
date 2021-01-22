@@ -87,24 +87,18 @@ export default class Stats extends Component {
 
   gameStatsButton() {
     return (
-      <div id="gameStatsButton_Positioning">
+      <button className="buttonStyle" type="button" onClick={this.reStart}>
         <div className="flipContainer">
           <div className="flipInner">
-            <button
-              className="buttonStyle"
-              type="button"
-              onClick={this.reStart}
-            >
-              <div className="flipFront">
-                <StatsIcon className="buttonStyle" />
-              </div>
-              <div className="flipBack">
-                <span className="buttonMessage">Game statistics</span>
-              </div>
-            </button>
+            <div className="flipFront">
+              <StatsIcon className="buttonStyle" />
+            </div>
+            <div className="flipBack">
+              <span className="buttonMessage">Game statistics</span>
+            </div>{" "}
           </div>
         </div>
-      </div>
+      </button>
     );
   }
 
@@ -152,24 +146,18 @@ export default class Stats extends Component {
 
   reStartButton() {
     return (
-      <div id="reStartButton_Positioning">
+      <button className="buttonStyle" type="button" onClick={this.reStart}>
         <div className="flipContainer">
           <div className="flipInner">
-            <button
-              className="buttonStyle"
-              type="button"
-              onClick={this.reStart}
-            >
-              <div className="flipFront">
-                <RewindIcon className="buttonStyle" />
-              </div>
-              <div className="flipBack">
-                <span className="buttonMessage"> Start over</span>
-              </div>
-            </button>
+            <div className="flipFront">
+              <RewindIcon className="buttonStyle" />
+            </div>
+            <div className="flipBack">
+              <span className="buttonMessage"> Start over</span>
+            </div>
           </div>
         </div>
-      </div>
+      </button>
     );
   }
 

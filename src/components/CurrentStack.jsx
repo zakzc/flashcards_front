@@ -83,11 +83,11 @@ export default class currentStack extends Component {
         <div className="flipContainer">
           <div className="flipInner">
             <div className="flipFront">
-              <CheckEye className="readSelectButtonStyle" />
+              <CheckEye />
             </div>
             <div className="flipBack">
               <span className="buttonMessage">Read stack</span>
-            </div>{" "}
+            </div>
           </div>
         </div>
       </button>

@@ -44,25 +44,23 @@ export default class RemoveCurStack extends Component {
 
   deleteButton() {
     return (
-      <div id="confirmDeleteButton_Positioning">
+      <button
+        // className="buttonStyle"
+        className="buttonStyle"
+        type="button"
+        onClick={this.deleteHandler}
+      >
         <div className="flipContainer">
           <div className="flipInner">
-            <button
-              // className="buttonStyle"
-              className="buttonStyle"
-              type="button"
-              onClick={this.deleteHandler}
-            >
-              <div className="flipFront">
-                <Trash />
-              </div>
-              <div className="flipBack">
-                <span className="buttonMessage">Confirm DELETE</span>
-              </div>
-            </button>
+            <div className="flipFront">
+              <Trash />
+            </div>
+            <div className="flipBack">
+              <span className="buttonMessage">Confirm DELETE</span>
+            </div>{" "}
           </div>
         </div>
-      </div>
+      </button>
     );
   }
 
