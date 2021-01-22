@@ -48,7 +48,7 @@ export default class CardSet extends React.Component {
     this.setAnswerWrong = this.setAnswerWrong.bind(this);
     this.nextCardAvailable = this.nextCardAvailable.bind(this);
     this.updateCurrentCard = this.updateCurrentCard.bind(this);
-    this.playCardSet = this.playCardSet.bind(this);
+    this.controlSide = this.controlSide.bind(this);
     this.cardFlip = this.cardFlip.bind(this);
     this.cardSetLayout = this.cardSetLayout.bind(this);
     this.cardSetView = this.cardSetView.bind(this);
@@ -192,26 +192,6 @@ export default class CardSet extends React.Component {
     );
   }
 
-  cardSide() {
-    try {
-      if (this.state.cards.length === 0 || this.state.stackIsOver) {
-        // this.setState({ stackIsOver: true });
-        return (
-          <Stats
-            right={this.state.right}
-            wrong={this.state.wrong}
-            lengthOfStack={this.state.lengthOfStack}
-            reSetGame={this.reSetGame}
-          />
-        );
-      } else {
-        return this.cardFlip();
-      }
-    } catch (E) {
-      console.log("error on rendering", E);
-    }
-  }
-
   flipButton() {
     return (
       <button className="buttonStyle" type="button" onClick={this.handleClick}>
@@ -319,50 +299,67 @@ export default class CardSet extends React.Component {
     }
   }
 
-  playCardSet() {
+  controlCardArea() {
     return (
-      <React.Fragment>
-        <div id="cardArea">
-          <div id="card">{this.cardSide()}</div>
-        </div>
-        <div id="controlCardArea">
-          {this.buttonArea()}
-          <div id="info">{this.infoCard()}</div>
-          <div id="scoreCardArea">
-            <Score
-              rightAnswers={this.state.right}
-              wrongAnswers={this.state.wrong}
-            />
-            <div id="cardCount"> {this.cardCount()} </div>
-
-            <br />
-            <div id="currentPlayStack">
-              {" "}
-              <p>Current stack is: </p>
-              <strong className="currentSelectedStack">
-                {" "}
-                {this.state.currentStack.stackName}
-              </strong>
-            </div>
+      <div id="controlCardArea">
+        {this.buttonArea()}
+        <div id="info">{this.infoCard()}</div>
+        <div id="scoreCardArea">
+          <Score
+            rightAnswers={this.state.right}
+            wrongAnswers={this.state.wrong}
+          />
+          <div id="cardCount"> {this.cardCount()} </div>
+          <br />
+          <div id="currentPlayStack">
+            <p>Current stack is: </p>
+            <strong className="currentSelectedStack">
+              {this.state.currentStack.stackName}
+            </strong>
           </div>
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 
-  cardSetLayout() {
-    return (
-      <div id="cardSetLayout">
-        {this.state.stackIsOver ? (
+  cardSide() {
+    try {
+      if (this.state.cards.length === 0 || this.state.stackIsOver) {
+        // this.setState({ stackIsOver: true });
+        return (
           <Stats
             right={this.state.right}
             wrong={this.state.wrong}
             lengthOfStack={this.state.lengthOfStack}
             reSetGame={this.reSetGame}
           />
-        ) : (
-          <div id="cardAreaWrapper">{this.playCardSet()}</div>
-        )}
+        );
+      } else {
+        return this.cardFlip();
+      }
+    } catch (E) {
+      console.log("error on rendering", E);
+    }
+  }
+
+  controlSide() {
+    try {
+      if (this.state.cards.length === 0 || this.state.stackIsOver) {
+        // this.setState({ stackIsOver: true });
+        return <div></div>;
+      } else {
+        return this.controlCardArea();
+      }
+    } catch (E) {
+      console.log("error on rendering", E);
+    }
+  }
+
+  cardSetLayout() {
+    return (
+      <div id="cardSetLayout">
+        {this.cardSide()}
+        {this.controlSide()}
       </div>
     );
   }

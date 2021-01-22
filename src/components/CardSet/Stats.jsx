@@ -118,10 +118,10 @@ export default class Stats extends Component {
           <strong className="highlight"> {this.state.percentage}% </strong>of
           your guesses right.
           <br />
-          <div id="graphView">
+          {/* <div id="graphView">
             Graphical view (<strong className="statEmphasis">yellow </strong>{" "}
             represents the right answers):
-          </div>
+          </div> */}
           {/* {this.pieChart()} */}
         </div>
       </div>

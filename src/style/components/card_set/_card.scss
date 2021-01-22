@@ -88,7 +88,7 @@
 //////////////
 
 @media only screen and (max-width: 767px) {
-  #cardAreaWrapper {
+  #cardSetLayout {
     display: grid;
     grid-template-areas:
       "cardArea"
@@ -99,7 +99,7 @@
 
 // bigger screen sizes > 768
 @media only screen and (min-width: 768px) {
-  #cardAreaWrapper {
+  #cardSetLayout {
     display: grid;
     grid-template-areas: "cardArea cardControl";
     grid-template-columns: 2.5fr 1.5fr;
