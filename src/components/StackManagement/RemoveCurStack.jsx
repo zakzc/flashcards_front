@@ -29,11 +29,8 @@ export default class RemoveCurStack extends Component {
   ////////////////
 
   deleteHandler() {
-    console.log("Request for delete on frontend");
     this.removeThisStack(this.state.currentStack.id);
-    console.log("current state: ", this.state);
     let newStack = this.state.currentUser.userStacks[0].stack_id;
-    console.log("new stack should be: ", newStack);
     this.setCurrentStack(newStack);
     this.setState({ redirectUser: true });
   }

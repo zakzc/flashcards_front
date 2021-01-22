@@ -83,7 +83,7 @@ export default class LogInSignUp extends Component {
   }
 
   logInSignUpView() {
-    console.log("LOG IN SIGN UP");
+    // console.log("LOG IN SIGN UP");
     return (
       <div id="loggedInOrSignUpView">
         {this.state.userIsLoggedIn

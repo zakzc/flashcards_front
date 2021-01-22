@@ -69,20 +69,19 @@
   background-image: linear-gradient(to right, transparent 50%, $mainColor 0);
   color: transparent;
   text-align: center;
-  stroke-width: 35;
-  stroke-dasharray: 74 158;
+  stroke-width: 30;
 }
 
-.pieChartGraph {
+.pieGraph {
   transform: rotate(-90deg);
 }
 
 circle {
   fill: none;
   stroke-width: 32;
-  r: 16;
-  cx: 16;
-  cy: 16;
+  // r: 16;
+  // cx: 16;
+  // cy: 16;
 }
 
 circle.first {

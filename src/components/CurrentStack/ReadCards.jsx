@@ -25,7 +25,6 @@ export default class ReadCards extends Component {
                   <div className="flipCardBack">
                     <div className="cardTextPositioning">{m.back}</div>
                   </div>
-                  {console.log("card: ", m.front, m.back)}
                 </li>
               </div>
             );

@@ -66,14 +66,11 @@ export default class AddNewStack extends Component {
   StackNameSubmitHandler = (event) => {
     event.preventDefault();
     let newName = this.stackNewName.value;
-    console.log("--> ", newName);
     this.setState((state) => {
       return {
         newStackName: newName,
       };
     });
-    console.log("stack name handler");
-    console.table(this.state);
   };
 
   handleSubmitReady() {

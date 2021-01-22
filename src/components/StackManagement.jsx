@@ -213,7 +213,7 @@ export default class StackManagement extends Component {
   }
 
   StackManagementView() {
-    console.log("STACK MANAGEMENT");
+    // console.log("STACK MANAGEMENT");
     return (
       <div id="StackManagementView">
         {this.state.userIsLoggedIn ? (

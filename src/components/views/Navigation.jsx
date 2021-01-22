@@ -25,7 +25,6 @@ export default class Navigation extends Component {
   }
 
   logUserOut() {
-    console.log("Log me out");
     this.logOut_User();
   }
 

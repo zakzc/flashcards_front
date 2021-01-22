@@ -49,6 +49,7 @@ export default class CardSet extends React.Component {
     this.nextCardAvailable = this.nextCardAvailable.bind(this);
     this.updateCurrentCard = this.updateCurrentCard.bind(this);
     this.playCardSet = this.playCardSet.bind(this);
+    this.cardFlip = this.cardFlip.bind(this);
     this.cardSetLayout = this.cardSetLayout.bind(this);
     this.cardSetView = this.cardSetView.bind(this);
     this.infoCard = this.infoCard.bind(this);
@@ -165,45 +166,49 @@ export default class CardSet extends React.Component {
     );
   }
 
+  cardFlip() {
+    return (
+      <motion.div
+        /*     transition={{ ease: "easeIn", duration: 0.7 }} */
+        className="cardText"
+      >
+        {this.state.face ? (
+          <AnimatePresence>
+            <motion.div whileHover={{ scale: 1.02 }} id="cardFront">
+              {this.state.cards[this.state.current].front}
+            </motion.div>
+          </AnimatePresence>
+        ) : (
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            animate={{ rotateY: 360 }}
+            transition={{ ease: "easeInOut", duration: 0.7 }}
+            id="cardBack"
+          >
+            {this.state.cards[this.state.current].back}
+          </motion.div>
+        )}
+      </motion.div>
+    );
+  }
+
   cardSide() {
     try {
       if (this.state.cards.length === 0 || this.state.stackIsOver) {
-        this.setState({ stackIsOver: true });
-      } else {
+        // this.setState({ stackIsOver: true });
         return (
-          <React.Fragment>
-            <motion.div
-              /*     transition={{ ease: "easeIn", duration: 0.7 }} */
-              className="cardText"
-            >
-              {this.state.face ? (
-                <AnimatePresence>
-                  <motion.div whileHover={{ scale: 1.02 }} id="cardFront">
-                    {this.state.cards[this.state.current].front}
-                  </motion.div>
-                </AnimatePresence>
-              ) : (
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  animate={{ rotateY: 360 }}
-                  transition={{ ease: "easeInOut", duration: 0.7 }}
-                  id="cardBack"
-                >
-                  {this.state.cards[this.state.current].back}
-                </motion.div>
-              )}
-            </motion.div>
-          </React.Fragment>
+          <Stats
+            right={this.state.right}
+            wrong={this.state.wrong}
+            lengthOfStack={this.state.lengthOfStack}
+            reSetGame={this.reSetGame}
+          />
         );
+      } else {
+        return this.cardFlip();
       }
     } catch (E) {
       console.log("error on rendering", E);
-      console.log(
-        "Review state:",
-        this.state,
-        "length: ",
-        this.state.cards.length
-      );
     }
   }
 
@@ -363,7 +368,7 @@ export default class CardSet extends React.Component {
   }
 
   cardSetView() {
-    console.log("CARD SET PLAY");
+    // console.log("CARD SET PLAY");
     return (
       <div id="cardSetView">
         {this.state.userIsLoggedIn ? (

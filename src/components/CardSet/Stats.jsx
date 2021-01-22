@@ -44,14 +44,9 @@ export default class Stats extends Component {
   //   let cover = correct.toString() + " 100";
   //   console.log("cover: ", cover, typeof cover);
   //   return (
-  //     <div id="pieChartGraph">
-  //       {/* <svg id="pieGraph" viewBox="0 0 32 32" transform="rotate(270)">
-  //         <circle className="first" strokeDasharray={cover}></circle>
-  //       </svg> */}
-  //       <svg width="100" height="100" id="pieGraph">
-  //         <circle r="25" cx="50" cy="50" class="pie" strokeDasharray={cover} />
-  //       </svg>
-  //     </div>
+  //     <svg id="pieGraph" viewBox="0 0 32 32" width="100" height="100">
+  //       <circle r="25" cx="50" cy="50" strokeDasharray={cover} />
+  //     </svg>
   //   );
   // }
 
@@ -123,10 +118,10 @@ export default class Stats extends Component {
           <strong className="highlight"> {this.state.percentage}% </strong>of
           your guesses right.
           <br />
-          {/* <div id="graphView">
+          <div id="graphView">
             Graphical view (<strong className="statEmphasis">yellow </strong>{" "}
             represents the right answers):
-          </div> */}
+          </div>
           {/* {this.pieChart()} */}
         </div>
       </div>
@@ -163,7 +158,7 @@ export default class Stats extends Component {
 
   reStartTheGame() {
     return (
-      <div>
+      <div id="reStartButton">
         {this.reStartButton()}
         <h4 id="reStartQuestion">Do you want to re-start the stack?</h4>
       </div>

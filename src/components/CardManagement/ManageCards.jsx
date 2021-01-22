@@ -53,7 +53,6 @@ export default class ManageCards extends Component {
   ////////////////
 
   handleSubmitReady = () => {
-    console.log("Handle submit ready");
     const stackToUpdate = this.state.newStack;
     updateCards(stackToUpdate)
       .then(
@@ -78,7 +77,6 @@ export default class ManageCards extends Component {
 
   // gets the new values for front and back
   editButtonHandler(e) {
-    console.log("edit button handler");
     e.preventDefault();
     let newValueFront = this.state.tempNewFront;
     let newValueBack = this.state.tempNewBack;
@@ -105,7 +103,6 @@ export default class ManageCards extends Component {
   }
 
   makeNewCardSet(newFront, newBack) {
-    console.log("make new card set");
     if (this.validateInput(newFront, newBack) === true) {
       // makes a new version of the cardSet
       let updatedStack = this.state.currentStack;
@@ -125,7 +122,6 @@ export default class ManageCards extends Component {
           this.state.cardForEditing
         ].front;
       }
-      console.log("should update to: ", updatedStack);
       // updates local state
       this.setState((state) => ({
         newStack: updatedStack,
@@ -138,7 +134,6 @@ export default class ManageCards extends Component {
   }
 
   chooseCard(e) {
-    console.log("choose card");
     let selectedCard = e.target.value;
     this.setState(() => ({
       cardForEditing: selectedCard,
@@ -325,7 +320,7 @@ export default class ManageCards extends Component {
   }
 
   manageCardsView() {
-    console.log("MANAGE CARDS");
+    // console.log("MANAGE CARDS");
     return (
       <div id="manageCardsLayout">
         {this.state.userIsLoggedIn ? (

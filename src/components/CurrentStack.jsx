@@ -150,7 +150,7 @@ export default class currentStack extends Component {
   }
 
   currentStackView() {
-    console.log("CURRENT STACK");
+    // console.log("CURRENT STACK");
     return (
       <div id="currentStackView">
         {this.state.userIsLoggedIn ? (

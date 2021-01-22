@@ -61,7 +61,6 @@ export default class App extends React.Component {
     // retrieve new stack data from API
     updateCurrentStack(stackNo)
       .then((response) => {
-        // console.log("response awaiting", response);
         this.setState({
           currentStack: response,
         });
@@ -95,7 +94,6 @@ export default class App extends React.Component {
   }
 
   logOut_User() {
-    console.log("Log out user");
     this.setState({
       userIsLoggedIn: false,
       currenUser: " ",
@@ -240,7 +238,7 @@ export default class App extends React.Component {
   }
 
   appView() {
-    console.log("APP");
+    // console.log("APP View reload");
     if (this.state.userIsLoggedIn === true) {
       return <div id="user_is_logged_in">{this.loggedInView()}</div>;
     } else {
