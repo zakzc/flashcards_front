@@ -18,17 +18,15 @@ export default class ReadCards extends Component {
           {this.state.currentStack.cards.map((m, j) => {
             return (
               <div className="flipCard" key={j}>
-                <div className="flipCardInner" label={m.back}>
-                  <li value={m.front}>
-                    <div className="flipCardFront">
-                      <div className="cardTextPositioning">{m.front}</div>
-                    </div>
-                    <div className="flipCardBack">
-                      <div className="cardTextPositioning">{m.back}</div>
-                    </div>
-                    {console.log("card: ", m.front, m.back)}
-                  </li>
-                </div>
+                <li className="flipCardInner" value={m.front}>
+                  <div className="flipCardFront">
+                    <div className="cardTextPositioning">{m.front}</div>
+                  </div>
+                  <div className="flipCardBack">
+                    <div className="cardTextPositioning">{m.back}</div>
+                  </div>
+                  {console.log("card: ", m.front, m.back)}
+                </li>
               </div>
             );
           })}
