@@ -6,7 +6,7 @@ import { Redirect } from "react-router-dom";
 import UserIsLoggedOut from "./views/UserIsLoggedOut";
 import ManageCards from "./CardManagement/ManageCards";
 
-export default class StackManagement extends Component {
+export default class CardManagement extends Component {
   constructor(props) {
     super(props);
     this.state = {

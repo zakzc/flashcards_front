@@ -18,12 +18,12 @@ export default class CardSet extends React.Component {
     this.state = {
       userIsLoggedIn: props.userIsLoggedIn,
       currentStack: props.currentStack,
-      cards: props.currentStack.cards,
+      cards: props.cards,
       current: 0,
       face: true,
       right: 0,
       wrong: 0,
-      lengthOfStack: props.currentStack.cards.length,
+      lengthOfStack: props.length,
       stackIsOver: false,
     };
     // external modules

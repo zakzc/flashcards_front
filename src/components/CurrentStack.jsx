@@ -11,7 +11,7 @@ import "../../src/index.css";
 import Collection from "./icons/collection";
 import CheckEye from "./icons/checkEye";
 
-export default class currentStack extends Component {
+export default class CurrentStack extends Component {
   constructor(props) {
     super(props);
     this.state = {

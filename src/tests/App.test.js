@@ -13,7 +13,7 @@ Enzyme.configure({ adapter: new Adapter() });
 describe("App tests", () => {
   const app = shallow(<App />);
 
-  it("Renders the app", () => {
+  it("Renders the App", () => {
     expect(app).toMatchSnapshot();
   });
 
