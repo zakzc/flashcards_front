@@ -20,8 +20,6 @@ export default class Navigation extends Component {
     this.loggedInNavBar = this.loggedInNavBar.bind(this);
     this.loggedOutNavBar = this.loggedOutNavBar.bind(this);
     this.logUserOut = this.logUserOut.bind(this);
-    // Methods
-    // this.logInLogOut = props.logInLogOut();
   }
 
   logUserOut() {
