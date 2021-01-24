@@ -23,7 +23,3 @@ describe("StackManagement tests", () => {
     expect(stackManagement.state().delete).toEqual(false);
   });
 });
-
-//  add: true,
-//   export: false,
-//   delete: false,
