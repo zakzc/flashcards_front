@@ -10,7 +10,7 @@ import App from "../App";
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe("App component", () => {
+describe("\n __| App Component |__ ", () => {
   const app = shallow(<App />);
 
   describe("Initialization process", () => {

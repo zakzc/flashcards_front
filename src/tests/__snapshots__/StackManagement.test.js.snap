@@ -1,3 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`StackManagement component Initialization process Renders the CardSet component 1`] = `ShallowWrapper {}`;
+exports[`
+ __| Stack Management |__ Initialization process Renders the CardSet component 1`] = `ShallowWrapper {}`;
+
+exports[`
+- -> | Add New Stack (child) |  	Initialization process Renders the ManageCards component 1`] = `ShallowWrapper {}`;

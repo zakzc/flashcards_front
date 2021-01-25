@@ -1,3 +1,4 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App component Initialization process Renders the App 1`] = `ShallowWrapper {}`;
+exports[`
+ __| App Component |__  Initialization process Renders the App 1`] = `ShallowWrapper {}`;

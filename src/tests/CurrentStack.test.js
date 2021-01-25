@@ -1,16 +1,16 @@
 import React from "react";
 import Enzyme from "enzyme";
-// import ReactDOM from "react-dom";
-// import { render } from "@testing-library/react";
 ///
 import Adapter from "enzyme-adapter-react-16";
-import { shallow, configure } from "enzyme";
+import { shallow } from "enzyme";
 ///
 import CurrentStack from "../components/CurrentStack";
+import SelectNewStack from "../components/CurrentStack/SelectNewStack";
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe("CurrentStack component", () => {
+// Parent
+describe("\n __| Current Stack |__", () => {
   const currentStack = shallow(<CurrentStack />);
 
   describe("Initialization process", () => {
@@ -44,12 +44,20 @@ describe("CurrentStack component", () => {
   });
 });
 
-// import ReadCards from "./CurrentStack/ReadCards";
-// import SelectNewStack from "./CurrentStack/SelectNewStack";
-// // Standard Log out page
-// import UserIsLoggedOut from "./views/UserIsLoggedOut";
-// // Style
-// import "../../src/index.css";
-// // Icons
-// import Collection from "./icons/collection";
-// import CheckEye from "./icons/checkEye";
+// Child
+describe("\n- -> | Select New Stack (child) | ", () => {
+  const selectNewStack = shallow(<SelectNewStack />);
+
+  describe("\tInitialization process", () => {
+    it("Renders the ManageCards component", () => {
+      expect(selectNewStack).toMatchSnapshot();
+    });
+
+    it("Initializes the State", () => {
+      expect(selectNewStack.state().chosenStackId).toEqual("");
+      expect(selectNewStack.state().chosenStackName).toEqual("");
+      expect(selectNewStack.state().confirmation).toEqual(false);
+      expect(selectNewStack.state().redirect).toEqual(false);
+    });
+  });
+});

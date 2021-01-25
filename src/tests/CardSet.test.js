@@ -1,16 +1,16 @@
 import React from "react";
 import Enzyme from "enzyme";
-// import ReactDOM from "react-dom";
-// import { render } from "@testing-library/react";
 ///
 import Adapter from "enzyme-adapter-react-16";
 import { shallow, configure } from "enzyme";
 ///
 import CardSet from "../components/CardSet";
+import Stats from "../components/CardSet/Stats";
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe("CardSet component", () => {
+// Parent
+describe("\n __| CardSet |__", () => {
   const cardSet = shallow(<CardSet />);
 
   describe("Initialization process", () => {
@@ -44,6 +44,28 @@ describe("CardSet component", () => {
         });
         test("Wrong", () => {
           expect(cardSet.find("Wrong")).toBeTruthy();
+        });
+      });
+    });
+  });
+});
+
+// Child
+describe("\n- -> | Stats (child) | ", () => {
+  const stats = shallow(<Stats />);
+
+  describe("\tInitialization process", () => {
+    it("Renders the ManageCards component", () => {
+      expect(stats).toMatchSnapshot();
+    });
+
+    describe("\tImports", () => {
+      describe("\tSvg imports", () => {
+        test("RewindIcon", () => {
+          expect(stats.find("RewindIcon")).toBeTruthy();
+        });
+        test("StatsIcon", () => {
+          expect(stats.find("StatsIcon")).toBeTruthy();
         });
       });
     });
