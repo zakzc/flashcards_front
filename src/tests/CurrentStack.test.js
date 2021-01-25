@@ -10,22 +10,46 @@ import CurrentStack from "../components/CurrentStack";
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe("CurrentStack tests", () => {
+describe("CurrentStack component", () => {
   const currentStack = shallow(<CurrentStack />);
 
-  it("Renders the CardSet component", () => {
-    expect(currentStack).toMatchSnapshot();
-  });
+  describe("Initialization process", () => {
+    it("Renders the CardSet component", () => {
+      expect(currentStack).toMatchSnapshot();
+    });
 
-  it("Initializes the State", () => {
-    expect(currentStack.state().readOrSelect).toEqual(true);
-    expect(currentStack.state().update).toEqual(false);
+    it("Initializes the State", () => {
+      expect(currentStack.state().readOrSelect).toEqual(true);
+      expect(currentStack.state().update).toEqual(false);
+    });
+    describe("Imports", () => {
+      test("ReadCards", () => {
+        expect(currentStack.find("ReadCards")).toBeTruthy();
+      });
+      test("SelectNewStack", () => {
+        expect(currentStack.find("SelectNewStack")).toBeTruthy();
+      });
+      test("UserIsLoggedOut", () => {
+        expect(currentStack.find("UserIsLoggedOut")).toBeTruthy();
+      });
+      describe("Svg imports", () => {
+        test("Collection", () => {
+          expect(currentStack.find("Collection")).toBeTruthy();
+        });
+        test("CheckEye", () => {
+          expect(currentStack.find("CheckEye")).toBeTruthy();
+        });
+      });
+    });
   });
 });
 
-//  currentUser: props.currentUser,
-//   userIsLoggedIn: props.userIsLoggedIn,
-//   userStacks: props.userStacks,
-//   currentStack: props.currentStack,
-//   readOrSelect: true,
-//   update: false,
+// import ReadCards from "./CurrentStack/ReadCards";
+// import SelectNewStack from "./CurrentStack/SelectNewStack";
+// // Standard Log out page
+// import UserIsLoggedOut from "./views/UserIsLoggedOut";
+// // Style
+// import "../../src/index.css";
+// // Icons
+// import Collection from "./icons/collection";
+// import CheckEye from "./icons/checkEye";

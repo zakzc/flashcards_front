@@ -10,17 +10,42 @@ import CardSet from "../components/CardSet";
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe("CardSet tests", () => {
+describe("CardSet component", () => {
   const cardSet = shallow(<CardSet />);
 
-  it("Renders the CardSet component", () => {
-    expect(cardSet).toMatchSnapshot();
-  });
+  describe("Initialization process", () => {
+    it("Renders the CardSet component", () => {
+      expect(cardSet).toMatchSnapshot();
+    });
 
-  it("Initializes the State", () => {
-    expect(cardSet.state().face).toEqual(true);
-    expect(cardSet.state().right).toEqual(0);
-    expect(cardSet.state().wrong).toEqual(0);
-    expect(cardSet.state().stackIsOver).toEqual(false);
+    it("Initializes the State", () => {
+      expect(cardSet.state().face).toEqual(true);
+      expect(cardSet.state().right).toEqual(0);
+      expect(cardSet.state().wrong).toEqual(0);
+      expect(cardSet.state().stackIsOver).toEqual(false);
+    });
+
+    describe("Imports", () => {
+      test("UserIsLoggedOut", () => {
+        expect(cardSet.find("UserIsLoggedOut")).toBeTruthy();
+      });
+      test("Stats", () => {
+        expect(cardSet.find("Stats")).toBeTruthy();
+      });
+      test("Score", () => {
+        expect(cardSet.find("Score")).toBeTruthy();
+      });
+      describe("Svg imports", () => {
+        test("Check", () => {
+          expect(cardSet.find("Check")).toBeTruthy();
+        });
+        test("Right", () => {
+          expect(cardSet.find("Right")).toBeTruthy();
+        });
+        test("Wrong", () => {
+          expect(cardSet.find("Wrong")).toBeTruthy();
+        });
+      });
+    });
   });
 });

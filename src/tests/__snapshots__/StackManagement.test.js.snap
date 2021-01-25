@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`StackManagement tests Renders the CardSet component 1`] = `ShallowWrapper {}`;
+exports[`StackManagement component Initialization process Renders the CardSet component 1`] = `ShallowWrapper {}`;

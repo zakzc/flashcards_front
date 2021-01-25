@@ -10,16 +10,44 @@ import StackManagement from "../components/StackManagement";
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe("StackManagement tests", () => {
+describe("StackManagement component", () => {
   const stackManagement = shallow(<StackManagement />);
 
-  it("Renders the CardSet component", () => {
-    expect(stackManagement).toMatchSnapshot();
-  });
+  describe("Initialization process", () => {
+    it("Renders the CardSet component", () => {
+      expect(stackManagement).toMatchSnapshot();
+    });
 
-  it("Initializes the State", () => {
-    expect(stackManagement.state().add).toEqual(true);
-    expect(stackManagement.state().export).toEqual(false);
-    expect(stackManagement.state().delete).toEqual(false);
+    it("Initializes the State", () => {
+      expect(stackManagement.state().add).toEqual(true);
+      expect(stackManagement.state().export).toEqual(false);
+      expect(stackManagement.state().delete).toEqual(false);
+    });
+
+    describe("Imports", () => {
+      test("RemoveCurStack", () => {
+        expect(stackManagement.find("RemoveCurStack")).toBeTruthy();
+      });
+      test("AddNewStack", () => {
+        expect(stackManagement.find("AddNewStack")).toBeTruthy();
+      });
+      test("ExportStack", () => {
+        expect(stackManagement.find("ExportStack")).toBeTruthy();
+      });
+      test("UserIsLoggedOut", () => {
+        expect(stackManagement.find("UserIsLoggedOut")).toBeTruthy();
+      });
+      describe("Svg imports", () => {
+        test("Plus", () => {
+          expect(stackManagement.find("Plus")).toBeTruthy();
+        });
+        test("Trash", () => {
+          expect(stackManagement.find("Trash")).toBeTruthy();
+        });
+        test("Export", () => {
+          expect(stackManagement.find("Export")).toBeTruthy();
+        });
+      });
+    });
   });
 });

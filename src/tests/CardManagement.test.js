@@ -10,19 +10,25 @@ import CardManagement from "../components/CardManagement";
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe("CardManagement tests", () => {
+describe("CardManagement Component", () => {
   const cardManagement = shallow(<CardManagement />);
 
-  it("Renders the CardSet component", () => {
-    expect(cardManagement).toMatchSnapshot();
-  });
+  describe("Initialization process", () => {
+    it("Renders the CardSet component", () => {
+      expect(cardManagement).toMatchSnapshot();
+    });
 
-  it("Initializes the State", () => {
-    expect(cardManagement.state().addOrManage).toEqual(false);
+    it("Initializes the State", () => {
+      expect(cardManagement.state().addOrManage).toEqual(false);
+    });
+
+    describe("Imports", () => {
+      test("UserIsLoggedOut", () => {
+        expect(cardManagement.find("UserIsLoggedOut")).toBeTruthy();
+      });
+      test("ManageCards", () => {
+        expect(cardManagement.find("ManageCards")).toBeTruthy();
+      });
+    });
   });
 });
-
-//   userIsLoggedIn: props.userIsLoggedIn,
-//   currentUser: props.currentUser,
-//   currentStack: props.currentStack,
-//   addOrManage: false,

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1611565960516" clover="3.2.0">
+  <project timestamp="1611565960516" name="All files">
+    <metrics statements="10" coveredstatements="3" conditionals="6" coveredconditionals="0" methods="6" coveredmethods="1" elements="22" coveredelements="4" complexity="0" loc="10" ncloc="10" packages="1" files="1" classes="1"/>
+    <file name="LogInSignUp.jsx" path="/Users/zakzangrandocardoso/Code/GitHub/flashcards/src/components/LogInSignUp.jsx">
+      <metrics statements="10" coveredstatements="3" conditionals="6" coveredconditionals="0" methods="6" coveredmethods="1"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
+      <line num="21" count="1" type="stmt"/>
+      <line num="24" count="0" type="stmt"/>
+      <line num="25" count="0" type="stmt"/>
+      <line num="26" count="0" type="stmt"/>
+      <line num="34" count="0" type="stmt"/>
+      <line num="44" count="0" type="stmt"/>
+      <line num="87" count="0" type="stmt"/>
+      <line num="97" count="0" type="stmt"/>
+    </file>
+  </project>
+</coverage>

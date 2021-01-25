@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-// DB
-// import { useDB_Connection } from "../DB/DB-hook/connection-hook";
 // Standard Log out page
 import UserIsLoggedOut from "./views/UserIsLoggedOut";
 import ManageCards from "./CardManagement/ManageCards";
@@ -16,8 +14,6 @@ export default class CardManagement extends Component {
       addOrManage: false,
     };
     // * Methods
-    // this.useDB_Connection = useDB_Connection;
-    // presentational methods
     this.UserIsLoggedOut = UserIsLoggedOut;
   }
 

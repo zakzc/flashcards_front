@@ -21,7 +21,6 @@ import ConsolidateChanges from "./components/views/ConsolidateChanges";
 import CardSet from "./components/CardSet";
 // hooks
 import useDB_Connection from "./Data/DB-hook/connection-hook";
-// import history from "./utils/history";
 // data update functions
 import updateCurrentStack from "./Data/Data_Update/updateCurrentStack";
 import updateUserData from "./Data/Data_Update/updateUserData";
