@@ -51,7 +51,7 @@ describe("\n __| CardSet |__", () => {
 });
 
 // Child
-describe("\n- -> | Stats (child) | ", () => {
+describe("\n___| Stats |___ ", () => {
   const stats = shallow(<Stats />);
 
   describe("\tInitialization process", () => {

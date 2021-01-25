@@ -170,6 +170,7 @@ export default class StackManagement extends Component {
             userIsLoggedIn={this.state.userIsLoggedIn}
             currentUser={this.state.currentUser}
             currentStack={this.state.currentStack}
+            stackName={this.state.currentStack.stackName}
             // setCurrentStack={this.setCurrentStack}
           />
         ) : (
@@ -181,6 +182,7 @@ export default class StackManagement extends Component {
             currentUser={this.state.currentUser}
             currentStack={this.state.currentStack}
             setCurrentStack={this.setCurrentStack}
+            stackName={this.state.currentStack.stackName}
           />
         ) : (
           <div></div>

@@ -11,6 +11,7 @@ export default class ExportStack extends Component {
     this.state = {
       currentUser: props.currentUser,
       currentStack: props.currentStack,
+      stackName: props.stackName,
     };
     // methods
     this.prepareData = this.prepareData.bind(this);
@@ -75,7 +76,7 @@ export default class ExportStack extends Component {
             Your current stack is:
             <strong className="currentSelectedStack">
               {" "}
-              {this.state.currentStack.stackName}
+              {this.state.stackName}
             </strong>
           </h3>
           <p>

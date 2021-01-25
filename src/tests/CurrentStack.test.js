@@ -45,7 +45,7 @@ describe("\n __| Current Stack |__", () => {
 });
 
 // Child
-describe("\n- -> | Select New Stack (child) | ", () => {
+describe("\n ___| Select New Stack |___ ", () => {
   const selectNewStack = shallow(<SelectNewStack />);
 
   describe("\tInitialization process", () => {

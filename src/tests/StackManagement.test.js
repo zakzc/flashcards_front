@@ -4,8 +4,12 @@ import Enzyme from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import { shallow } from "enzyme";
 ///
+// Parent
 import StackManagement from "../components/StackManagement";
+// Children
 import AddNewStack from "../components/StackManagement/AddNewStack";
+import ExportNewStack from "../components/StackManagement/exportStack";
+import RemoveCurrentStack from "../components/StackManagement/RemoveCurStack";
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -53,7 +57,7 @@ describe("\n __| Stack Management |__", () => {
 });
 
 // Children
-describe("\n- -> | Add New Stack (child) | ", () => {
+describe("\n ___| Add New Stack |___", () => {
   const addNewStack = shallow(<AddNewStack />);
 
   describe("\tInitialization process", () => {
@@ -96,9 +100,45 @@ describe("\n- -> | Add New Stack (child) | ", () => {
   });
 });
 
-// import useDB_Connection from "../../Data/DB-hook/connection-hook";
-// import { CheckForInvalidCharacters } from "../../Data/Validation/validate";
-// // Icons
-// import Consolidate from "../icons/consolidate";
-// import Plus from "../icons/plus";
-// import Right from "../icons/right";
+describe("\n ___| Export New Stack |___", () => {
+  const exportNewStack = shallow(<ExportNewStack />);
+
+  describe("\tInitialization process", () => {
+    it("Renders the ManageCards component", () => {
+      expect(exportNewStack).toMatchSnapshot();
+    });
+
+    describe("Imports", () => {
+      describe("Svg imports", () => {
+        test("Download", () => {
+          expect(exportNewStack.find("Download")).toBeTruthy();
+        });
+      });
+    });
+  });
+});
+
+describe("\n ___| Remove current stack |___ ", () => {
+  const removeCurrentStack = shallow(<RemoveCurrentStack />);
+
+  describe("\tInitialization process", () => {
+    it("Renders the ManageCards component", () => {
+      expect(removeCurrentStack).toMatchSnapshot();
+    });
+
+    it("Initializes the State", () => {
+      expect(removeCurrentStack.state().redirectUser).toEqual(false);
+    });
+  });
+
+  describe("\tImports", () => {
+    test("updateCards", () => {
+      expect(removeCurrentStack.find("RemoveCurrentStack")).toBeTruthy();
+    });
+    describe("\tSvg imports", () => {
+      test("Trash", () => {
+        expect(removeCurrentStack.find("Trash")).toBeTruthy();
+      });
+    });
+  });
+});

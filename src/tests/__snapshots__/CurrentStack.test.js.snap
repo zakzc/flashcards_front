@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`
- __| Current Stack |__ Initialization process Renders the CardSet component 1`] = `ShallowWrapper {}`;
+ ___| Select New Stack |___  	Initialization process Renders the ManageCards component 1`] = `ShallowWrapper {}`;
 
 exports[`
-- -> | Select New Stack (child) |  	Initialization process Renders the ManageCards component 1`] = `ShallowWrapper {}`;
+ __| Current Stack |__ Initialization process Renders the CardSet component 1`] = `ShallowWrapper {}`;

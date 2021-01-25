@@ -11,6 +11,7 @@ export default class RemoveCurStack extends Component {
     this.state = {
       currentUser: props.currentUser,
       currentStack: props.currentStack,
+      stackName: props.stackName,
       redirectUser: false,
     };
     // DB actions
@@ -68,7 +69,7 @@ export default class RemoveCurStack extends Component {
           Your current stack is:
           <strong className="currentSelectedStack">
             {" "}
-            {this.state.currentStack.stackName}
+            {this.state.stackName}
           </strong>
         </h3>
         <p>

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`
- __| CardManagement |__  Initialization Matches snapshot 1`] = `ShallowWrapper {}`;
+  ___| ManageCards |___  	Initialization process Renders the ManageCards component 1`] = `ShallowWrapper {}`;
 
 exports[`
-- -> | ManageCards (child) |  	Initialization process Renders the ManageCards component 1`] = `ShallowWrapper {}`;
+ __| CardManagement |__  Initialization Matches snapshot 1`] = `ShallowWrapper {}`;

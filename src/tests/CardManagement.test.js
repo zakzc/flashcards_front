@@ -35,7 +35,7 @@ describe("\n __| CardManagement |__ ", () => {
 });
 
 // Child
-describe("\n- -> | ManageCards (child) | ", () => {
+describe("\n  ___| ManageCards |___ ", () => {
   const manageCards = shallow(<ManageCards />);
 
   describe("\tInitialization process", () => {

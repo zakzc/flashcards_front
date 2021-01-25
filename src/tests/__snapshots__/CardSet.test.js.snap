@@ -4,4 +4,4 @@ exports[`
  __| CardSet |__ Initialization process Renders the CardSet component 1`] = `ShallowWrapper {}`;
 
 exports[`
-- -> | Stats (child) |  	Initialization process Renders the ManageCards component 1`] = `ShallowWrapper {}`;
+___| Stats |___  	Initialization process Renders the ManageCards component 1`] = `ShallowWrapper {}`;
