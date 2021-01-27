@@ -42,10 +42,11 @@ export default class Navigation extends Component {
 
   loggedInNavBar() {
     return (
-      <div id="NavigationMenu">
+      <div id="LogInNavBar">
         <ul
           style={{ listStyleType: "none", padding: 0 }}
           activeclassname="active"
+          id="menuBar"
         >
           <li className="navigationLink ">
             <NavLink to="/curStack">
@@ -116,7 +117,7 @@ export default class Navigation extends Component {
 
   loggedOutNavBar() {
     return (
-      <React.Fragment>
+      <div id="LogOutNavBar">
         <ul
           style={{ listStyleType: "none", padding: 0 }}
           activeclassname="active"
@@ -130,7 +131,7 @@ export default class Navigation extends Component {
             </Link>
           </li>
         </ul>
-      </React.Fragment>
+      </div>
     );
   }
 

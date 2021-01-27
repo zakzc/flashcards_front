@@ -240,7 +240,7 @@ export default class AddNewStack extends Component {
         <div className="flipContainer">
           <div className="flipInner">
             <div className="flipFront">
-              <Plus className="addCardIcon" />
+              <Plus />
             </div>
             <div className="flipBack">
               <span className="buttonMessage">Add new card</span>
