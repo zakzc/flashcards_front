@@ -1,11 +1,8 @@
 import React from "react";
 import Enzyme from "enzyme";
 ///
-// to be able to test the router
-import { BrowserRouter as Router, Link, NavLink } from "react-router-dom";
-///
 import Adapter from "enzyme-adapter-react-16";
-import { shallow, mount } from "enzyme";
+import { shallow } from "enzyme";
 ///
 import Navigation from "../components/views/Navigation";
 

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import LogInPage from "./LogInSignUp/LogInOutPage";
+import LogInPage from "./LogInSignUp/LogInPage";
 import SignUpPage from "./LogInSignUp/SignUpPage";
 // import { useDB_Connection } from "../DB/DB-hook/connection-hook";
 //
@@ -19,7 +19,7 @@ export default class LogInSignUp extends Component {
     //this.updateUser = props.updateUser.bind(this);
     //this.updateStack = props.updateStack.bind(this);
     this.logIn_User = props.logIn_User.bind(this);
-    // this.LogInPage = LogInPage.bind(this);
+    this.LogInPage = LogInPage.bind(this);
     // this.SignUpPage = SignUpPage.bind(this);
     this.logInOrSignUpSwitch = this.logInOrSignUpSwitch.bind(this);
     this.logInOrSignUpDisplay = this.logInOrSignUpDisplay.bind(this);

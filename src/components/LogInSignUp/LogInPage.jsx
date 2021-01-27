@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import useDB_Connection from "../../Data/DB-hook/connection-hook";
+// Connection
+import LogUserIn from "../../Data/Data_Update/logUserIn";
 // hooks and util
 import {
   validateEmail,
@@ -14,9 +16,9 @@ export default class LogInPage extends Component {
       userIsLoggedIn: props.userIsLoggedIn,
       errorMessage: " ",
     };
+    // data from AI
+    this.LogUserIn = LogUserIn.bind(this);
     // methods from parent
-    //this.updateUser = props.updateUser.bind(this);
-    //this.logUserIn = this.logUserIn.bind(this);
     this.logIn_User = props.logIn_User.bind(this);
     this.handleSubmitLogInForm = this.handleSubmitLogInForm.bind(this);
     //local methods
@@ -30,48 +32,10 @@ export default class LogInPage extends Component {
     this.validatePasswordInput = validatePasswordInput;
   }
 
-  logUserIn = async (email, psw) => {
-    let requestBody = JSON.stringify({
-      userEmail: email,
-      password: psw,
-    });
-    const userLogInCheck = await useDB_Connection(
-      "http://localhost:5000/userAPI/logIn",
-      "POST",
-      requestBody,
-      {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      }
-    );
-    const data = userLogInCheck;
-    // console.log("data from hook", data);
-    try {
-      let userData = JSON.parse(data.response);
-      // console.log("Data handling --> ", userData.id, typeof userData);
-      if (data.returnStatus === 401) {
-        this.setState({
-          errorMessage:
-            "Error on log In. Error type: Access not authorized. Please contact website administrator and report the problem.",
-        });
-        console.log("Access not authorized");
-      } else if (data.returnStatus === 200) {
-        // console.log("calling Update user", userData);
-        this.logIn_User(userData);
-      }
-    } catch (error) {
-      this.setState({
-        errorMessage:
-          "Error on log in. Error type: No data was returned from API. Please contact website administrator and report the problem.",
-      });
-      console.log("error on log in: ", error);
-    }
-  };
-
   validateCredentials(e, p) {
     if (this.validateEmail(e) === true) {
       if (this.validatePasswordInput(p) === true) {
-        this.logUserIn(e, p);
+        this.LogUserIn(e, p);
       }
     } else {
       this.setState({ errorMessage: "improper input on log in form" });

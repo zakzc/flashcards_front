@@ -14,13 +14,13 @@ import Title from "./components/views/Title";
 // Routed layout
 import StackManagement from "./components/StackManagement";
 import CardManagement from "./components/CardManagement";
-import LogInPage from "./components/LogInSignUp";
+import LogInPage from "./components/LogInSignUp/LogInPage";
 import CurrentStack from "./components/CurrentStack";
 // import Page404 from "./components/views/Page404";
 import ConsolidateChanges from "./components/views/ConsolidateChanges";
 import CardSet from "./components/CardSet";
 // hooks
-import useDB_Connection from "./Data/DB-hook/connection-hook";
+// import useDB_Connection from "./Data/DB-hook/connection-hook";
 // data update functions
 import updateCurrentStack from "./Data/Data_Update/updateCurrentStack";
 import updateUserData from "./Data/Data_Update/updateUserData";
@@ -37,7 +37,7 @@ export default class App extends React.Component {
       currentStack: "",
     };
     // Hooks
-    this.useDB_Connection = useDB_Connection;
+    // this.useDB_Connection = useDB_Connection;
     // data (API) methods
     this.updateCurrentStack = updateCurrentStack;
     this.updateUserData = updateUserData;

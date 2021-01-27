@@ -24,20 +24,20 @@ describe("\n __| Current Stack |__", () => {
     });
     describe("Imports", () => {
       test("ReadCards", () => {
-        expect(currentStack.find("ReadCards")).toBeTruthy();
+        expect(currentStack.find("#ReadCards")).toBeTruthy();
       });
       test("SelectNewStack", () => {
-        expect(currentStack.find("SelectNewStack")).toBeTruthy();
+        expect(currentStack.find("#SelectNewStack")).toBeTruthy();
       });
       test("UserIsLoggedOut", () => {
-        expect(currentStack.find("UserIsLoggedOut")).toBeTruthy();
+        expect(currentStack.find("#UserIsLoggedOut")).toBeTruthy();
       });
       describe("Svg imports", () => {
         test("Collection", () => {
-          expect(currentStack.find("Collection")).toBeTruthy();
+          expect(currentStack.find("#Collection")).toBeTruthy();
         });
         test("CheckEye", () => {
-          expect(currentStack.find("CheckEye")).toBeTruthy();
+          expect(currentStack.find("#CheckEye")).toBeTruthy();
         });
       });
     });
