@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import useDB_Connection from "../../Data/DB-hook/connection-hook";
+//import useDB_Connection from "../../Data/DB-hook/connection-hook";
 // Connection
 import LogUserIn from "../../Data/Data_Update/logUserIn";
 // hooks and util
@@ -26,11 +26,15 @@ export default class LogInPage extends Component {
     this.logInForm = this.logInForm.bind(this);
     this.validateCredentials = this.validateCredentials.bind(this);
     // hooks
-    this.useDB_Connection = useDB_Connection;
+    // this.useDB_Connection = useDB_Connection;
     // validation
     this.validateEmail = validateEmail;
     this.validatePasswordInput = validatePasswordInput;
   }
+
+  //////////////////////////
+  // Implementation methods
+  //////////////////////////
 
   validateCredentials(e, p) {
     if (this.validateEmail(e) === true) {
@@ -46,6 +50,10 @@ export default class LogInPage extends Component {
     event.preventDefault();
     this.validateCredentials(this.userEmail.value, this.userPsw.value);
   }
+
+  ////////////////
+  // View methods
+  ////////////////
 
   logInForm() {
     return (

@@ -26,9 +26,9 @@ export default class LogInSignUp extends Component {
     this.logInSignUpView = this.logInSignUpView.bind(this);
   }
 
-  ////////////////
+  //////////////////////////
   // Implementation methods
-  ////////////////
+  //////////////////////////
 
   logInOrSignUpSwitch() {
     this.setState((state) => ({
