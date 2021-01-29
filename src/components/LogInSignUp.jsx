@@ -45,7 +45,7 @@ export default class LogInSignUp extends Component {
       <div id="logInOrSignUpLayout">
         <div id="inOutButtonArea">
           <h1 id="logInTextMessage">
-            Log in or Sign up
+            Log in or Sign up{" "}
             <span>
               <PileLogo className="pileLogo" />
             </span>

@@ -5,8 +5,9 @@ import {
   validateEmail,
   validatePasswordInput,
 } from "../../Data/Validation/validate";
-// Hook
-import useDB_Connection from "../../Data/DB-hook/connection-hook";
+// Connection to DB
+// import useDB_Connection from "../../Data/DB-hook/connection-hook";
+import SignUserUp from "../../Data/Data_Update/signUserUp";
 
 export default class SignUpPage extends Component {
   constructor(props) {
@@ -21,38 +22,27 @@ export default class SignUpPage extends Component {
     // this.updateUser = props.updateUser.bind(this);
     this.validateCredentials = this.validateAccessCredentials.bind(this);
     this.handleSubmitSignUpForm = this.handleSubmitSignUpForm.bind(this);
-    this.signUserUp = this.signUserUp.bind(this);
+    // this.SignUserUp = this.SignUserUp.bind(this);
     // local
     this.signUpForm = this.signUpForm.bind(this);
     this.signUpView = this.signUpView.bind(this);
-    // hooks
-    this.useDB_Connection = useDB_Connection;
+    // Data from API
+    this.SignUserUp = SignUserUp.bind(this);
     // utils
     // validation
     this.validateEmail = validateEmail;
     this.validatePasswordInput = validatePasswordInput;
   }
 
-  //url, method = "GET", body = null, headers = {}
-  signUserUp(userEmail, password, firstName, lastName) {
-    let requestBody = JSON.stringify({
-      userEmail: userEmail,
-      password: password,
-      firstName: firstName,
-      lastName: lastName,
-    });
-    useDB_Connection(
-      "http://localhost:5000/userAPI/signUp",
-      "POST",
-      requestBody,
-      {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      }
-    ).then(() => {
-      this.logInOrSignUpSwitch();
-      this.setState({ redirectUser: true });
-    });
+  proceedToSignUp(userEmail, userPsw, userFirstName, userLastName) {
+    try {
+      this.SignUserUp(userEmail, userPsw, userFirstName, userLastName);
+    } catch {
+      console.log("Error on Sign up Process");
+      return false;
+    }
+    this.logInOrSignUpSwitch(true);
+    this.setState({ redirectUser: true });
   }
 
   validateAccessCredentials(userEmail, userPassword) {
@@ -78,13 +68,13 @@ export default class SignUpPage extends Component {
       userFirstNameSignUp: this.firstName.value,
       userLastNameSignUp: this.lastName.value,
     };
-    // console.log(
-    //   "Received: ",
-    //   credentials.userEmailSignUp,
-    //   credentials.userPswSignUp,
-    //   credentials.userFirstNameSignUp,
-    //   credentials.userLastNameSignUp
-    // );
+    console.log(
+      "Received: ",
+      credentials.userEmailSignUp,
+      credentials.userPswSignUp,
+      credentials.userFirstNameSignUp,
+      credentials.userLastNameSignUp
+    );
     if (
       this.validateAccessCredentials(
         credentials.userEmailSignUp,
@@ -92,7 +82,7 @@ export default class SignUpPage extends Component {
       ) === true
     ) {
       console.log("proper input on sign up form");
-      this.signUserUp(
+      this.proceedToSignUp(
         credentials.userEmailSignUp,
         credentials.userPswSignUp,
         credentials.userFirstNameSignUp,
@@ -101,16 +91,16 @@ export default class SignUpPage extends Component {
     } else {
       console.log(
         "Could not sign up.",
-        credentials.userEmailSignUp.length,
-        credentials.userPswSignUp.length,
-        credentials.userFirstNameSignUp.length,
-        credentials.userLastNameSignUp.length
+        credentials.userEmailSignUp,
+        credentials.userPswSignUp,
+        credentials.userFirstNameSignUp,
+        credentials.userLastNameSignUp
       );
     }
   }
 
   redirectUser() {
-    return <Redirect to="/login" />;
+    return <Redirect to="/logIn" />;
   }
 
   signUpForm() {

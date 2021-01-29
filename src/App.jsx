@@ -14,7 +14,7 @@ import Title from "./components/views/Title";
 // Routed layout
 import StackManagement from "./components/StackManagement";
 import CardManagement from "./components/CardManagement";
-import LogInPage from "./components/LogInSignUp/LogInPage";
+import LogInSignUp from "./components/LogInSignUp";
 import CurrentStack from "./components/CurrentStack";
 // import Page404 from "./components/views/Page404";
 import ConsolidateChanges from "./components/views/ConsolidateChanges";
@@ -218,7 +218,7 @@ export default class App extends React.Component {
             exact
             path="/logIn"
             render={(props) => (
-              <LogInPage
+              <LogInSignUp
                 {...props}
                 userIsLoggedIn={this.state.userIsLoggedIn}
                 currentUser={this.state.currentUser}
