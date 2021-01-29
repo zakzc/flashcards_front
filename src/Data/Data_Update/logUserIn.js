@@ -18,26 +18,23 @@ async function LogUserIn(email, psw) {
     }
   );
   const data = userLogInCheck;
-  console.log("data from Log in: hook", data);
+  console.log("data from Log in:", data);
   try {
     let userData = JSON.parse(data.response);
     // console.log("Data handling --> ", userData.id, typeof userData);
     if (data.returnStatus === 401) {
-      this.setState({
-        errorMessage:
-          "Error on log In. Error type: Access not authorized. Please contact website administrator and report the problem.",
-      });
       console.log("Access not authorized");
+      return false;
     } else if (data.returnStatus === 200) {
       // console.log("calling Update user", userData);
       this.logIn_User(userData);
     }
   } catch (error) {
-    this.setState({
-      errorMessage:
-        "Error on log in. Error type: No data was returned from API. Please contact website administrator and report the problem.",
-    });
-    console.log("error on log in: ", error);
+    console.log("error on Log in: ", error);
+    return false;
+  }
+  if (data.status == false) {
+    console.log("Error on log in. Received False", error);
   }
 }
 

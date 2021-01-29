@@ -39,7 +39,15 @@ export default class LogInPage extends Component {
   validateCredentials(e, p) {
     if (this.validateEmail(e) === true) {
       if (this.validatePasswordInput(p) === true) {
-        this.LogUserIn(e, p);
+        try {
+          if (this.LogUserIn(e, p) == true) {
+            console.log("Log In successful");
+          } else {
+            this.setState({ errorMessage: "Log In error" });
+          }
+        } catch {
+          this.setState({ errorMessage: "Problems on Log In" });
+        }
       }
     } else {
       this.setState({ errorMessage: "improper input on log in form" });
