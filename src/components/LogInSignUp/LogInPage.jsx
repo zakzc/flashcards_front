@@ -40,7 +40,7 @@ export default class LogInPage extends Component {
     if (this.validateEmail(e) === true) {
       if (this.validatePasswordInput(p) === true) {
         try {
-          if (this.LogUserIn(e, p) == true) {
+          if (this.LogUserIn(e, p) === true) {
             console.log("Log In successful");
           } else {
             this.setState({ errorMessage: "Log In error" });

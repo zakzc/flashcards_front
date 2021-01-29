@@ -33,8 +33,8 @@ async function LogUserIn(email, psw) {
     console.log("error on Log in: ", error);
     return false;
   }
-  if (data.status == false) {
-    console.log("Error on log in. Received False", error);
+  if (data.status === false) {
+    console.log("Error on log in. Received False");
   }
 }
 
