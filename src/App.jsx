@@ -56,31 +56,22 @@ export default class App extends React.Component {
   //* State handling
   ///
 
-  setCurrentStack(stackNo) {
+  // TODO: update app to reflect changes on the API feedback.
+  async setCurrentStack(stackNo) {
     // retrieve new stack data from API
-    updateCurrentStack(stackNo)
-      .then((response) => {
-        this.setState({
-          currentStack: response,
-        });
-      })
-      .then(() => {
-        if (
-          this.state.currentStack === '{message: "no data found on Card API"}'
-        ) {
-          console.log("Error retrieving data from API or non existing stack");
-        }
+    console.log("STACK IN\n. Request for: ", stackNo);
+    let letsUpdateStack = await updateCurrentStack(stackNo)
+      .then((letsUpdateStack) => {
+        this.setState({ currentStack: letsUpdateStack });
       })
       .then(() => {
         this.setState({
           userIsLoggedIn: true,
         });
       })
-      .catch((err) =>
-        console.log(
-          "There was an error fetching the stack data from the API:" + err
-        )
-      );
+      .catch((err) => {
+        console.log("Error on Stack Update.\n", err);
+      });
   }
 
   logIn_User(userData) {

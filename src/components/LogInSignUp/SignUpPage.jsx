@@ -16,6 +16,7 @@ export default class SignUpPage extends Component {
       currentUser: props.currentUser,
       userIsLoggedIn: props.userIsLoggedIn,
       redirectUser: false,
+      errorMessage: "",
     };
     // from parent
     this.logInOrSignUpSwitch = props.logInOrSignUpSwitch;
@@ -35,14 +36,25 @@ export default class SignUpPage extends Component {
   }
 
   proceedToSignUp(userEmail, userPsw, userFirstName, userLastName) {
+    let signUpProcess;
     try {
-      this.SignUserUp(userEmail, userPsw, userFirstName, userLastName);
+      signUpProcess = this.SignUserUp(
+        userEmail,
+        userPsw,
+        userFirstName,
+        userLastName
+      );
     } catch {
       console.log("Error on Sign up Process");
       return false;
     }
-    this.logInOrSignUpSwitch(true);
-    this.setState({ redirectUser: true });
+    console.log("=> ", signUpProcess);
+    if (signUpProcess.status === false || !signUpProcess) {
+      this.setState({ errorMessage: "Error on sign up process." });
+    } else {
+      this.logInOrSignUpSwitch(true);
+      this.setState({ redirectUser: true });
+    }
   }
 
   validateAccessCredentials(userEmail, userPassword) {
@@ -148,6 +160,7 @@ export default class SignUpPage extends Component {
         >
           Register
         </button>
+        <p>{this.state.errorMessage}</p>
       </form>
     );
   }

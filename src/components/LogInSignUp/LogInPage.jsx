@@ -30,24 +30,26 @@ export default class LogInPage extends Component {
     // validation
     this.validateEmail = validateEmail;
     this.validatePasswordInput = validatePasswordInput;
+    this.logInProcess = this.logInProcess.bind(this);
   }
 
   //////////////////////////
   // Implementation methods
   //////////////////////////
 
+  async logInProcess(em, psw) {
+    const logInData = await LogUserIn(em, psw);
+    if (logInData) {
+      this.logIn_User(logInData);
+    } else {
+      console.log("Error on login process. Error 47.");
+    }
+  }
+
   validateCredentials(e, p) {
     if (this.validateEmail(e) === true) {
       if (this.validatePasswordInput(p) === true) {
-        try {
-          if (this.LogUserIn(e, p) === true) {
-            console.log("Log In successful");
-          } else {
-            this.setState({ errorMessage: "Log In error" });
-          }
-        } catch {
-          this.setState({ errorMessage: "Problems on Log In" });
-        }
+        this.logInProcess(e, p);
       }
     } else {
       this.setState({ errorMessage: "improper input on log in form" });

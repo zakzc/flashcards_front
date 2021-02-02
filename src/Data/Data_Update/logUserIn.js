@@ -8,6 +8,7 @@ async function LogUserIn(email, psw) {
     userEmail: email,
     password: psw,
   });
+  console.log("Log User In");
   const userLogInCheck = await connectToDB(
     "http://localhost:5000/userAPI/logIn",
     "POST",
@@ -18,23 +19,15 @@ async function LogUserIn(email, psw) {
     }
   );
   const data = userLogInCheck;
-  console.log("data from Log in:", data);
+  console.log("Log in data handler. Received: ", data, typeof data);
+  if (!data || data === false) {
+    console.log("Error on log in. No data received.");
+  }
   try {
-    let userData = JSON.parse(data.response);
-    // console.log("Data handling --> ", userData.id, typeof userData);
-    if (data.returnStatus === 401) {
-      console.log("Access not authorized");
-      return false;
-    } else if (data.returnStatus === 200) {
-      // console.log("calling Update user", userData);
-      this.logIn_User(userData);
-    }
+    return data;
   } catch (error) {
     console.log("error on Log in: ", error);
     return false;
-  }
-  if (data.status === false) {
-    console.log("Error on log in. Received False");
   }
 }
 

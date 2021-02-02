@@ -4,25 +4,32 @@ async function useDB_Connection(
   body = null,
   headers = {}
 ) {
+  console.log("Connection hook IN");
+  let response;
   try {
-    const data = await fetch(url, {
+    response = await fetch(url, {
       method,
       body,
       headers,
-    })
-      .then((response) =>
-        Promise.all([response.ok, response.text(), response.status])
-      )
-      .then((data) => ({
-        status: data[0],
-        response: data[1],
-        returnStatus: data[2],
-      }));
-    return data;
+    });
   } catch (err) {
     console.log("Connection error on connection hook: ", err);
     return false;
   }
+
+  // receives data
+  const rawData = await response.text();
+  // processes to json
+  const responseData = await JSON.parse(rawData);
+
+  if (!response.ok) {
+    throw new Error(responseData.message);
+  }
+  console.table("Sending Back: ", responseData);
+  console.log("which is: \n", typeof responseData);
+  console.log("Connection hook OUT");
+  // returns data processed
+  return responseData;
 }
 
 export default useDB_Connection;
