@@ -60,7 +60,8 @@ export default class App extends React.Component {
   async setCurrentStack(stackNo) {
     // retrieve new stack data from API
     console.log("STACK IN\n. Request for: ", stackNo);
-    let letsUpdateStack = await updateCurrentStack(stackNo)
+    let letsUpdateStack;
+    letsUpdateStack = await updateCurrentStack(stackNo)
       .then((letsUpdateStack) => {
         this.setState({ currentStack: letsUpdateStack });
       })
@@ -72,6 +73,10 @@ export default class App extends React.Component {
       .catch((err) => {
         console.log("Error on Stack Update.\n", err);
       });
+    if (!letsUpdateStack) {
+      letsUpdateStack = false;
+      return letsUpdateStack;
+    }
   }
 
   logIn_User(userData) {
