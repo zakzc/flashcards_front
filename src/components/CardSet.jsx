@@ -157,7 +157,7 @@ export default class CardSet extends React.Component {
 
   infoCard() {
     return (
-      <div id="shortMessage" className="infoCard_cardSet">
+      <div id="shortMessage" className="infoCard">
         <p>
           Flip the card with the flip button. Then, indicate ✓ for right answer
           or ✘ for wrong answer.

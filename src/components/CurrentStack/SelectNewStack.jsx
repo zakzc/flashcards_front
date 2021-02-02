@@ -15,6 +15,7 @@ export default class SelectNewStack extends Component {
       chosenStackName: "",
       confirmation: false,
       redirect: false,
+      messageToUser: "Choose a new stack and confirm.",
     };
     // methods from parent comp
     this.setCurrentStack = props.setCurrentStack;
@@ -52,6 +53,8 @@ export default class SelectNewStack extends Component {
       chosenStackId: newStack,
       chosenStackName: newStackName,
       confirmation: true,
+      messageToUser:
+        "You will be directed to a consolidation page, as data will be sent to the DataBase.",
     });
   }
 
@@ -89,6 +92,14 @@ export default class SelectNewStack extends Component {
   ////////////////
   // View methods
   ////////////////
+
+  InformationCard_Select() {
+    return (
+      <div className="infoCard">
+        <p>{this.state.messageToUser}</p>
+      </div>
+    );
+  }
 
   confirmationButton() {
     return (
@@ -136,6 +147,7 @@ export default class SelectNewStack extends Component {
         {this.state.confirmation
           ? this.afterSelectView()
           : this.preSelectView()}
+        {this.InformationCard_Select()}
       </div>
     );
   }

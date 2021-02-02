@@ -35,6 +35,7 @@ export default class App extends React.Component {
       userIsLoggedIn: false,
       currentUser: "",
       currentStack: "",
+      messageToUser: "Welcome to Flashcards. Log in or Sign up.",
     };
     // Hooks
     // this.useDB_Connection = useDB_Connection;
@@ -48,6 +49,7 @@ export default class App extends React.Component {
     // views
     this.loggedOutView = this.loggedOutView.bind(this);
     this.loggedInView = this.loggedInView.bind(this);
+    this.InformationCard_App = this.InformationCard_App.bind(this);
     // this.baseView = this.baseView.bind(this);
     this.appView = this.appView.bind(this);
   }
@@ -71,7 +73,10 @@ export default class App extends React.Component {
         });
       })
       .catch((err) => {
-        console.log("Error on Stack Update.\n", err);
+        console.log("Error on Stack Update. Error 76.\n", err);
+        this.setState({
+          messageToUser: "Error on Log in. Error 76",
+        });
       });
     if (!letsUpdateStack) {
       letsUpdateStack = false;
@@ -100,6 +105,14 @@ export default class App extends React.Component {
   ///
   //* Views
   ///
+
+  InformationCard_App() {
+    return (
+      <div className="infoCard">
+        <p>{this.state.messageToUser}</p>
+      </div>
+    );
+  }
 
   loggedInView() {
     return (
@@ -200,8 +213,9 @@ export default class App extends React.Component {
               </Route>
             </Switch>
           </div>
-        </div>
+        </div>{" "}
       </Router>
+
       // </div>
     );
   }
@@ -230,6 +244,7 @@ export default class App extends React.Component {
             )}
           </Route>
         </Router>
+        {this.InformationCard_App()}
       </div>
     );
   }

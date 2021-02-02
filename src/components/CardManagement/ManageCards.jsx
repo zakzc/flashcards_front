@@ -168,7 +168,7 @@ export default class ManageCards extends Component {
               onClick={this.handleSubmitReady}
             >
               <div className="flipFront">
-                <Consolidate className="buttonStyle" />
+                <Consolidate />
               </div>
               <div className="flipBack">
                 <span className="buttonMessage">Consolidate changes</span>
