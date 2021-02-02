@@ -3,10 +3,11 @@ import useDB_Connection from "../DB-hook/connection-hook";
 
 const connectToDB = useDB_Connection;
 
-async function updateCurrentStack(stackNo) {
+async function updateCurrentStack(stackNo, token) {
   console.log("Up stack will request: ", stackNo);
   let url = "http://localhost:5000/cardApi/" + String(stackNo);
-  const getStackData = await connectToDB(url);
+  let header = { Authorization: "Bearer " + token };
+  const getStackData = await connectToDB(url, "GET", null, header);
   if (!getStackData || getStackData === undefined) {
     return false;
   } else {

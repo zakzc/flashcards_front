@@ -1,9 +1,4 @@
-async function useDB_Connection(
-  url,
-  method = "GET",
-  body = null,
-  headers = {}
-) {
+async function useDB_Connection(url, method = "GET", body = null, headers) {
   console.log("Connection hook IN");
   let response;
   try {

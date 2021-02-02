@@ -35,6 +35,7 @@ export default class App extends React.Component {
       userIsLoggedIn: false,
       currentUser: "",
       currentStack: "",
+      token: "",
       messageToUser: "Welcome to Flashcards. Log in or Sign up.",
     };
     // Hooks
@@ -63,19 +64,19 @@ export default class App extends React.Component {
     // retrieve new stack data from API
     console.log("STACK IN\n. Request for: ", stackNo);
     let letsUpdateStack;
-    letsUpdateStack = await updateCurrentStack(stackNo)
+    letsUpdateStack = await updateCurrentStack(stackNo, this.state.token)
       .then((letsUpdateStack) => {
         this.setState({ currentStack: letsUpdateStack });
       })
       .then(() => {
         this.setState({
-          userIsLoggedIn: true,
+          userIsLoggedIn: !!this.state.currentUser.token,
         });
       })
       .catch((err) => {
         console.log("Error on Stack Update. Error 76.\n", err);
         this.setState({
-          messageToUser: "Error on Log in. Error 76",
+          messageToUser: "There was an error on the Log In(error 76).",
         });
       });
     if (!letsUpdateStack) {
@@ -86,8 +87,11 @@ export default class App extends React.Component {
 
   logIn_User(userData) {
     let stackId = userData.userStacks[0].stack_id;
+    const logInToken = userData.token;
     this.setState({
       currentUser: userData,
+      messageToUser: "Log in being processed.",
+      token: logInToken,
     });
     // update stack
     this.setCurrentStack(stackId);
