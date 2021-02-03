@@ -31,6 +31,7 @@ export default class ManageCards extends Component {
     // utils
     this.CheckForInvalidCharacters = CheckForInvalidCharacters;
     // this.manageCurrentStack = this.manageCurrentStack.bind(this);
+    this.handleSubmitReady = this.handleSubmitReady.bind(this);
     this.editCard = this.editCard.bind(this);
     this.cardsInCurrentStack = this.cardsInCurrentStack.bind(this);
     this.frontEditHandler = this.frontEditHandler.bind(this);
@@ -54,59 +55,74 @@ export default class ManageCards extends Component {
   ////////////////
 
   async handleSubmitReady() {
+    let newStack = this.state.newStack;
     let updateCardsProcess;
-    updateCardsProcess = await updateCards(
-      this.state.newStack,
-      this.state.token
-    )
-      .then(() => {
+    console.log("Update cards. Will send: ", this.state.newStack);
+    if (newStack && newStack !== undefined) {
+      updateCardsProcess = await updateCards(newStack, this.state.token);
+      console.log("result: ", updateCardsProcess);
+      if (updateCardsProcess) {
         this.setState({
           messageToUser:
             "Consolidating changes and sending the new data to your database.",
           messageToUserBack: "You will be redirected",
+          redirect: true,
         });
-      })
-      .then(() => {
-        this.setState({ redirect: true });
-      })
-      .catch((err) => {
+      } else {
         this.setState({
-          messageToUser: "Error on updating process (error 29)",
+          messageToUser: "Error on retrieving stack data (error 87)",
         });
-      });
-    if (!updateCardsProcess) {
-      updateCardsProcess = false;
-      return updateCardsProcess;
+      }
+      // .then(() => {
+      //   this.setState({
+      //     messageToUser:
+      //       "Consolidating changes and sending the new data to your database.",
+      //     messageToUserBack: "You will be redirected",
+      //     redirect: true,
+      //   });
+      // })
+      // .catch((err) => {
+      //   this.setState({
+      //     messageToUser: "Error on updating process (error 29)",
+      //   });
+      // });
+      //   if (!updateCardsProcess) {
+      //     updateCardsProcess = false;
+      //     return updateCardsProcess;
+      //   }
+      // } else {
+      //   this.setState({
+      //     messageToUser: "Error on retrieving stack data (error 87)",
+      //   });
+      //   return false;
+      // }
     }
   }
 
   frontEditHandler(e) {
     // e.preventDefault();
-    this.setState({ tempNewFront: e.target.value });
+    let front = e.target.value;
+    if (!front || front === "" || front === undefined || front === false) {
+      front = false;
+    }
+    this.setState({ tempNewFront: front });
   }
 
   backEditHandler(f) {
     // e.preventDefault();
-    this.setState({ tempNewBack: f.target.value });
+    let back = f.target.value;
+    if (!back || back === "" || back === undefined || back === false) {
+      back = false;
+    }
+    this.setState({ tempNewBack: back });
   }
 
   // gets the new values for front and back
   editButtonHandler(e) {
     e.preventDefault();
-    let newValueFront;
-    if (this.state.tempNewFront) {
-      newValueFront = this.state.tempNewFront;
-    } else {
-      newValueFront = this.state.currentStack.cards[this.state.cardForEditing]
-        .front;
-    }
-    let newValueBack;
-    if (this.state.tempoNewBack) {
-      newValueBack = this.state.tempNewBack;
-    } else {
-      newValueBack = this.state.currentStack.cards[this.state.cardForEditing]
-        .back;
-    }
+    let newValueFront = this.state.tempNewFront;
+    let newValueBack = this.state.tempNewBack;
+    console.log("New values are: ", newValueFront, newValueBack);
     this.makeNewCardSet(newValueFront, newValueBack);
   }
 
@@ -129,26 +145,35 @@ export default class ManageCards extends Component {
     return true;
   }
 
-  makeNewCardSet(newFront, newBack) {
-    if (this.validateInput(newFront, newBack) === true) {
+  makeNewCardSet(frontReceived, backReceived) {
+    if (this.validateInput(frontReceived, backReceived) === true) {
+      let newFront, newBack;
       // makes a new version of the cardSet
       let updatedStack = this.state.currentStack;
-      if (newBack) {
-        updatedStack.cards[this.state.cardForEditing].back = newBack;
+      console.log("Updated stack original: ", updatedStack);
+      // Update back
+      if (backReceived === "" || backReceived === undefined) {
+        newBack = this.state.currentStack.cards[this.state.cardForEditing].back;
+        console.log("updated back to original: ", newBack);
       } else {
-        updatedStack.cards[
-          this.state.cardForEditing
-        ].back = this.state.currentStack.cards[this.state.cardForEditing].back;
+        newBack = backReceived;
+        console.log("have a new value: ", newBack);
       }
-      if (newFront) {
-        updatedStack.cards[this.state.cardForEditing].front = newFront;
+      // Update front
+      if (frontReceived === "" || frontReceived === undefined) {
+        newFront = this.state.currentStack.cards[this.state.cardForEditing]
+          .front;
+        console.log("updated back to original: ", newFront);
       } else {
-        updatedStack.cards[
-          this.state.cardForEditing
-        ].front = this.state.currentStack.cards[
-          this.state.cardForEditing
-        ].front;
+        newFront = frontReceived;
+        console.log("have a new value: ", newFront);
       }
+      updatedStack.cards[this.state.cardForEditing] = {
+        front: newFront,
+        back: newBack,
+      };
+      ///
+      console.log("Updated stack is now:, ", updatedStack);
       // updates local state
       this.setState((state) => ({
         newStack: updatedStack,
@@ -158,6 +183,7 @@ export default class ManageCards extends Component {
     } else {
       this.setState({ messageToUser: "invalid input" });
     }
+    console.log("New stack was set to: ", this.state.newStack);
   }
 
   chooseCard(e) {
@@ -186,24 +212,22 @@ export default class ManageCards extends Component {
 
   consolidateButton() {
     return (
-      <div id="flipButton_Positioning">
+      <button
+        className="buttonStyle"
+        type="button"
+        onClick={this.handleSubmitReady}
+      >
         <div className="flipContainer">
           <div className="flipInner">
-            <button
-              className="buttonStyle"
-              type="button"
-              onClick={this.handleSubmitReady}
-            >
-              <div className="flipFront">
-                <Consolidate />
-              </div>
-              <div className="flipBack">
-                <span className="buttonMessage">Consolidate changes</span>
-              </div>
-            </button>
+            <div className="flipFront">
+              <Consolidate />
+            </div>
+            <div className="flipBack">
+              <span className="buttonMessage">Consolidate changes</span>
+            </div>
           </div>
         </div>
-      </div>
+      </button>
     );
   }
 

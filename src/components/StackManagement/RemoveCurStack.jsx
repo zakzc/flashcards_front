@@ -36,15 +36,10 @@ export default class RemoveCurStack extends Component {
   ////////////////
 
   async deleteHandler() {
-    console.log(
-      "Check pre deletion: ",
-      this.state.currentStack._id,
-      this.state.currentUser.userStacks.length
-    );
     if (this.state.currentUser.userStacks.length === 1) {
       this.setState({
         messageToUser:
-          "You cannot delete your only stack. You need to have at least one stack.",
+          "You cannot delete your only/last stack. You need to have at least one stack.",
       });
     } else {
       let removeProcess;
@@ -67,6 +62,7 @@ export default class RemoveCurStack extends Component {
         })
         .catch((err) => {
           console.log("Error on deletion process (error 36). ", err);
+          return false;
         });
       if (!removeProcess) {
         removeProcess = false;

@@ -1,5 +1,13 @@
 async function useDB_Connection(url, method = "GET", body = null, headers) {
-  console.log("Connection hook IN for: ", url, method, body, headers);
+  // Data. Body must be string (.stringfy(data)), headers is an object.
+  console.log("Connect to DB for: ", url, method, body, headers);
+  console.log(
+    "Types: ",
+    typeof url,
+    typeof method,
+    typeof body,
+    typeof headers
+  );
   let response;
   try {
     response = await fetch(url, {
@@ -20,9 +28,6 @@ async function useDB_Connection(url, method = "GET", body = null, headers) {
   if (!response.ok) {
     throw new Error(responseData.message);
   }
-  console.table("Sending Back: ", responseData);
-  console.log("which is: \n", typeof responseData);
-  console.log("Connection hook OUT");
   // returns data processed
   return responseData;
 }
