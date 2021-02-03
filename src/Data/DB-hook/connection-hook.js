@@ -1,5 +1,5 @@
 async function useDB_Connection(url, method = "GET", body = null, headers) {
-  console.log("Connection hook IN");
+  console.log("Connection hook IN for: ", url, method, body, headers);
   let response;
   try {
     response = await fetch(url, {

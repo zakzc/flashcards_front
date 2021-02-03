@@ -20,6 +20,7 @@ export default class StackManagement extends Component {
       userIsLoggedIn: props.userIsLoggedIn,
       currentUser: props.currentUser,
       currentStack: props.currentStack,
+      token: props.token,
       add: true,
       export: false,
       delete: false,
@@ -183,6 +184,7 @@ export default class StackManagement extends Component {
             currentStack={this.state.currentStack}
             setCurrentStack={this.setCurrentStack}
             stackName={this.state.currentStack.stackName}
+            token={this.state.token}
           />
         ) : (
           <div></div>

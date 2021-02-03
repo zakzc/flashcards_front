@@ -11,6 +11,7 @@ export default class CardManagement extends Component {
       userIsLoggedIn: props.userIsLoggedIn,
       currentUser: props.currentUser,
       currentStack: props.currentStack,
+      token: props.token,
       addOrManage: false,
     };
     // * Methods
@@ -29,6 +30,7 @@ export default class CardManagement extends Component {
             userIsLoggedIn={this.state.userIsLoggedIn}
             currentUser={this.state.currentUser}
             currentStack={this.state.currentStack}
+            token={this.state.token}
           />
         </div>
       </React.Fragment>

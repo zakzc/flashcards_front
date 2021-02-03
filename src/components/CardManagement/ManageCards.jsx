@@ -14,6 +14,7 @@ export default class ManageCards extends Component {
       userIsLoggedIn: props.userIsLoggedIn,
       user: props.currentUser,
       currentStack: props.currentStack,
+      token: props.token,
       cardForEditing: "",
       cardForEditingId: "",
       editingMode: false,
@@ -52,18 +53,32 @@ export default class ManageCards extends Component {
   // Implementation methods
   ////////////////
 
-  handleSubmitReady = () => {
-    const stackToUpdate = this.state.newStack;
-    updateCards(stackToUpdate)
-      .then(
+  async handleSubmitReady() {
+    let updateCardsProcess;
+    updateCardsProcess = await updateCards(
+      this.state.newStack,
+      this.state.token
+    )
+      .then(() => {
         this.setState({
           messageToUser:
             "Consolidating changes and sending the new data to your database.",
           messageToUserBack: "You will be redirected",
-        })
-      )
-      .then(this.setState({ redirect: true }));
-  };
+        });
+      })
+      .then(() => {
+        this.setState({ redirect: true });
+      })
+      .catch((err) => {
+        this.setState({
+          messageToUser: "Error on updating process (error 29)",
+        });
+      });
+    if (!updateCardsProcess) {
+      updateCardsProcess = false;
+      return updateCardsProcess;
+    }
+  }
 
   frontEditHandler(e) {
     // e.preventDefault();
@@ -78,8 +93,20 @@ export default class ManageCards extends Component {
   // gets the new values for front and back
   editButtonHandler(e) {
     e.preventDefault();
-    let newValueFront = this.state.tempNewFront;
-    let newValueBack = this.state.tempNewBack;
+    let newValueFront;
+    if (this.state.tempNewFront) {
+      newValueFront = this.state.tempNewFront;
+    } else {
+      newValueFront = this.state.currentStack.cards[this.state.cardForEditing]
+        .front;
+    }
+    let newValueBack;
+    if (this.state.tempoNewBack) {
+      newValueBack = this.state.tempNewBack;
+    } else {
+      newValueBack = this.state.currentStack.cards[this.state.cardForEditing]
+        .back;
+    }
     this.makeNewCardSet(newValueFront, newValueBack);
   }
 

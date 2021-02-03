@@ -23,7 +23,7 @@ import CardSet from "./components/CardSet";
 // import useDB_Connection from "./Data/DB-hook/connection-hook";
 // data update functions
 import updateCurrentStack from "./Data/Data_Update/updateCurrentStack";
-import updateUserData from "./Data/Data_Update/updateUserData";
+// import updateUserData from "./Data/Data_Update/updateUserData";
 // dummy data: used for tests and dev
 // import dummyUser from "./Data/DummyData/user.json";
 // import dummyStack from "./Data/DummyData/technology.json";
@@ -42,7 +42,7 @@ export default class App extends React.Component {
     // this.useDB_Connection = useDB_Connection;
     // data (API) methods
     this.updateCurrentStack = updateCurrentStack;
-    this.updateUserData = updateUserData;
+    // this.updateUserData = updateUserData;
     // state handling
     this.setCurrentStack = this.setCurrentStack.bind(this);
     this.logIn_User = this.logIn_User.bind(this);
@@ -157,6 +157,7 @@ export default class App extends React.Component {
                     currentUser={this.state.currentUser}
                     userStacks={this.state.currentUser.userStacks}
                     currentStack={this.state.currentStack}
+                    token={this.state.token}
                   />
                 )}
               />
@@ -171,6 +172,7 @@ export default class App extends React.Component {
                     userStacks={this.state.currentUser.userStacks}
                     currentStack={this.state.currentStack}
                     setCurrentStack={this.setCurrentStack}
+                    token={this.state.token}
                   />
                 )}
               />
