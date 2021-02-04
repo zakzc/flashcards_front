@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 // hooks
-import useDB_Connection from "../../Data/DB-hook/connection-hook";
+import addNewSet from "../../Data/Data_Update/addNewSet";
 import { CheckForInvalidCharacters } from "../../Data/Validation/validate";
 // Icons
 import Consolidate from "../icons/consolidate";
@@ -14,6 +14,7 @@ export default class AddNewStack extends Component {
     this.state = {
       currentUser: props.currentUser,
       currentStack: props.currentStack,
+      token: props.token,
       messageToUser:
         "In order to make the new card, click on plus (+). After you finish adding at least 3 new cards, click on consolidate button.",
       messageToUserBack: "Your stack must have at least 3 cards.",
@@ -43,24 +44,21 @@ export default class AddNewStack extends Component {
     this.checkButton = this.checkButton.bind(this);
     this.AddCardButton = this.AddCardButton.bind(this);
     this.renderRedirect = this.renderRedirect.bind(this);
+    this.cardNumbering = this.cardNumbering.bind(this);
   }
 
   ////////////////
   // Implementation methods
   ////////////////
 
-  consolidateNewStack(newStack) {
-    // let requestBody = newStack;
-    let requestBody = JSON.stringify(newStack);
-    useDB_Connection(
-      "http://localhost:5000/cardApi/addNewStack",
-      "POST",
-      requestBody,
-      {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      }
-    );
+  async consolidateNewStack(newStack) {
+    console.log("Consolidate Add stack");
+    const addSet = await addNewSet(JSON.stringify(newStack), this.state.token);
+    if (addSet) {
+      this.setState({ redirect: true });
+    } else {
+      this.setState({ messageToUser: "Error on adding new Stack (error 52)." });
+    }
   }
 
   StackNameSubmitHandler = (event) => {
@@ -84,7 +82,6 @@ export default class AddNewStack extends Component {
       cards: this.state.newCardsToStack,
     };
     this.consolidateNewStack(newStack);
-    this.setState({ redirect: true });
   }
 
   handleSubmitAddCardHandler = (event) => {
@@ -182,6 +179,26 @@ export default class AddNewStack extends Component {
     );
   }
 
+  cardNumbering() {
+    return (
+      <div>
+        <h4>You added, so far {this.state.newCardsToStack.length} cards</h4>
+        <p>
+          You need to add, at least, 3 cards in order to be able to consolidate
+          and make a new stack.
+        </p>
+        {this.state.newCardsToStack.length > 2 ? (
+          <p>You can consolidate now, or keep adding cards.</p>
+        ) : (
+          <p>
+            You will see the consolidate button, after you add, at least 3
+            cards.
+          </p>
+        )}
+      </div>
+    );
+  }
+
   checkButton() {
     return (
       <button
@@ -192,7 +209,7 @@ export default class AddNewStack extends Component {
         <div className="flipContainer">
           <div className="flipInner">
             <div className="flipFront">
-              <Right className="buttonStyle" />
+              <Right />
             </div>
             <div className="flipBack">
               <span className="buttonMessage">Add name</span>
@@ -206,24 +223,22 @@ export default class AddNewStack extends Component {
   consolidateButtonStack() {
     if (this.state.numberOfCardsAdded > 2) {
       return (
-        <div id="consolidateButton_Positioning">
+        <button
+          className="buttonStyle"
+          type="button"
+          onClick={this.handleSubmitReady}
+        >
           <div className="flipContainer">
             <div className="flipInner">
-              <button
-                className="buttonStyle"
-                type="button"
-                onClick={this.handleSubmitReady}
-              >
-                <div className="flipFront">
-                  <Consolidate className="consolidateStackIcon" />
-                </div>
-                <div className="flipBack">
-                  <span className="buttonMessage">CONSOLIDATE Changes</span>
-                </div>
-              </button>
+              <div className="flipFront">
+                <Consolidate />
+              </div>
+              <div className="flipBack">
+                <span className="buttonMessage">CONSOLIDATE Changes</span>
+              </div>
             </div>
           </div>
-        </div>
+        </button>
       );
     } else {
       return <div></div>;
@@ -279,6 +294,7 @@ export default class AddNewStack extends Component {
             <br />
             <div id="AddCardButtons">
               <div>{this.AddCardButton()}</div>
+              {this.cardNumbering()}
               <div> {this.consolidateButtonStack()}</div>
             </div>
           </form>

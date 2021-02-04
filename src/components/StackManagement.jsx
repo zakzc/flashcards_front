@@ -162,6 +162,7 @@ export default class StackManagement extends Component {
             userIsLoggedIn={this.state.userIsLoggedIn}
             currentUser={this.state.currentUser}
             currentStack={this.state.currentStack}
+            token={this.state.token}
           />
         ) : (
           <div></div>

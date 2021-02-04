@@ -1,13 +1,7 @@
 async function useDB_Connection(url, method = "GET", body = null, headers) {
   // Data. Body must be string (.stringfy(data)), headers is an object.
-  console.log("Connect to DB for: ", url, method, body, headers);
-  console.log(
-    "Types: ",
-    typeof url,
-    typeof method,
-    typeof body,
-    typeof headers
-  );
+  console.log("Connect to DB for: ");
+  console.table(url, method, body, headers);
   let response;
   try {
     response = await fetch(url, {
@@ -26,6 +20,7 @@ async function useDB_Connection(url, method = "GET", body = null, headers) {
   const responseData = await JSON.parse(rawData);
 
   if (!response.ok) {
+    console.log("Error on response from API (error 23).");
     throw new Error(responseData.message);
   }
   // returns data processed

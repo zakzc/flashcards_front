@@ -57,10 +57,8 @@ export default class ManageCards extends Component {
   async handleSubmitReady() {
     let newStack = this.state.newStack;
     let updateCardsProcess;
-    console.log("Update cards. Will send: ", this.state.newStack);
     if (newStack && newStack !== undefined) {
       updateCardsProcess = await updateCards(newStack, this.state.token);
-      console.log("result: ", updateCardsProcess);
       if (updateCardsProcess) {
         this.setState({
           messageToUser:
@@ -73,29 +71,6 @@ export default class ManageCards extends Component {
           messageToUser: "Error on retrieving stack data (error 87)",
         });
       }
-      // .then(() => {
-      //   this.setState({
-      //     messageToUser:
-      //       "Consolidating changes and sending the new data to your database.",
-      //     messageToUserBack: "You will be redirected",
-      //     redirect: true,
-      //   });
-      // })
-      // .catch((err) => {
-      //   this.setState({
-      //     messageToUser: "Error on updating process (error 29)",
-      //   });
-      // });
-      //   if (!updateCardsProcess) {
-      //     updateCardsProcess = false;
-      //     return updateCardsProcess;
-      //   }
-      // } else {
-      //   this.setState({
-      //     messageToUser: "Error on retrieving stack data (error 87)",
-      //   });
-      //   return false;
-      // }
     }
   }
 
@@ -122,7 +97,6 @@ export default class ManageCards extends Component {
     e.preventDefault();
     let newValueFront = this.state.tempNewFront;
     let newValueBack = this.state.tempNewBack;
-    console.log("New values are: ", newValueFront, newValueBack);
     this.makeNewCardSet(newValueFront, newValueBack);
   }
 
@@ -150,23 +124,18 @@ export default class ManageCards extends Component {
       let newFront, newBack;
       // makes a new version of the cardSet
       let updatedStack = this.state.currentStack;
-      console.log("Updated stack original: ", updatedStack);
       // Update back
       if (backReceived === "" || backReceived === undefined) {
         newBack = this.state.currentStack.cards[this.state.cardForEditing].back;
-        console.log("updated back to original: ", newBack);
       } else {
         newBack = backReceived;
-        console.log("have a new value: ", newBack);
       }
       // Update front
       if (frontReceived === "" || frontReceived === undefined) {
         newFront = this.state.currentStack.cards[this.state.cardForEditing]
           .front;
-        console.log("updated back to original: ", newFront);
       } else {
         newFront = frontReceived;
-        console.log("have a new value: ", newFront);
       }
       updatedStack.cards[this.state.cardForEditing] = {
         front: newFront,
@@ -183,7 +152,6 @@ export default class ManageCards extends Component {
     } else {
       this.setState({ messageToUser: "invalid input" });
     }
-    console.log("New stack was set to: ", this.state.newStack);
   }
 
   chooseCard(e) {
