@@ -65,3 +65,4 @@ Thumbs.db
 
 ## React environment variables ##
 .env
+.env.production
