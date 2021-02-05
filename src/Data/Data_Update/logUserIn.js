@@ -10,7 +10,7 @@ async function LogUserIn(email, psw) {
   });
   console.log("Log User In");
   const userLogInCheck = await connectToDB(
-    "http://localhost:5000/userAPI/logIn",
+    process.env.REACT_APP_BACKEND_URL + "/userAPI/logIn",
     "POST",
     requestBody,
     {

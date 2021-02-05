@@ -16,7 +16,7 @@ async function addNewSet(stack, token) {
   ///
   console.log("--- send to Hook");
   const addNewSet = await connectToDB(
-    "http://localhost:5000/cardAPI/addNewStack",
+    process.env.REACT_APP_BACKEND_URL + "/cardAPI/addNewStack",
     "POST",
     requestBody,
     header

@@ -7,7 +7,7 @@ async function RemoveCurrentStack(stackNo, token) {
   console.log("Delete handler: ", stackNo);
   let stackToKill = stackNo;
   let header = { Authorization: "Bearer " + token };
-  const url = "http://localhost:5000/cardApi/" + stackToKill;
+  const url = process.env.REACT_APP_BACKEND_URL + "/cardApi/" + stackToKill;
   connectToDB(url, "DELETE", null, header);
 }
 

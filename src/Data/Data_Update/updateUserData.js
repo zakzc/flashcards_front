@@ -4,7 +4,7 @@ import useDB_Connection from "../DB-hook/connection-hook";
 const connectToDB = useDB_Connection;
 
 async function updateUserData(userID) {
-  let url = "http://localhost:5000/userAPI/" + String(userID);
+  let url = process.env.REACT_APP_BACKEND_URL + "/userAPI/" + String(userID);
   const getUserData = await connectToDB(url);
   let newUserData = JSON.parse(getUserData.response);
   return newUserData;

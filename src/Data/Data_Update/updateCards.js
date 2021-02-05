@@ -5,7 +5,8 @@ const connectToDB = useDB_Connection;
 
 async function updateCards(stack, token) {
   // sequence: url, (method = "GET"), (body = null), (headers = {});
-  const urlUpdateCards = "http://localhost:5000/cardAPI/" + String(stack._id);
+  const urlUpdateCards =
+    process.env.REACT_APP_BACKEND_URL + "/cardAPI/" + String(stack._id);
   let requestBody = JSON.stringify(stack);
   let header = {
     "Content-Type": "application/json",

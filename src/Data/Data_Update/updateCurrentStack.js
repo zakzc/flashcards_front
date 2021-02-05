@@ -5,7 +5,7 @@ const connectToDB = useDB_Connection;
 
 async function updateCurrentStack(stackNo, token) {
   console.log("Up stack will request: ", stackNo);
-  let url = "http://localhost:5000/cardApi/" + String(stackNo);
+  let url = process.env.REACT_APP_BACKEND_URL + "/cardApi/" + String(stackNo);
   let header = { Authorization: "Bearer " + token };
   const getStackData = await connectToDB(url, "GET", null, header);
   if (!getStackData || getStackData === undefined) {

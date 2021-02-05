@@ -10,7 +10,7 @@ async function SignUserUp(userEmail, password, firstName, lastName) {
     lastName: lastName,
   });
   const userSignUpCheck = await connectToDB(
-    "http://localhost:5000/userAPI/signUp",
+    process.env.REACT_APP_BACKEND_URL + "/userAPI/signUp",
     "POST",
     requestBody,
     {
