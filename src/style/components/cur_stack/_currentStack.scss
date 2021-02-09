@@ -21,15 +21,21 @@
 @media only screen and (max-width: 767px) {
   #tinyNavBar {
     display: grid;
+    gap: 4%;
     grid-template-rows: repeat(5, auto);
-    justify-content: space-around;
-    align-content: center;
+    // justify-content: space-around;
+    // align-content: center;
     grid-template-areas:
       "."
       "salute"
       "."
       "buttonArea"
       ".";
+  }
+
+  #cardListContainer {
+    display: inline-block;
+    margin-left: -30%;
   }
 }
 

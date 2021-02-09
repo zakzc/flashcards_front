@@ -78,12 +78,10 @@ body {
     justify-content: center;
     // align-content: space-between;
     // grid-auto-flow: row;
-    background-color: aliceblue;
   }
 
   #navigation {
     display: grid;
-    background-color: red;
   }
 
   #menuBar {
@@ -103,7 +101,7 @@ body {
   }
 
   #currentView {
-    display: grid;
+    display: inline-block;
     grid-area: currentView;
     grid-auto-flow: column;
   }
