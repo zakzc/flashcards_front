@@ -1,7 +1,7 @@
 async function useDB_Connection(url, method = "GET", body = null, headers) {
   // Data. Body must be string (.stringfy(data)), headers is an object.
-  console.log("Connect to DB for: ");
-  console.table(url, method, body, headers);
+  // console.log("Connect to DB for: ");
+  // console.table(url, method, body, headers);
   let response;
   try {
     response = await fetch(url, {

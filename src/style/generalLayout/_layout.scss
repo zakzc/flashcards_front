@@ -2,14 +2,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $backColorNav;
-  font: $myFonts;
+  font: "Roboto", "OpenSans", "Lato", sans-serif, monospace;
 }
 
 #wrapper {
   padding: 0;
   margin: 0;
   border: 0;
-  display: block;
+  display: grid;
 }
 
 #titlePage {
@@ -25,20 +25,30 @@ body {
 
 // General layout any size
 #App_View {
+  // display: grid;
+  // grid-template-areas:
+  //   " title"
+  //   " Main_contents ";
+  // grid-template-rows: auto auto;
+  // background-color: $backColorNav;
+}
+
+// Main_contents area
+
+#user_is_logged_in {
   display: grid;
   grid-template-areas:
     " title"
     " Main_contents ";
-  grid-template-rows: 80px auto;
+  grid-template-rows: auto auto;
   background-color: $backColorNav;
 }
-
-// Main_contents area
 
 // Responsive
 #navBar {
   grid-area: navbar;
   background-color: $backColorNav;
+  justify-items: center;
 }
 
 #currentView {
@@ -47,46 +57,73 @@ body {
   background-color: $mainBackColor;
 }
 
-// smaller screens sizes > 768
+////////////////////////////////
+// * smaller screens sizes > 768
+////////////////////////////////
 @media only screen and (max-width: 767px) {
   body {
     font-size: $fontSizePhone;
   }
   #Main_contents {
     display: grid;
-    grid-template-rows: 70px auto;
+    grid-template-rows: auto auto;
     grid-template-areas:
-      " navbar"
-      " currentView";
+      "navbar"
+      "currentView";
     gap: 1px;
   }
   // navBar displayed horizontally on smaller devices
   #navBar {
-    display: grid;
-    gap: 4px;
+    display: inline-block;
     justify-content: center;
-    align-content: space-between;
+    // align-content: space-between;
+    // grid-auto-flow: row;
+    background-color: aliceblue;
+  }
+
+  #navigation {
+    display: grid;
+    background-color: red;
+  }
+
+  #menuBar {
+    display: grid;
+    // grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: repeat(5, auto);
+    gap: 4px;
   }
 
   #navigationIcons {
-    display: grid;
+    display: inline-grid;
     justify-content: center;
     align-content: center;
+    align-self: center;
     grid-auto-flow: row;
     grid-template-columns: repeat(5, 1fr);
-    margin-left: 2%;
+  }
+
+  #currentView {
+    display: grid;
+    grid-area: currentView;
+    grid-auto-flow: column;
   }
 }
-// bigger screen sizes > 768
+
+////////////////////////////////
+// * bigger screen sizes > 768
+////////////////////////////////
 @media only screen and (min-width: 768px) {
   body {
     font-size: $fontSizeDesk;
+    max-width: 1024px;
+    margin: 0 auto;
+    background: transparent;
   }
   #Main_contents {
     display: grid;
     grid-template-columns: 70px auto;
     grid-template-areas: "navbar currentView";
-    gap: 4px;
+    gap: 1px;
     flex-direction: column;
   }
 
@@ -102,15 +139,22 @@ body {
   }
 }
 
+////////////////////////////////
+// * 4k and widescreen
+////////////////////////////////
+
 @media only screen and (min-width: 2400px) {
   body {
     font-size: $fontSizeLarge;
+    max-width: 1024px;
+    margin: 0 auto;
+    background: transparent;
   }
   #Main_contents {
     display: grid;
     grid-template-columns: 100px auto;
     grid-template-areas: "navbar currentView";
-    gap: 4px;
+    gap: 1px;
     flex-direction: column;
   }
 }

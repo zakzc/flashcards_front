@@ -139,15 +139,19 @@ export default class Navigation extends Component {
     return (
       <div>
         {this.state.userIsLoggedIn ? (
-          <div id="navigation">{this.loggedInNavBar()}</div>
+          <div id="userIsLoggedIn">{this.loggedInNavBar()}</div>
         ) : (
-          <div id="navigation">{this.loggedOutNavBar()}</div>
+          <div id="userIsLoggedOut">{this.loggedOutNavBar()}</div>
         )}
       </div>
     );
   }
 
   render() {
-    return <React.Fragment>{this.navigationLayout()}</React.Fragment>;
+    return (
+      <React.Fragment>
+        <div id="navigation">{this.navigationLayout()}</div>
+      </React.Fragment>
+    );
   }
 }
