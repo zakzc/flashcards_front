@@ -44,6 +44,15 @@ body {
   background-color: $backColorNav;
 }
 
+#user_is_logged_out {
+  display: grid;
+  grid-template-areas:
+    " title"
+    " Main_contents ";
+  grid-template-rows: auto auto;
+  background-color: $backColorNav;
+}
+
 // Responsive
 #navBar {
   grid-area: navbar;
@@ -143,7 +152,7 @@ body {
 
 @media only screen and (min-width: 2400px) {
   body {
-    font-size: $fontSizeLarge;
+    font-size: $fontSizeDesk;
     max-width: 1024px;
     margin: 0 auto;
     background: transparent;
