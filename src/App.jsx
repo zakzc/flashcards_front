@@ -62,7 +62,7 @@ export default class App extends React.Component {
   // TODO: update app to reflect changes on the API feedback.
   async setCurrentStack(stackNo) {
     // retrieve new stack data from API
-    console.log("STACK IN\n. Request for: ", stackNo);
+    // console.log("STACK IN\n. Request for: ", stackNo);
     let letsUpdateStack;
     letsUpdateStack = await updateCurrentStack(stackNo, this.state.token)
       .then((letsUpdateStack) => {

@@ -8,7 +8,7 @@ async function LogUserIn(email, psw) {
     userEmail: email,
     password: psw,
   });
-  console.log("Log User In");
+  // console.log("Log User In");
   const userLogInCheck = await connectToDB(
     process.env.REACT_APP_BACKEND_URL + "/userAPI/logIn",
     "POST",
@@ -19,7 +19,7 @@ async function LogUserIn(email, psw) {
     }
   );
   const data = userLogInCheck;
-  console.log("Log in data handler. Received: ", data, typeof data);
+  // console.log("Log in data handler. Received: ", data, typeof data);
   if (!data || data === false) {
     console.log("Error on log in. No data received.");
   }

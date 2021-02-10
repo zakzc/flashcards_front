@@ -39,6 +39,7 @@ export default class LogInPage extends Component {
 
   async logInProcess(em, psw) {
     const logInData = await LogUserIn(em, psw);
+    // console.log("log in for: ", logInData);
     if (logInData) {
       this.logIn_User(logInData);
     } else {
