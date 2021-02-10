@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 // hooks
 import updateCards from "../../Data/Data_Update/updateCards";
-import { CheckForInvalidCharacters } from "../../Data/Validation/validate";
+import { CheckForInvalidCharacters } from "../../Data/utils/validate";
 // Icons
 import Consolidate from "../icons/consolidate";
 import EditCardIcon from "../icons/cardEdit";

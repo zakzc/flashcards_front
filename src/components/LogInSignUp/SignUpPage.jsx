@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import {
   validateEmail,
   validatePasswordInput,
-} from "../../Data/Validation/validate";
+} from "../../Data/utils/validate";
 // Connection to DB
 // import useDB_Connection from "../../Data/DB-hook/connection-hook";
 import SignUserUp from "../../Data/Data_Update/signUserUp";

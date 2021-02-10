@@ -6,7 +6,7 @@ import LogUserIn from "../../Data/Data_Update/logUserIn";
 import {
   validateEmail,
   validatePasswordInput,
-} from "../../Data/Validation/validate";
+} from "../../Data/utils/validate";
 
 export default class LogInPage extends Component {
   constructor(props) {
