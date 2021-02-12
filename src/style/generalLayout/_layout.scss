@@ -1,7 +1,7 @@
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: $backColorNav;
+  background-color: $externalBackground;
   font: "Roboto", "OpenSans", "Lato", sans-serif, monospace;
 }
 
@@ -124,7 +124,7 @@ body {
     font-size: $fontSizeDesk;
     max-width: 1024px;
     margin: 0 auto;
-    background: transparent;
+    background: $externalBackground;
   }
   #Main_contents {
     display: grid;
@@ -155,7 +155,7 @@ body {
     font-size: $fontSizeDesk;
     max-width: 1024px;
     margin: 0 auto;
-    background: transparent;
+    background: $externalBackground;
   }
   #Main_contents {
     display: grid;
