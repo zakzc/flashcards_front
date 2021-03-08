@@ -21,7 +21,7 @@ export default class ExportStack extends Component {
   }
 
   ////////////////
-  // Implemntation methods
+  // Implementation methods
   ////////////////
 
   prepareData() {

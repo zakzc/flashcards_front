@@ -115,6 +115,10 @@ export default class SignUpPage extends Component {
     return <Redirect to="/logIn" />;
   }
 
+  ////////////////
+  // View methods
+  ////////////////
+
   signUpForm() {
     return (
       <form>

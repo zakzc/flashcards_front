@@ -44,7 +44,6 @@ export default class SelectNewStack extends Component {
     }
   }
 
-  // Chooses new option
   chooseNewStack(e) {
     let newStack = e.target.value;
     let newStackName = this.getNewStackName(newStack);
