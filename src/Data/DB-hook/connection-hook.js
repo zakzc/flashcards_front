@@ -21,7 +21,7 @@ async function useDB_Connection(url, method = "GET", body = null, headers) {
     console.log("Error on json parsing (21):\n", e);
     return false;
   }
-  console.log("Response was: ", responseData);
+  // console.log("Response was: ", responseData);
   if (!response.status === 200) {
     console.log("Error on response from API (26).");
     throw new Error(responseData.message);
