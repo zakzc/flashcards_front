@@ -1,7 +1,4 @@
 async function useDB_Connection(url, method = "GET", body = null, headers) {
-  // Data. Body must be string (.stringfy(data)), headers is an object.
-  // console.log("Connect to DB for: ");
-  // console.table(url, method, body, headers);
   let response;
   try {
     response = await fetch(url, {
@@ -10,21 +7,32 @@ async function useDB_Connection(url, method = "GET", body = null, headers) {
       headers,
     });
   } catch (err) {
-    console.log("Connection error on connection hook: ", err);
+    console.log("Connection error on connection hook (10): ", err);
     return false;
   }
 
   // receives data
   const rawData = await response.text();
   // processes to json
-  const responseData = await JSON.parse(rawData);
-
-  if (!response.ok) {
-    console.log("Error on response from API (error 23).");
+  let responseData;
+  try {
+    responseData = await JSON.parse(rawData);
+  } catch (e) {
+    console.log("Error on json parsing (21):\n", e);
+    return false;
+  }
+  console.log("Response was: ", responseData);
+  if (!response.status === 200) {
+    console.log("Error on response from API (26).");
     throw new Error(responseData.message);
   }
   // returns data processed
-  return responseData;
+  if (responseData) {
+    return responseData;
+  } else {
+    console.log("Error gathering data(33)");
+  }
+  return false;
 }
 
 export default useDB_Connection;

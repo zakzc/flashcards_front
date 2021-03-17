@@ -8,7 +8,7 @@ async function LogUserIn(email, psw) {
     userEmail: email,
     password: psw,
   });
-  // console.log("Log User In");
+  console.log("Log User In", process.env);
   const userLogInCheck = await connectToDB(
     process.env.REACT_APP_BACKEND_URL + "/userAPI/logIn",
     "POST",

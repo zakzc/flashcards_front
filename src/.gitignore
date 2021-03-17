@@ -52,3 +52,8 @@ typings/
 
 # Mac files
 .DS_Store
+
+# Environment variables
+.ENV
+.ENV-Production
+.ENV-Development
