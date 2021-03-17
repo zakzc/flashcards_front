@@ -26,14 +26,14 @@
 // log in and sign up
 @import "./style/components/logIn_signUp/logIn_signUp";
 // card management
-@import "./style/components/card_man/cardMan";
+@import "./components/CardManagement/cardMan_0";
 // current stack
-@import "./style/components/cur_stack/readCard";
-@import "./style/components/cur_stack/currentStack";
+@import "./components/CurrentStack/CurStack_ReadCard";
+@import "./components/CurrentStack/CurStack_0";
 // cardSet
-@import "./style/components/card_set/card";
-@import "./style/components/card_set/score";
-@import "./style/components/card_set/stats";
+@import "./components/CardSet/CardSet_0";
+@import "./components/CardSet/CardSet_Score";
+@import "./components/CardSet/CardSet_stats";
 // views
 @import "./style/components/views/title";
 @import "./style/components/views/navigation";
