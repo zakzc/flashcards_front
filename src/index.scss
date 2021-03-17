@@ -19,12 +19,12 @@
 
 // Components
 // stack management
-@import "./style/components/stack_man/stackMan";
-@import "./style/components/stack_man/removeCurStack";
-@import "./style/components/stack_man/addNewStack";
-@import "./style/components/stack_man/exportStack";
+@import "./components/StackManagement/StackMan_0";
+@import "./components/StackManagement/StackMan_RemoveCurStack";
+@import "./components/StackManagement/StackMan_addNewStack";
+@import "./components/StackManagement/StackMan_ExpoStack";
 // log in and sign up
-@import "./style/components/logIn_signUp/logIn_signUp";
+@import "./components/LogInSignUp/LogSign_0";
 // card management
 @import "./components/CardManagement/cardMan_0";
 // current stack
@@ -35,7 +35,7 @@
 @import "./components/CardSet/CardSet_Score";
 @import "./components/CardSet/CardSet_stats";
 // views
-@import "./style/components/views/title";
-@import "./style/components/views/navigation";
-@import "./style/components/views/loader";
-@import "./style/components/views/consolidate";
+@import "./components/views/consolidate";
+@import "./components/views/navigation";
+@import "./components/views/loader";
+@import "./components/views/consolidate";
