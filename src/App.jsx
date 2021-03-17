@@ -185,7 +185,6 @@ export default class App extends React.Component {
                     userIsLoggedIn={this.state.userIsLoggedIn}
                     currentStack={this.state.currentStack}
                     cards={this.state.currentStack.cards}
-                    length={this.state.currentStack.length}
                   />
                 )}
               />

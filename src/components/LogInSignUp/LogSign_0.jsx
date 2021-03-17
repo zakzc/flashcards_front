@@ -16,8 +16,7 @@ export default class LogInSignUp extends Component {
       logInOrSignUpState: true,
     };
     // ** Binding
-    //this.updateUser = props.updateUser.bind(this);
-    //this.updateStack = props.updateStack.bind(this);
+
     this.logIn_User = props.logIn_User.bind(this);
     this.LogInPage = LogInPage.bind(this);
     // this.SignUpPage = SignUpPage.bind(this);

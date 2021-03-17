@@ -35,7 +35,7 @@ export default class Stats extends Component {
     // TODO: nodeJs routing to save the data into json (log)??
     // window.location.reload(false);
     this.reSetGame();
-    console.log("current card: ", this.state.current);
+    // console.log("current card: ", this.state.current);
   }
 
   // pieChart() {
@@ -51,29 +51,19 @@ export default class Stats extends Component {
   // }
 
   stackLevel() {
-    let level = "";
-    let infoLevel = "";
+    let infoLevel;
+    console.log("length: ", this.state.lengthOfStack);
     if (this.state.lengthOfStack <= 10) {
-      level = " easy";
-      infoLevel = " (any stack with less than 10 cards is considered easy).";
-    } else if (this.state.lengthOfStack <= 20) {
-      level = " in an intermediate level";
       infoLevel =
-        " (any stack with more than 10 cards, but less than 20, is considered easy).";
+        "easy, because any stack with less than 10 cards is considered easy.";
+    } else if (this.state.lengthOfStack <= 20) {
+      infoLevel =
+        " intermediate, because any stack with more than 10 cards, but less than 20, is considered intermediate.";
     } else {
-      level = " hard";
-      infoLevel = " (any stack with more than 20 cards is considered hard).";
+      infoLevel =
+        " hard, because any stack with more than 20 cards is considered hard.";
     }
-    return (
-      <div>
-        <p>
-          {" "}
-          This is considered to be
-          <strong className="highlight">{level}</strong>
-          {infoLevel}
-        </p>
-      </div>
-    );
+    return infoLevel;
   }
 
   ////////////////
@@ -104,8 +94,9 @@ export default class Stats extends Component {
         <div>
           You finished your stack. This stack was made up of
           <strong className="highlight"> {this.state.lengthOfStack} </strong>
-          cards. {this.stackLevel()}
+          cards.
         </div>
+        <div>This was {this.stackLevel()}</div>
         <p>
           You guessed{" "}
           <strong className="highlight"> {this.state.guesses}</strong> times, of
