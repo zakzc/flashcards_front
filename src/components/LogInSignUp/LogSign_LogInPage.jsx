@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 //import useDB_Connection from "../../Data/DB-hook/connection-hook";
 // Connection
-import LogUserIn from "../../Data/Data_Update/logUserIn";
+import LogUserIn from "../../utils/Data_Update/logUserIn";
 // hooks and util
 import {
   validateEmail,
   validatePasswordInput,
-} from "../../Data/utils/validate";
+} from "../../utils/Connection/validate";
 
 export default class LogInPage extends Component {
   constructor(props) {

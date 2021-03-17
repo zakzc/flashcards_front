@@ -22,7 +22,7 @@ import CardSet from "./components/CardSet/CardSet_0";
 // hooks
 // import useDB_Connection from "./Data/DB-hook/connection-hook";
 // data update functions
-import updateCurrentStack from "./Data/Data_Update/updateCurrentStack";
+import updateCurrentStack from "./utils/Data_Update/updateCurrentStack";
 // import updateUserData from "./Data/Data_Update/updateUserData";
 // dummy data: used for tests and dev
 // import dummyUser from "./Data/DummyData/user.json";

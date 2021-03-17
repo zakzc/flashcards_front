@@ -4,10 +4,10 @@ import { Redirect } from "react-router-dom";
 import {
   validateEmail,
   validatePasswordInput,
-} from "../../Data/utils/validate";
+} from "../../utils/Connection/validate";
 // Connection to DB
 // import useDB_Connection from "../../Data/DB-hook/connection-hook";
-import SignUserUp from "../../Data/Data_Update/signUserUp";
+import SignUserUp from "../../utils/Data_Update/signUserUp";
 
 export default class SignUpPage extends Component {
   constructor(props) {

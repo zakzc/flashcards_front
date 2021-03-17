@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 // Data update
-import RemoveCurrentStack from "../../Data/Data_Update/removeCurStack";
+import RemoveCurrentStack from "../../utils/Data_Update/removeCurStack";
 // Icon
 import Trash from "../../assets/icons/trash";
 // In case there are no stacks
-import sampleStack from "../../Data/DummyData/sampleCards.json";
+import sampleStack from "../../utils/DummyData/sampleCards.json";
 
 export default class RemoveCurStack extends Component {
   constructor(props) {

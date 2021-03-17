@@ -1,4 +1,4 @@
-import useDB_Connection from "../DB-hook/connection-hook";
+import useDB_Connection from "../Connection/connection-hook";
 const connectToDB = useDB_Connection;
 
 //url, method = "GET", body = null, headers = {}
