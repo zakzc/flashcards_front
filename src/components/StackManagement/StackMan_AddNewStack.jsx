@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 // hooks
-import addNewSet from "../../Data/Data_Update/addNewSet";
+import addNewSet from "../../utils/Data_Update/addNewSet";
 import { CheckForInvalidCharacters } from "../../Data/utils/validate";
 // Icons
 import Consolidate from "../../assets/icons/consolidate";
