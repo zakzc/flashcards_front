@@ -8,9 +8,9 @@ import UserIsLoggedOut from "../views/UserIsLoggedOut";
 import Stats from "./CardSet_Stats";
 import Score from "./CardSet_Score";
 // icons
-import Check from "../icons/check";
-import Right from "../icons/right";
-import Wrong from "../icons/wrong";
+import Check from "../../assets/icons/check";
+import Right from "../../assets/icons/right";
+import Wrong from "../../assets/icons/wrong";
 
 export default class CardSet extends React.Component {
   constructor(props) {

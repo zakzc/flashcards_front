@@ -4,9 +4,9 @@ import { Redirect } from "react-router-dom";
 import addNewSet from "../../Data/Data_Update/addNewSet";
 import { CheckForInvalidCharacters } from "../../Data/utils/validate";
 // Icons
-import Consolidate from "../icons/consolidate";
-import Plus from "../icons/plus";
-import Right from "../icons/right";
+import Consolidate from "../../assets/icons/consolidate";
+import Plus from "../../assets/icons/plus";
+import Right from "../../assets/icons/right";
 
 export default class AddNewStack extends Component {
   constructor(props) {

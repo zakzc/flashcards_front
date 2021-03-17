@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 // Data Methods
-import RemoveCurStack from "./StackManagement/RemoveCurStack";
-import AddNewStack from "./StackManagement/AddNewStack";
-import ExportStack from "./StackManagement/ExpoStack";
+import RemoveCurStack from "./RemoveCurStack";
+import AddNewStack from "./AddNewStack";
+import ExportStack from "./ExpoStack";
 // DB
 // import { useDB_Connection } from "../DB/DB-hook/connection-hook";
 // Standard Log out page
-import UserIsLoggedOut from "./views/UserIsLoggedOut";
+import UserIsLoggedOut from "../views/UserIsLoggedOut";
 // Icon
-import Plus from "./icons/plus";
-import Trash from "./icons/trash";
-import Export from "./icons/export";
+import Plus from "../../assets/icons/plus";
+import Trash from "../../assets/icons/trash";
+import Export from "../../assets/icons/export";
 
 export default class StackManagement extends Component {
   constructor(props) {

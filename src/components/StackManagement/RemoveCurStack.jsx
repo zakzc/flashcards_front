@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 // Data update
 import RemoveCurrentStack from "../../Data/Data_Update/removeCurStack";
 // Icon
-import Trash from "../icons/trash";
+import Trash from "../../assets/icons/trash";
 // In case there are no stacks
 import sampleStack from "../../Data/DummyData/sampleCards.json";
 

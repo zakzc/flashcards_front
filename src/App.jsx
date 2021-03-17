@@ -12,10 +12,10 @@ import "./index.scss";
 import Navigation from "./components/views/Navigation";
 import Title from "./components/views/Title";
 // Routed layout
-import StackManagement from "./components/StackManagement";
-import CardManagement from "./components/CardManagement";
-import LogInSignUp from "./components/LogInSignUp";
-import CurrentStack from "./components/CurrentStack";
+import StackManagement from "./components/StackManagement/StackMan_0";
+import CardManagement from "./components/CardManagement/CardMan_0";
+import LogInSignUp from "./components/LogInSignUp/LogSign_0";
+import CurrentStack from "./components/CurrentStack/CurStack_0";
 // import Page404 from "./components/views/Page404";
 import ConsolidateChanges from "./components/views/ConsolidateChanges";
 import CardSet from "./components/CardSet/CardSet_0";

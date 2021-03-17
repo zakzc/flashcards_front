@@ -4,8 +4,8 @@ import { Redirect } from "react-router-dom";
 import updateCards from "../../Data/Data_Update/updateCards";
 import { CheckForInvalidCharacters } from "../../Data/utils/validate";
 // Icons
-import Consolidate from "../icons/consolidate";
-import EditCardIcon from "../icons/cardEdit";
+import Consolidate from "../../assets/icons/consolidate";
+import EditCardIcon from "../../assets/icons/cardEdit";
 
 export default class ManageCards extends Component {
   constructor(props) {

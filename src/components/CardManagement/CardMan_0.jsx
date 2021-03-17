@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 // Standard Log out page
-import UserIsLoggedOut from "./views/UserIsLoggedOut";
-import ManageCards from "./CardManagement/ManageCards";
+import UserIsLoggedOut from "../views/UserIsLoggedOut";
+import ManageCards from "./CardMan_ManageCards";
 
 export default class CardManagement extends Component {
   constructor(props) {

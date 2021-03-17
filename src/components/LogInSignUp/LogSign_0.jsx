@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import LogInPage from "./LogInSignUp/LogInPage";
-import SignUpPage from "./LogInSignUp/SignUpPage";
+import LogInPage from "./LogSign_LogInPage";
+import SignUpPage from "./LogSign_SignUpPage";
 // import { useDB_Connection } from "../DB/DB-hook/connection-hook";
 //
-import PileLogo from "./icons/pileLogo";
+import PileLogo from "../../assets/icons/pileLogo";
 // Style
-import "../../src/index.css";
+import "../../../src/index.css";
 
 export default class LogInSignUp extends Component {
   constructor(props) {

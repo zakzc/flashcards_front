@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Link, NavLink } from "react-router-dom";
 // icons
-import Pile from "../icons/pile";
-import Play from "../icons/play";
-import EditCard from "../icons/editCard";
-import EditStacks from "../icons/editStacks";
-import LogOut from "../icons/logOut";
-import LogIn from "../icons/logIn";
+import Pile from "../../assets/icons/pile";
+import Play from "../../assets/icons/play";
+import EditCard from "../../assets/icons/editCard";
+import EditStacks from "../../assets/icons/editStacks";
+import LogOut from "../../assets/icons/logOut";
+import LogIn from "../../assets/icons/logIn";
 
 export default class Navigation extends Component {
   constructor(props) {

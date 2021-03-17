@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 // hooks
 // import { useDB_Connection } from "../../DB/DB-hook/connection-hook";
-import RewindIcon from "../icons/rewind";
-import StatsIcon from "../icons/stats";
+import RewindIcon from "../../assets/icons/rewind";
+import StatsIcon from "../../assets/icons/stats";
 
 export default class Stats extends Component {
   constructor(props) {

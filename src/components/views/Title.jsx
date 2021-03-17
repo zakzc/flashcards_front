@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PileLogo from "../icons/pileLogo";
+import PileLogo from "../../assets/icons/pileLogo";
 
 export default class Title extends Component {
   render() {

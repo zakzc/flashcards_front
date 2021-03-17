@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // Icons
-import Download from "../icons/export";
+import Download from "../../assets/icons/export";
 // hooks
 // import useDB_Connection from "../../Data/DB-hook/connection-hook";
 // Icons
