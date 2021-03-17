@@ -3,14 +3,14 @@ import { Redirect } from "react-router-dom";
 // import { TransitionGroup, Transition } from "react-transition-group";
 import { AnimatePresence, motion } from "framer-motion";
 // Standard Log out page
-import UserIsLoggedOut from "./views/UserIsLoggedOut";
+import UserIsLoggedOut from "../views/UserIsLoggedOut";
 // module
-import Stats from "./CardSet/Stats";
-import Score from "./CardSet/Score";
+import Stats from "./CardSet_Stats";
+import Score from "./CardSet_Score";
 // icons
-import Check from "./icons/check";
-import Right from "./icons/right";
-import Wrong from "./icons/wrong";
+import Check from "../icons/check";
+import Right from "../icons/right";
+import Wrong from "../icons/wrong";
 
 export default class CardSet extends React.Component {
   constructor(props) {
