@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 // Data Methods
-import RemoveCurStack from "./RemoveCurStack";
-import AddNewStack from "./AddNewStack";
-import ExportStack from "./ExpoStack";
+import RemoveCurStack from "./StackMan_RemoveCurStack";
+import AddNewStack from "./StackMan_AddNewStack";
+import ExportStack from "./StackMan_ExpoStack";
 // DB
 // import { useDB_Connection } from "../DB/DB-hook/connection-hook";
 // Standard Log out page
