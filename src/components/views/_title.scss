@@ -1,21 +1,22 @@
 #titlePage {
-  background-color: $backColorNav;
+  // background-color: $backColorNav;
   //background-color: orange;
   // height: 55px;
   // margin-top: -13px;
   // margin-bottom: 2px;
 }
 
-#title {
+.title {
   text-align: center;
-  color: $contrastColor;
+  background-color: $backColorNav;
+  color: $mainColor;
 }
 
 .pileLogo {
-  //background-color: $backColorNav;
   background-color: $backColorNav;
   width: 4%;
   height: 4%;
   //position: block;
-  color: $contrastColor;
+  color: $mainColor;
+  margin-left: 3%;
 }

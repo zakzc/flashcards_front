@@ -6,7 +6,7 @@ export default class Title extends Component {
     return (
       <React.Fragment>
         <div id="titlePage">
-          <h1 id="title">
+          <h1 className="title">
             Flashcards <PileLogo className="pileLogo" />
           </h1>
         </div>
