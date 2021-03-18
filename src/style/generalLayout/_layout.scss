@@ -23,16 +23,6 @@ body {
 
 // Layouts
 
-// General layout any size
-#App_View {
-  // display: grid;
-  // grid-template-areas:
-  //   " title"
-  //   " Main_contents ";
-  // grid-template-rows: auto auto;
-  // background-color: $backColorNav;
-}
-
 // Main_contents area
 
 #user_is_logged_in {
@@ -58,6 +48,7 @@ body {
   grid-area: navbar;
   background-color: $backColorNav;
   justify-items: center;
+  padding: 5%;
 }
 
 #currentView {

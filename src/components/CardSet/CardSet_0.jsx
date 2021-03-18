@@ -168,27 +168,29 @@ export default class CardSet extends React.Component {
 
   cardFlip() {
     return (
-      <motion.div
-        /*     transition={{ ease: "easeIn", duration: 0.7 }} */
-        className="cardText"
-      >
-        {this.state.face ? (
-          <AnimatePresence>
-            <motion.div whileHover={{ scale: 1.02 }} id="cardFront">
-              {this.state.cards[this.state.current].front}
+      <div id="flipCard">
+        <motion.div
+          /*     transition={{ ease: "easeIn", duration: 0.7 }} */
+          className="cardText"
+        >
+          {this.state.face ? (
+            <AnimatePresence>
+              <motion.div whileHover={{ scale: 1.02 }} id="cardFront">
+                {this.state.cards[this.state.current].front}
+              </motion.div>
+            </AnimatePresence>
+          ) : (
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              animate={{ rotateY: 360 }}
+              transition={{ ease: "easeInOut", duration: 0.7 }}
+              id="cardBack"
+            >
+              {this.state.cards[this.state.current].back}
             </motion.div>
-          </AnimatePresence>
-        ) : (
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            animate={{ rotateY: 360 }}
-            transition={{ ease: "easeInOut", duration: 0.7 }}
-            id="cardBack"
-          >
-            {this.state.cards[this.state.current].back}
-          </motion.div>
-        )}
-      </motion.div>
+          )}
+        </motion.div>
+      </div>
     );
   }
 

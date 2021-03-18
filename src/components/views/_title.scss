@@ -9,7 +9,7 @@
 .title {
   text-align: center;
   background-color: $backColorNav;
-  color: $mainColor;
+  color: $contrastColor;
 }
 
 .pileLogo {
@@ -17,6 +17,6 @@
   width: 4%;
   height: 4%;
   //position: block;
-  color: $mainColor;
+  color: $contrastColor;
   margin-left: 3%;
 }
