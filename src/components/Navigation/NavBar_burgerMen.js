@@ -3,10 +3,14 @@ import Menu from "./Menu";
 
 export default function Burger() {
   const [burgerToggle, setBurgerToggle] = useState(false);
+  // const [burgerView, setBurgerView] = useState("closed");
 
   return (
     <>
-      <button className="show" onClick={() => setBurgerToggle(!burgerToggle)}>
+      <button
+        className={burgerToggle ? "change" : "closed"}
+        onClick={() => setBurgerToggle(!burgerToggle)}
+      >
         <div className="bar1"></div>
         <div className="bar2"></div>
         <div className="bar3"></div>
