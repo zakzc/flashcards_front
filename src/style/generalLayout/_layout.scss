@@ -24,16 +24,6 @@ body {
 
 // Layouts
 
-// General layout any size
-#App_View {
-  // display: grid;
-  // grid-template-areas:
-  //   " title"
-  //   " Main_contents ";
-  // grid-template-rows: auto auto;
-  // background-color: $backColorNav;
-}
-
 // Main_contents area
 
 #user_is_logged_in {
@@ -57,14 +47,13 @@ body {
 // Responsive
 #navBar {
   grid-area: navbar;
-  background-color: $backColorNav;
+  background-color: $mainBackColor;
   justify-items: center;
 }
 
 #currentView {
   display: grid;
   grid-area: currentView;
-  background-color: $mainBackColor;
 }
 
 ////////////////////////////////
@@ -80,7 +69,7 @@ body {
     grid-template-areas:
       "navbar"
       "currentView";
-    gap: 1px;
+    // gap: 1px;
   }
   // navBar displayed horizontally on smaller devices
   #navBar {
@@ -131,7 +120,6 @@ body {
     display: grid;
     grid-template-columns: 70px auto;
     grid-template-areas: "navbar currentView";
-    gap: 1px;
     flex-direction: column;
   }
 
@@ -162,7 +150,6 @@ body {
     display: grid;
     grid-template-columns: 100px auto;
     grid-template-areas: "navbar currentView";
-    gap: 1px;
     flex-direction: column;
   }
 }

@@ -6,7 +6,7 @@ export default function Burger() {
   // const [burgerView, setBurgerView] = useState("closed");
 
   return (
-    <>
+    <div id="burger">
       <button
         className={burgerToggle ? "change" : "closed"}
         onClick={() => setBurgerToggle(!burgerToggle)}
@@ -16,7 +16,7 @@ export default function Burger() {
         <div className="bar3"></div>
       </button>
       {burgerToggle && <Menu />}
-    </>
+    </div>
   );
 }
 // TODO: find a way of displaying the actual menubar.

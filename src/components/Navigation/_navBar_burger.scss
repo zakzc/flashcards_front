@@ -1,6 +1,11 @@
+#burger {
+  background-color: $mainBackColor;
+}
+
 .burgerContainer {
   display: inline-block;
   cursor: pointer;
+  ;
 }
 
 .bar1, .bar2, .bar3 {
