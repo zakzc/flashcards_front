@@ -11,7 +11,7 @@
 
 // General layout elements or elements that apply to all layouts
 @import "./style/generalLayout/generalElements";
-@import "./style/generalLayout/flipMenu";
+@import "./components/Navigation/flipMenu";
 @import "./style/generalLayout/flipButtons";
 
 // General Layout
@@ -34,9 +34,11 @@
 @import "./components/CardSet/CardSet_0";
 @import "./components/CardSet/CardSet_Score";
 @import "./components/CardSet/CardSet_stats";
+// Navigation
+@import "./components/Navigation/navBar_0";
+@import "./components/Navigation/navBar_burger";
 // views
 @import "./components/views/consolidate";
-@import "./components/views/navigation";
 @import "./components/views/loader";
 @import "./components/views/consolidate";
 @import "./components/views/title";

@@ -3,6 +3,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: $externalBackground;
   font: "Roboto", "OpenSans", "Lato", sans-serif, monospace;
+  text-rendering: optimizeLegibility;
 }
 
 #wrapper {

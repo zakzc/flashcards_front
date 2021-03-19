@@ -9,7 +9,7 @@ import {
 import "./index.scss";
 //* Navigation elements
 // Base layout
-import Navigation from "./components/views/Navigation";
+import Navigation from "./components/Navigation/NavBar_0";
 import Title from "./components/views/Title";
 // Routed layout
 import StackManagement from "./components/StackManagement/StackMan_0";
