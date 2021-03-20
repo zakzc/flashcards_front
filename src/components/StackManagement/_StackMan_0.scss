@@ -20,7 +20,7 @@
 #StackNav {
   grid-area: "stackNav";
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  // grid-template-columns: 7fr, 1fr;
   grid-template-areas: ". stackNavLeft . stackNavCenter . stackNavRight .";
   // margin-top: 2%;
   // margin-bottom: 5%;
@@ -36,13 +36,15 @@
   grid-template-areas:
     "stackMessage"
     "stackNav"
-    "functionality";
+    "functionality"
+    ".";
   gap: 25%;
-  grid-template-rows: 2fr, 1fr, 3fr;
+  grid-template-rows: 1fr, 1fr, 2fr 1fr;
   background-color: $mainBackColor;
   // adjust of the container positioning
   margin-top: 1%;
   margin-left: 1%;
+  padding-bottom: 20%;
 }
 
 //////////////////////

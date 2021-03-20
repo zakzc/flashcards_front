@@ -2,9 +2,8 @@
   margin-left: 2%;
 }
 
-#addCardButton_Positioning {
-  // margin-right: 1%;
-  // float: left;
+#addCardsToStack {
+  margin-top: -8%;
 }
 
 #consolidateButton_Positioning {
@@ -35,8 +34,8 @@
   border-radius: 20px;
   float: right;
   background-color: $contrastColor;
-  width: 120px;
-  height: 100px;
+  // width: 120px;
+  // height: 100px;
   position: center;
   text-align: center;
   vertical-align: middle;
@@ -47,35 +46,3 @@
   border-radius: 20px;
 }
 
-#letsAddSection {
-  //background-color: $mainBackColor;
-  //background-color: blue;
-  // height: auto;
-  // display: block;
-  // margin-top: -100px;
-}
-
-#infoCardWrap {
-  // margin-top: -150px;
-}
-
-#formAddNewStack {
-  // float: left;
-  // width: 80%;
-  // margin: 1%;
-}
-
-// #checkButton {
-//   background-color: $backColorNav;
-//   border-radius: 20px;
-//   margin-top: -30px;
-//   // display: block;
-//   //float: right;
-// }
-
-#addCardsToStack {
-  // margin-top: -100px;
-}
-// #checkButtonMessage {
-//   color: $mainColor;
-// }
