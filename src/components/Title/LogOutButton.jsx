@@ -23,12 +23,12 @@ export default class LogOutButton extends Component {
           onClick={this.logOut_User}
         >
           <NavLink to="/">
-            <div className="flipMenu">
-              <div className="flipMenuInner">
-                <div className="flipMenuFront">
+            <div className="flipContainer">
+              <div className="flipInner">
+                <div className="flipFront">
                   <LogOut />
                 </div>
-                <div className="flipMenuBack">
+                <div className="flipBack">
                   <span className="buttonMessage"> Log Out</span>
                 </div>
               </div>
