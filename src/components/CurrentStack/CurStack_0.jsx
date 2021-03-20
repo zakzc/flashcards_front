@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-// internal componentes
+// internal components
 import ReadCards from "./CurStack_ReadCards";
 import SelectNewStack from "./CurStack_SelectNewStack";
 // Standard Log out page
@@ -8,8 +8,8 @@ import UserIsLoggedOut from "../views/UserIsLoggedOut";
 // Style
 import "../../../src/index.css";
 // Icons
-import Collection from "../icons/collection";
-import CheckEye from "../icons/checkEye";
+import Collection from "../../assets/icons/collection";
+import CheckEye from "../../assets/icons/checkEye";
 
 export default class CurrentStack extends Component {
   constructor(props) {
