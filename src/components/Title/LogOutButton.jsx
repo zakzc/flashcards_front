@@ -14,10 +14,6 @@ export default class LogOutButton extends Component {
     this.logOut_User = props.logOut_User.bind(this);
   }
 
-  // logUserOut() {
-  //   this.logOut_User();
-  // }
-
   render() {
     return (
       <div id="LogOutButton">
@@ -32,7 +28,9 @@ export default class LogOutButton extends Component {
                 <div className="flipMenuFront">
                   <LogOut />
                 </div>
-                <span className="buttonMessage"> Log Out</span>
+                <div className="flipMenuBack">
+                  <span className="buttonMessage"> Log Out</span>
+                </div>
               </div>
             </div>
           </NavLink>
