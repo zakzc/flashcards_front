@@ -46,8 +46,6 @@ export default class ManageCards extends Component {
     this.consolidateButtonView = this.consolidateButtonView.bind(this);
     this.inputForm = this.inputForm.bind(this);
     this.showCurrentStack = this.showCurrentStack.bind(this);
-    this.manageCardsView = this.manageCardsView.bind(this);
-    this.manageCardsLayout = this.manageCardsLayout.bind(this);
   }
 
   ////////////////
@@ -314,44 +312,24 @@ export default class ManageCards extends Component {
     );
   }
 
-  manageCardsLayout() {
+  render() {
     return (
       <div id="manageCardsWrapper">
         <h1>Let's manage your cards</h1>
-
-        <div id="manageCardsArea">
-          {this.showCurrentStack()}
-          {this.cardsInCurrentStack()}
-          {this.state.updatedItemMessage ? this.stackWasUpdated() : <div></div>}
-          {this.state.editingMode ? this.editCard() : <div></div>}
-          {this.consolidateButtonView()}
-          {this.state.redirect ? (
-            <Redirect
-              to="/consolidateChanges"
-              userIsLoggedIn={this.state.userIsLoggedIn}
-            />
-          ) : (
-            <div></div>
-          )}
-        </div>
-      </div>
-    );
-  }
-
-  manageCardsView() {
-    // console.log("MANAGE CARDS");
-    return (
-      <div id="manageCardsLayout">
-        {this.state.userIsLoggedIn ? (
-          <div id="loggedInView">{this.manageCardsLayout()}</div>
+        {this.showCurrentStack()}
+        {this.cardsInCurrentStack()}
+        {this.state.updatedItemMessage ? this.stackWasUpdated() : <div></div>}
+        {this.state.editingMode ? this.editCard() : <div></div>}
+        {this.consolidateButtonView()}
+        {this.state.redirect ? (
+          <Redirect
+            to="/consolidateChanges"
+            userIsLoggedIn={this.state.userIsLoggedIn}
+          />
         ) : (
-          <Redirect to="/login" />
+          <div></div>
         )}
       </div>
     );
-  }
-
-  render() {
-    return <React.Fragment>{this.manageCardsView()}</React.Fragment>;
   }
 }

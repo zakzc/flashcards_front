@@ -10,12 +10,16 @@
 @import "./style/variables/breakpoints";
 
 // General layout elements or elements that apply to all layouts
-@import "./style/generalLayout/generalElements";
+@import "./style/pageElements/generalPageElements";
 @import "./components/Navigation/navBar_flipMenu";
-@import "./style/generalLayout/flipButtons";
+@import "./style/pageElements/flipButtons";
 
-// General Layout
+// Layout
 @import "./style/generalLayout/layout";
+@import "./style/generalLayout/layoutResponsive_small";
+@import "./style/generalLayout/layoutResponsive_medium";
+@import "./style/generalLayout/layoutResponsive_large";
+
 
 // Components
 // stack management
@@ -41,4 +45,4 @@
 @import "./components/views/consolidate";
 @import "./components/views/loader";
 @import "./components/views/consolidate";
-@import "./components/views/title";
+@import "./components/Title/title";

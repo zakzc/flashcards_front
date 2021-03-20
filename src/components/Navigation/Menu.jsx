@@ -5,7 +5,6 @@ import Pile from "../../assets/icons/pile";
 import Play from "../../assets/icons/play";
 import EditCard from "../../assets/icons/editCard";
 import EditStacks from "../../assets/icons/editStacks";
-import LogOut from "../../assets/icons/logOut";
 
 export default class Menu extends Component {
   constructor(props) {
@@ -74,20 +73,6 @@ export default class Menu extends Component {
                     <EditStacks />
                   </div>{" "}
                   <div className="flipMenuBack">Manage stacks</div>
-                </div>
-              </div>
-            </NavLink>
-          </li>
-          <li className="navigationLink">
-            <NavLink to="/">
-              <div className="flipMenu">
-                <div className="flipMenuInner">
-                  <div className="flipMenuFront">
-                    <LogOut />
-                  </div>
-                  <div className="flipMenuBack" onClick={this.logUserOut}>
-                    Log Out
-                  </div>
                 </div>
               </div>
             </NavLink>

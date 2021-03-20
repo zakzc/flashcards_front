@@ -1,15 +1,23 @@
+
+#titleLogo {
+  grid-area: logo;
+}
+
+#logUserOut {
+  grid-area: logUserOut;
+}
+
 #titlePage {
-  // background-color: $backColorNav;
-  //background-color: orange;
-  // height: 55px;
-  // margin-top: -13px;
-  // margin-bottom: 2px;
+  display: grid;
+  grid-template-areas: 
+  "logo logo logo logo logo logUserOut";
 }
 
 .title {
   text-align: center;
   background-color: $backColorNav;
   color: $mainColor;
+
 }
 
 .pileLogo {
@@ -20,3 +28,4 @@
   color: $mainColor;
   margin-left: 3%;
 }
+
