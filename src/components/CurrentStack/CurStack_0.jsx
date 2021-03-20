@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-// internal componentes
+// internal components
 import ReadCards from "./CurStack_ReadCards";
 import SelectNewStack from "./CurStack_SelectNewStack";
 // Standard Log out page

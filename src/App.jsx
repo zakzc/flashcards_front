@@ -9,8 +9,8 @@ import {
 import "./index.scss";
 //* Navigation elements
 // Base layout
-import Navigation from "./components/views/Navigation";
-import Title from "./components/views/Title";
+import Navigation from "./components/Navigation/NavBar_0";
+import Title from "./components/Title/Title";
 // Routed layout
 import StackManagement from "./components/StackManagement/StackMan_0";
 import CardManagement from "./components/CardManagement/CardMan_0";
@@ -122,13 +122,12 @@ export default class App extends React.Component {
     return (
       // <div className="flex-container">
       <Router>
-        <Title />
+        <Title logOut_User={this.logOut_User} />
         <div id="Main_contents">
           <div id="navBar">
             <Navigation
               currentUser={this.state.currentUser}
               userIsLoggedIn={this.state.userIsLoggedIn}
-              logOut_User={this.logOut_User}
             />
           </div>
           <div id="currentView">

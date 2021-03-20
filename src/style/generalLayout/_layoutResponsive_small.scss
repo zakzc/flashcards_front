@@ -1,0 +1,50 @@
+
+////////////////////////////////
+// * smaller screens sizes > 768
+////////////////////////////////
+@media only screen and (max-width: 767px) {
+  body {
+    font-size: $fontSizePhone;
+  }
+  #Main_contents {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "navbar"
+      "currentView";
+    // gap: 1px;
+  }
+  // navBar displayed horizontally on smaller devices
+  #navBar {
+    display: inline-block;
+    justify-content: center;
+    // align-content: space-between;
+    // grid-auto-flow: row;
+  }
+
+  #navigation {
+    display: grid;
+  }
+
+  #menuBar {
+    display: grid;
+    // grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: repeat(5, auto);
+    // gap: 4px;
+  }
+
+  #navigationIcons {
+    display: inline-grid;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  #currentView {
+    display: inline-block;
+    grid-area: currentView;
+    grid-auto-flow: column;
+  }
+}

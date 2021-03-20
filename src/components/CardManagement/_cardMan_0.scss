@@ -1,3 +1,13 @@
+
+#cardManagementLayout {
+  background-color: $mainBackColor;
+}
+
+#cardManagementView {
+  background-color: $mainBackColor;
+}
+
+
 #manageCardsLayout {
   // adjust of the container positioning
   margin-top: 1%;
@@ -6,7 +16,7 @@
 
 #cardManagementWrapper {
   background-color: $mainBackColor;
-  color: $colorCardText;
+  // color: $colorCardText;
   height: auto;
   display: flex;
   padding-bottom: 15%;
@@ -72,7 +82,7 @@ li {
   padding: 1%;
   margin-top: 25%;
   margin-bottom: 4%;
-  background-color: transparent;
+  // background-color: transparent;
   width: 250px;
   height: 150px;
   border-radius: 5px;
