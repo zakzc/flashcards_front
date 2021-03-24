@@ -4,8 +4,8 @@ import Enzyme from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import { shallow } from "enzyme";
 ///
-import CurrentStack from "../components/CurrentStack";
-import SelectNewStack from "../components/CurrentStack/SelectNewStack";
+import CurrentStack from "../components/CurrentStack/CurStack_0";
+import SelectNewStack from "../components/CurrentStack/CurStack_SelectNewStack";
 
 Enzyme.configure({ adapter: new Adapter() });
 

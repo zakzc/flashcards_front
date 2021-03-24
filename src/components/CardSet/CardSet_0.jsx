@@ -23,7 +23,6 @@ export default class CardSet extends React.Component {
       face: true,
       right: 0,
       wrong: 0,
-      lengthOfStack: props.cards.length,
       stackIsOver: false,
     };
     // external modules

@@ -10,7 +10,6 @@ export default class Stats extends Component {
     this.state = {
       right: props.right,
       wrong: props.wrong,
-      lengthOfStack: props.lengthOfStack,
       guesses: props.right + props.wrong,
       percentage: ((props.right / (props.right + props.wrong)) * 100).toFixed(
         2
@@ -52,11 +51,11 @@ export default class Stats extends Component {
 
   stackLevel() {
     let infoLevel;
-    console.log("length: ", this.state.lengthOfStack);
-    if (this.state.lengthOfStack <= 10) {
+    // console.log("length: ", this.state.right);
+    if (this.state.right <= 10) {
       infoLevel =
         "easy, because any stack with less than 10 cards is considered easy.";
-    } else if (this.state.lengthOfStack <= 20) {
+    } else if (this.state.right <= 20) {
       infoLevel =
         " intermediate, because any stack with more than 10 cards, but less than 20, is considered intermediate.";
     } else {

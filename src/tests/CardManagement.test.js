@@ -3,13 +3,12 @@ import Enzyme from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import { shallow } from "enzyme";
 ///
-import CardManagement from "../components/CardManagement";
-import ManageCards from "../components/CardManagement/ManageCards";
+import CardManagement from "../components/CardManagement/CardMan_0";
+import ManageCards from "../components/CardManagement/CardMan_ManageCards";
 
 Enzyme.configure({ adapter: new Adapter() });
 
 // Parent
-
 describe("\n __| CardManagement |__ ", () => {
   const cardManagement = shallow(<CardManagement />);
 
@@ -35,7 +34,18 @@ describe("\n __| CardManagement |__ ", () => {
 
 // Child
 describe("\n  ___| ManageCards |___ ", () => {
-  const manageCards = shallow(<ManageCards />);
+  const currentStack = {
+    id: "mock id",
+    stackName: "Mock Stack",
+    createdBy: "12345",
+    cards: [
+      {
+        front: "Mock props",
+        back: "Mock props",
+      },
+    ],
+  };
+  const manageCards = shallow(<ManageCards currentStack={currentStack} />);
 
   describe("\tInitialization process", () => {
     it("Renders the ManageCards component", () => {

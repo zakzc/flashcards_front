@@ -2,10 +2,10 @@ import React from "react";
 import Enzyme from "enzyme";
 ///
 import Adapter from "enzyme-adapter-react-16";
-import { shallow, configure } from "enzyme";
+import { shallow } from "enzyme";
 ///
-import CardSet from "../components/CardSet";
-import Stats from "../components/CardSet/Stats";
+import CardSet from "../components/CardSet/CardSet_0";
+import Stats from "../components/CardSet/CardSet_Stats";
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -52,7 +52,18 @@ describe("\n __| CardSet |__", () => {
 
 // Child
 describe("\n___| Stats |___ ", () => {
-  const stats = shallow(<Stats />);
+  const right = 5;
+  const wrong = 2;
+  const guesses = right + wrong;
+  const percentage = right / (right + wrong);
+  const stats = shallow(
+    <Stats
+      right={right}
+      wrong={wrong}
+      guesses={guesses}
+      percentage={percentage}
+    />
+  );
 
   describe("\tInitialization process", () => {
     it("Renders the ManageCards component", () => {

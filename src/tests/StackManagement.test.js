@@ -5,11 +5,11 @@ import Adapter from "enzyme-adapter-react-16";
 import { shallow } from "enzyme";
 ///
 // Parent
-import StackManagement from "../components/StackManagement";
+import StackManagement from "../components/StackManagement/StackMan_0";
 // Children
-import AddNewStack from "../components/StackManagement/AddNewStack";
-import ExportNewStack from "../components/StackManagement/exportStack";
-import RemoveCurrentStack from "../components/StackManagement/RemoveCurStack";
+import AddNewStack from "../components/StackManagement/StackMan_AddNewStack";
+import ExportNewStack from "../components/StackManagement/StackMan_ExpoStack";
+import RemoveCurrentStack from "../components/StackManagement/StackMan_RemoveCurStack";
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -61,7 +61,7 @@ describe("\n ___| Add New Stack |___", () => {
   const addNewStack = shallow(<AddNewStack />);
 
   describe("\tInitialization process", () => {
-    it("Renders the ManageCards component", () => {
+    it("Renders the Stack Management component", () => {
       expect(addNewStack).toMatchSnapshot();
     });
 
